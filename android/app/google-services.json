@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "878724753877",
+    "firebase_url": "https://kaiya-6efb4.firebaseio.com",
+    "project_id": "kaiya-6efb4",
+    "storage_bucket": "kaiya-6efb4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878724753877:android:a7d175abe36b30840c355c",
+        "android_client_info": {
+          "package_name": "com.kaiyaapp.kaiya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878724753877-nl7n0so05nallrr9l9rasg8d37p074ge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJT0qlWib8Vz4a4SW2dto7m31W88vThcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878724753877-nl7n0so05nallrr9l9rasg8d37p074ge.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "878724753877-p58o2lu3ofjpauih0d31hetubsnnd0kj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kaiya.kaiyaApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
