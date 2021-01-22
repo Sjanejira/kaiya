@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kaiya/add_product_page.dart';
 import 'package:kaiya/phar_first_page.dart';
 
 void main() {
@@ -13,8 +14,11 @@ class Kaiya extends StatelessWidget {
         primarySwatch: Colors.blue,
         accentColor: Colors.red,
       ),
-      initialRoute: PharWelcome.id,
-      routes: {PharWelcome.id: (context) => PharWelcome()},
+      initialRoute: PharAddProduct.id,
+      routes: {
+        PharWelcome.id: (context) => PharWelcome(),
+        PharAddProduct.id: (context) => PharAddProduct(),
+      },
     );
   }
 }

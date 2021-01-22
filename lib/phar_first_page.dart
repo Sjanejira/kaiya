@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/pharma_widget/AddButton.dart';
+import 'package:kaiya/pharma_widget/navbar/PharmaNavBarFloatinButton.dart';
+import 'package:kaiya/pharma_widget/navbar/PharmaNavBar.dart';
 
 class PharWelcome extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -165,134 +168,26 @@ class _PharWelcome extends State<PharWelcome> with TickerProviderStateMixin {
                   child: TabBarView(
                     controller: _tabController,
                     children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 10.0.h),
-                        padding: EdgeInsets.only(top: 120.0.h),
-                        color: Colors.white,
-                        alignment: Alignment.center,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            ButtonTheme(
-                              buttonColor: Colors.white,
-                              minWidth: 100.0.w,
-                              height: 120.0.h,
-                              child: DottedBorder(
-                                color: Color.fromRGBO(193, 193, 193, 1.0),
-                                borderType: BorderType.RRect,
-                                radius: Radius.circular(2.0.r),
-                                child: RaisedButton(
-                                  elevation: 0.0,
-                                  onPressed: () {},
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.add,
-                                        color:
-                                            Color.fromRGBO(193, 193, 193, 1.0),
-                                      ),
-                                      Text(
-                                        "Add Product",
-                                        style: TextStyle(
-                                          color: Color.fromRGBO(
-                                              193, 193, 193, 1.0),
-                                        ),
-                                        textAlign: TextAlign.end,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                      AddProductButton(
+                        height: 100.h,
+                        minwidth: 100.w,
+                        paddingtop: 120.h,
+                        margintop: 10.h,
+                        label: "Add Product",
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 10.0.h),
-                        padding: EdgeInsets.only(top: 120.0.h),
-                        color: Colors.white,
-                        alignment: Alignment.center,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            ButtonTheme(
-                              buttonColor: Colors.white,
-                              minWidth: 100.0.w,
-                              height: 120.0.h,
-                              child: DottedBorder(
-                                color: Color.fromRGBO(193, 193, 193, 1.0),
-                                borderType: BorderType.RRect,
-                                radius: Radius.circular(2.0.r),
-                                child: RaisedButton(
-                                  elevation: 0.0,
-                                  onPressed: () {},
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.add,
-                                        color:
-                                            Color.fromRGBO(193, 193, 193, 1.0),
-                                      ),
-                                      Text(
-                                        "Add Product",
-                                        style: TextStyle(
-                                          color: Color.fromRGBO(
-                                              193, 193, 193, 1.0),
-                                        ),
-                                        textAlign: TextAlign.end,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                      AddProductButton(
+                        height: 100.h,
+                        minwidth: 100.w,
+                        paddingtop: 120.h,
+                        margintop: 10.h,
+                        label: "Add Product",
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 10.0.h),
-                        padding: EdgeInsets.only(top: 120.0.h),
-                        color: Colors.white,
-                        alignment: Alignment.center,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            ButtonTheme(
-                              buttonColor: Colors.white,
-                              minWidth: 100.0.w,
-                              height: 120.0.h,
-                              child: DottedBorder(
-                                color: Color.fromRGBO(193, 193, 193, 1.0),
-                                borderType: BorderType.RRect,
-                                radius: Radius.circular(2.0.r),
-                                child: RaisedButton(
-                                  elevation: 0.0,
-                                  onPressed: () {},
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.add,
-                                        color:
-                                            Color.fromRGBO(193, 193, 193, 1.0),
-                                      ),
-                                      Text(
-                                        "Add Product",
-                                        style: TextStyle(
-                                          color: Color.fromRGBO(
-                                              193, 193, 193, 1.0),
-                                        ),
-                                        textAlign: TextAlign.end,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                      AddProductButton(
+                        height: 100.h,
+                        minwidth: 100.w,
+                        paddingtop: 120.h,
+                        margintop: 10.h,
+                        label: "Add Product",
                       ),
                     ],
                   ),
@@ -300,125 +195,10 @@ class _PharWelcome extends State<PharWelcome> with TickerProviderStateMixin {
               ],
             ),
           ),
-          bottomNavigationBar: BottomAppBar(
-            elevation: 10,
-            notchMargin: 5,
-            shape: AutomaticNotchedShape(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30.r),
-                  topRight: Radius.circular(30.r),
-                ),
-              ),
-            ),
-            clipBehavior: Clip.antiAlias,
-            color: Colors.white,
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                FittedBox(
-                  fit: BoxFit.fill,
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(
-                          left: 30.0.w,
-                          top: 5.0.h,
-                        ),
-                        child: IconButton(
-                          color: Color.fromRGBO(46, 130, 139, 1.0),
-                          icon: Icon(
-                            CupertinoIcons.home,
-                            size: 33.sp,
-                          ),
-                          onPressed: () {},
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(
-                          left: 20.0.w,
-                          top: 5.0.h,
-                        ),
-                        child: IconButton(
-                          color: Color.fromRGBO(226, 226, 226, 1.0),
-                          icon: Icon(
-                            CupertinoIcons.square_list,
-                            size: 33.sp,
-                          ),
-                          onPressed: () {},
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  children: [
-                    FittedBox(
-                      fit: BoxFit.fitHeight,
-                      child: Container(
-                        margin: EdgeInsets.only(
-                          right: 20.0.w,
-                          top: 5.0.h,
-                        ),
-                        child: IconButton(
-                          color: Color.fromRGBO(226, 226, 226, 1.0),
-                          icon: Icon(
-                            CupertinoIcons.bell,
-                            size: 33.sp,
-                          ),
-                          onPressed: () {},
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                        right: 30.0.w,
-                        top: 5.0.h,
-                      ),
-                      child: IconButton(
-                        color: Color.fromRGBO(226, 226, 226, 1.0),
-                        icon: Icon(
-                          CupertinoIcons.person,
-                          size: 33.0.sp,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+          bottomNavigationBar: PharmaNavBar(),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey[300],
-                  offset: Offset(0.0, 5.0), //(x,y)
-                  blurRadius: 6.0,
-                ),
-              ],
-              color: Colors.white,
-              borderRadius: BorderRadius.all(
-                Radius.circular(100.r),
-              ),
-            ),
-            width: 80.0.sp,
-            height: 80.0.sp,
-            child: RawMaterialButton(
-              shape: CircleBorder(),
-              elevation: 10.0,
-              child: Icon(
-                CupertinoIcons.chat_bubble_text,
-                size: 33.sp,
-                color: Color.fromRGBO(226, 226, 226, 1.0),
-              ),
-              onPressed: () {},
-            ),
-          ),
+          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );
