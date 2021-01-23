@@ -10,11 +10,8 @@ class Kaiya extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        accentColor: Colors.red,
-      ),
-      initialRoute: PharAddProduct.id,
+      theme: ThemeData(primaryColor: Colors.white),
+      initialRoute: PharWelcome.id,
       routes: {
         PharWelcome.id: (context) => PharWelcome(),
         PharAddProduct.id: (context) => PharAddProduct(),
