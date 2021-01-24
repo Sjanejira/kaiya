@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaiya/pharma_widget/AddButton.dart';
 import 'package:kaiya/pharma_widget/navbar/PharmaNavBarFloatinButton.dart';
