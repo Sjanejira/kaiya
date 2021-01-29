@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kaiya/pharma_widget/AddButton.dart';
-import 'package:kaiya/pharma_widget/navbar/PharmaNavBarFloatinButton.dart';
-import 'package:kaiya/pharma_widget/navbar/PharmaNavBar.dart';
+import 'package:kaiya/pharma_widget/add_button.dart';
+import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
+import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class PharProductDetail extends StatefulWidget {
