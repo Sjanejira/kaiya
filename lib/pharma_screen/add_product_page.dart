@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kaiya/pharma_widget/AddButton.dart';
-import 'package:kaiya/pharma_widget/navbar/PharmaNavBarFloatinButton.dart';
-import 'package:kaiya/pharma_widget/navbar/PharmaNavBar.dart';
+import 'package:kaiya/pharma_widget/add_button.dart';
+import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
+import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
 
 class PharAddProduct extends StatefulWidget {
   static const String id = 'add_product_screen';
@@ -152,12 +152,16 @@ class _PharAddProduct extends State<PharAddProduct> {
                           ),
                         ),
                       ),
-                      Container(
-                        padding: EdgeInsets.only(left: 5.0.w),
-                        child: Text(
-                          "Vitamin",
-                          style: TextStyle(
-                            fontSize: 12.sp,
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.only(left: 5.0.w),
+                          child: TextField(
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: "Product name"),
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                            ),
                           ),
                         ),
                       ),
@@ -183,12 +187,15 @@ class _PharAddProduct extends State<PharAddProduct> {
                           ),
                         ),
                       ),
-                      Container(
-                        padding: EdgeInsets.only(left: 5.0.w),
-                        child: Text(
-                          "Vistra",
-                          style: TextStyle(
-                            fontSize: 12.sp,
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.only(left: 5.0.w),
+                          child: TextField(
+                            decoration: InputDecoration(
+                                border: InputBorder.none, hintText: "Brand"),
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                            ),
                           ),
                         ),
                       ),
@@ -224,7 +231,10 @@ class _PharAddProduct extends State<PharAddProduct> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text("Supplymentary"),
+                                Text(
+                                  "Supplymentary",
+                                  style: TextStyle(fontWeight: FontWeight.w300),
+                                ),
                                 Icon(
                                   CupertinoIcons.chevron_right,
                                   color: Colors.grey[350],
@@ -256,12 +266,15 @@ class _PharAddProduct extends State<PharAddProduct> {
                           ),
                         ),
                       ),
-                      Container(
-                        padding: EdgeInsets.only(left: 5.0.w),
-                        child: Text(
-                          "฿400",
-                          style: TextStyle(
-                            fontSize: 12.sp,
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.only(left: 5.0.w),
+                          child: TextField(
+                            decoration: InputDecoration(
+                                border: InputBorder.none, hintText: "Price"),
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                            ),
                           ),
                         ),
                       ),
@@ -277,29 +290,35 @@ class _PharAddProduct extends State<PharAddProduct> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(children: [
-                        Container(
-                          margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
-                          padding: EdgeInsets.only(left: 30.0.w),
-                          child: Text(
-                            "Sell : ",
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: Color.fromRGBO(46, 130, 139, 1),
+                      Expanded(
+                        child: Row(children: [
+                          Container(
+                            margin:
+                                EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
+                            padding: EdgeInsets.only(left: 30.0.w),
+                            child: Text(
+                              "Sell : ",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                              ),
                             ),
                           ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(left: 5.0.w),
-                          child: Text(
-                            "฿220",
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: Color.fromRGBO(144, 46, 46, 1),
+                          Expanded(
+                            child: Container(
+                              padding: EdgeInsets.only(left: 5.0.w),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                    border: InputBorder.none, hintText: "Sell"),
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Color.fromRGBO(144, 46, 46, 1),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ]),
+                        ]),
+                      ),
                       Container(
                         margin: EdgeInsets.only(top: 5.0.h, bottom: 5.0.h),
                         padding: EdgeInsets.only(right: 30.0.w),
@@ -337,18 +356,19 @@ class _PharAddProduct extends State<PharAddProduct> {
                           ),
                         ),
                       ),
-                      Flexible(
+                      Expanded(
                         child: Container(
-                          margin: EdgeInsets.only(top: 13.0.h),
+                          margin: EdgeInsets.only(top: 4.0.h),
                           padding: EdgeInsets.only(
                             bottom: 10.0.h,
                             left: 5.0.w,
                             right: 30.0.w,
                           ),
-                          child: Text(
-                            "Blackmores Bilberry 2500 taken as a dietary supplement provides the nutritional value of bilberry extract.Provides anthocyanocides 9 mg/tablet from Bilberry extract 25 mg. Guaranteed standardized active substance",
-                            maxLines: 10,
-                            overflow: TextOverflow.ellipsis,
+                          child: TextField(
+                            maxLines: 6,
+                            keyboardType: TextInputType.multiline,
+                            decoration: InputDecoration(
+                                border: InputBorder.none, hintText: "Detail"),
                             style: TextStyle(
                               fontSize: 12.sp,
                             ),
