@@ -64,7 +64,7 @@ class _PharmaOrderDetail extends State<PharmaOrderDetail>
                           ),
                           Container(
                             child: Text(
-                              "3.59",
+                              "3:59",
                               style: TextStyle(
                                 color: Color(0xffC1C1C1),
                                 fontSize: 10.sp,

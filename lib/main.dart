@@ -23,7 +23,7 @@ class Kaiya extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.white),
-      initialRoute: PharmaMySales.id,
+      initialRoute: PharmaOrderDetail.id,
       routes: {
         PharWelcome.id: (context) => PharWelcome(),
         PharAddProduct.id: (context) => PharAddProduct(),
