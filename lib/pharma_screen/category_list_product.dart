@@ -115,10 +115,6 @@ class _CategoryListProduct extends State<CategoryListProduct>
               ),
             ),
           ),
-          bottomNavigationBar: PharmaNavBar(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );

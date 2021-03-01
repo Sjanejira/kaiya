@@ -210,10 +210,6 @@ class _PharmaManagePayment extends State<PharmaManagePayment> {
               ),
             ),
           ),
-          bottomNavigationBar: PharmaNavBar(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );

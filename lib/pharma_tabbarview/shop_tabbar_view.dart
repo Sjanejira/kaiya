@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_view.dart';
 import 'package:kaiya/pharma_widget/card_product_widget.dart';
 
 class ShopTabBarView extends StatelessWidget {
+  ShopTabBarView({this.widget});
+  final PharWelcome widget;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,6 +39,7 @@ class ShopTabBarView extends StatelessWidget {
                   aftersale: 230,
                   like: 100,
                   isonsale: true,
+                  widget: widget,
                 ),
                 CardProduct(
                   image: 'asset/ms.png',

@@ -1,10 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaiya/pharma_widget/add_button.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
 
 class PharAddProduct extends StatefulWidget {
   static const String id = 'add_product_screen';
@@ -14,6 +11,11 @@ class PharAddProduct extends StatefulWidget {
 }
 
 class _PharAddProduct extends State<PharAddProduct> {
+  final productname = TextEditingController();
+  final brand = TextEditingController();
+  final price = TextEditingController();
+  final sell = TextEditingController();
+  final detail = TextEditingController();
   bool _lights = true;
   bool _darks = true;
   bool _greys = true;
@@ -156,6 +158,7 @@ class _PharAddProduct extends State<PharAddProduct> {
                         child: Container(
                           padding: EdgeInsets.only(left: 5.0.w),
                           child: TextField(
+                            controller: productname,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Product name"),
@@ -191,6 +194,7 @@ class _PharAddProduct extends State<PharAddProduct> {
                         child: Container(
                           padding: EdgeInsets.only(left: 5.0.w),
                           child: TextField(
+                            controller: brand,
                             decoration: InputDecoration(
                                 border: InputBorder.none, hintText: "Brand"),
                             style: TextStyle(
@@ -270,6 +274,7 @@ class _PharAddProduct extends State<PharAddProduct> {
                         child: Container(
                           padding: EdgeInsets.only(left: 5.0.w),
                           child: TextField(
+                            controller: price,
                             decoration: InputDecoration(
                                 border: InputBorder.none, hintText: "Price"),
                             style: TextStyle(
@@ -308,6 +313,8 @@ class _PharAddProduct extends State<PharAddProduct> {
                             child: Container(
                               padding: EdgeInsets.only(left: 5.0.w),
                               child: TextField(
+                                controller: sell,
+                                enabled: _greys,
                                 decoration: InputDecoration(
                                     border: InputBorder.none, hintText: "Sell"),
                                 style: TextStyle(
@@ -365,6 +372,7 @@ class _PharAddProduct extends State<PharAddProduct> {
                             right: 30.0.w,
                           ),
                           child: TextField(
+                            controller: detail,
                             maxLines: 6,
                             keyboardType: TextInputType.multiline,
                             decoration: InputDecoration(
@@ -378,7 +386,10 @@ class _PharAddProduct extends State<PharAddProduct> {
                     ],
                   ),
                   RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.popUntil(
+                          context, (Route<dynamic> route) => route.isFirst);
+                    },
                     padding: EdgeInsets.all(0.0),
                     color: Color.fromRGBO(46, 130, 139, 1.0),
                     textColor: Colors.white,
@@ -391,10 +402,6 @@ class _PharAddProduct extends State<PharAddProduct> {
               ),
             ),
           ),
-          bottomNavigationBar: PharmaNavBar(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );

@@ -1,11 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kaiya/pharma_widget/add_button.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class PharProductDetail extends StatefulWidget {
@@ -330,7 +325,10 @@ class _PharProductDetail extends State<PharProductDetail> {
                         Container(
                           padding: EdgeInsets.only(right: 35.w),
                           child: OutlineButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.popUntil(context,
+                                  (Route<dynamic> route) => route.isFirst);
+                            },
                             textColor: Color.fromRGBO(46, 130, 139, 1.0),
                             child: Text("View Shop"),
                             borderSide: BorderSide(
@@ -348,10 +346,6 @@ class _PharProductDetail extends State<PharProductDetail> {
               ),
             ),
           ),
-          bottomNavigationBar: PharmaNavBar(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );

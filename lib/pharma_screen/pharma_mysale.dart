@@ -1,12 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kaiya/pharma_tabbarview/category_tabbar_view.dart';
 import 'package:kaiya/pharma_widget/order_status_widget.dart';
 import 'package:kaiya/pharma_widget/add_button.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
-import 'package:kaiya/pharma_tabbarview/shop_tabbar_view.dart';
 
 class PharmaMySales extends StatefulWidget {
   static const String id = 'pharma_mysales';
@@ -99,10 +95,6 @@ class _PharmaMySales extends State<PharmaMySales>
                 ? EmptyProductTabBarView(tabController: _tabController)
                 : HaveProductTabBarView(tabController: _tabController),
           ),
-          bottomNavigationBar: PharmaNavBar(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );
