@@ -1,15 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_view.dart';
 
 class CardProduct extends StatelessWidget {
-  CardProduct(
-      {this.image,
-      this.productname,
-      this.beforesale,
-      this.aftersale,
-      this.like,
-      this.isonsale});
+  CardProduct({
+    this.image,
+    this.productname,
+    this.beforesale,
+    this.aftersale,
+    this.like,
+    this.isonsale,
+    this.widget,
+  });
 
   final String image;
   final String productname;
@@ -17,6 +20,7 @@ class CardProduct extends StatelessWidget {
   final int aftersale;
   final int like;
   final bool isonsale;
+  final PharWelcome widget;
 
   @override
   Widget build(BuildContext context) {
@@ -117,6 +121,7 @@ class CardProduct extends StatelessWidget {
             ),
             onTap: () {
               print('click');
+              widget.onPush(context, "productdetail");
             },
           ),
         ),
