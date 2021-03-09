@@ -27,12 +27,16 @@ class ShopTabBarView extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: GridView.count(
-              childAspectRatio: 0.7,
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200,
+                childAspectRatio: 0.7,
+                crossAxisSpacing: 20,
+              ),
               shrinkWrap: true,
-              crossAxisCount: 2,
-              children: [
-                CardProduct(
+              itemCount: 5,
+              itemBuilder: (BuildContext context, index) {
+                return CardProduct(
                   image: 'asset/ms.png',
                   productname: "MusicZa",
                   beforesale: 700,
@@ -40,48 +44,8 @@ class ShopTabBarView extends StatelessWidget {
                   like: 100,
                   isonsale: true,
                   widget: widget,
-                ),
-                CardProduct(
-                  image: 'asset/ms.png',
-                  productname: "MusicZa",
-                  beforesale: 700,
-                  aftersale: 230,
-                  like: 100,
-                  isonsale: true,
-                ),
-                CardProduct(
-                  image: 'asset/ms.png',
-                  productname: "MusicZa",
-                  beforesale: 700,
-                  aftersale: 230,
-                  like: 100,
-                  isonsale: true,
-                ),
-                CardProduct(
-                  image: 'asset/ms.png',
-                  productname: "MusicZa",
-                  beforesale: 700,
-                  aftersale: 230,
-                  like: 100,
-                  isonsale: true,
-                ),
-                CardProduct(
-                  image: 'asset/pon.png',
-                  productname: "Pon",
-                  beforesale: 700,
-                  aftersale: 230,
-                  like: 100,
-                  isonsale: true,
-                ),
-                CardProduct(
-                  image: 'asset/as.png',
-                  productname: "As",
-                  beforesale: 1400,
-                  aftersale: 10000000,
-                  like: 103242340,
-                  isonsale: false,
-                ),
-              ],
+                );
+              },
             ),
           ),
         ],

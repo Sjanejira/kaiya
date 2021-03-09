@@ -1,23 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
 
-class PharmaNotificationSetting extends StatefulWidget {
+class PharmaNotification extends StatefulWidget {
   static const String id = 'pharma_notification';
 
   @override
-  _PharmaNotificationSetting createState() => _PharmaNotificationSetting();
+  _PharmaNotification createState() => _PharmaNotification();
 }
 
-class _PharmaNotificationSetting extends State<PharmaNotificationSetting>
+class _PharmaNotification extends State<PharmaNotification>
     with TickerProviderStateMixin {
-  bool _lights = true;
-  bool _darks = true;
-  bool _blue = true;
-  bool _red = true;
-  bool _grey = true;
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(BoxConstraints(
@@ -29,7 +22,7 @@ class _PharmaNotificationSetting extends State<PharmaNotificationSetting>
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(
@@ -43,199 +36,69 @@ class _PharmaNotificationSetting extends State<PharmaNotificationSetting>
             centerTitle: true,
             elevation: 10.0,
           ),
-          body: Column(
-            children: [
-              Container(
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(top: 30.h, bottom: 7.h, left: 30.w),
-                child: Text(
-                  "My Order",
-                  style: TextStyle(
-                    color: Color.fromRGBO(193, 193, 193, 1),
-                    fontSize: 15.sp,
+          body: Container(
+            margin: EdgeInsets.only(top: 10.h),
+            child: ListView.builder(
+              itemCount: 1,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  margin: EdgeInsets.symmetric(horizontal: 20.w),
+                  padding:
+                      EdgeInsets.symmetric(vertical: 15.h, horizontal: 20.w),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[350],
+                        blurRadius: 10.0, // soften the shadow
+                        spreadRadius: 1.0, //extend the shadow
+                        offset: Offset(
+                          3.0, // Move to right 10  horizontally
+                          8.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
                   ),
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 30.w),
-                color: Colors.white,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Prepare Order",
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: Color.fromRGBO(19, 65, 83, 1),
-                            ),
-                          ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        child: CircleAvatar(
+                          radius: 20.r,
+                          child: Image.asset('ms.png'),
                         ),
-                        Container(
-                          margin: EdgeInsets.only(top: 10.0.h, bottom: 5.0.h),
-                          padding: EdgeInsets.only(right: 30.0.w),
-                          child: CupertinoSwitch(
-                            activeColor: Color.fromRGBO(46, 130, 139, 1),
-                            value: _darks,
-                            onChanged: (bool value) {
-                              setState(() {
-                                _darks = value;
-                              });
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      child: Divider(
-                        thickness: 1,
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Send Order",
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: Color.fromRGBO(19, 65, 83, 1),
-                            ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(bottom: 5.h),
+                            child: Text("Music (Queue#1)"),
                           ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 10.0.h, bottom: 5.0.h),
-                          padding: EdgeInsets.only(right: 30.0.w),
-                          child: CupertinoSwitch(
-                            activeColor: Color.fromRGBO(46, 130, 139, 1),
-                            value: _lights,
-                            onChanged: (bool value) {
-                              setState(() {
-                                _lights = value;
-                              });
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      child: Divider(
-                        thickness: 1,
+                          Container(
+                            child: Text("Waiting update order"),
+                          )
+                        ],
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Cancelled Order",
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: Color.fromRGBO(19, 65, 83, 1),
-                            ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Container(
+                            child: Text("22 Nov."),
                           ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 10.0.h, bottom: 5.0.h),
-                          padding: EdgeInsets.only(right: 30.0.w),
-                          child: CupertinoSwitch(
-                            activeColor: Color.fromRGBO(46, 130, 139, 1),
-                            value: _red,
-                            onChanged: (bool value) {
-                              setState(() {
-                                _red = value;
-                              });
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(top: 20.h, bottom: 7.h, left: 30.w),
-                child: Text(
-                  "Chat",
-                  style: TextStyle(
-                    color: Color.fromRGBO(193, 193, 193, 1),
-                    fontSize: 15.sp,
+                          Container(
+                            child: Text("9:09 am."),
+                          )
+                        ],
+                      ),
+                    ],
                   ),
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 30.w),
-                color: Colors.white,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "New Messages",
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: Color.fromRGBO(19, 65, 83, 1),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 10.0.h, bottom: 5.0.h),
-                          padding: EdgeInsets.only(right: 30.0.w),
-                          child: CupertinoSwitch(
-                            activeColor: Color.fromRGBO(46, 130, 139, 1),
-                            value: _blue,
-                            onChanged: (bool value) {
-                              setState(() {
-                                _blue = value;
-                              });
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      child: Divider(
-                        thickness: 1,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "New Order",
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: Color.fromRGBO(19, 65, 83, 1),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 10.0.h, bottom: 5.0.h),
-                          padding: EdgeInsets.only(right: 30.0.w),
-                          child: CupertinoSwitch(
-                            activeColor: Color.fromRGBO(46, 130, 139, 1),
-                            value: _grey,
-                            onChanged: (bool value) {
-                              setState(() {
-                                _grey = value;
-                              });
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
+                );
+              },
+            ),
           ),
         ),
       ),

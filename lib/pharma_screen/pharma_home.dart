@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/first_page_navigator.dart';
 import 'package:kaiya/pharma_screen/pharma_notification.dart';
+import 'package:kaiya/pharma_screen/pharma_notification_setting.dart';
 import 'package:kaiya/pharma_screen/pharma_order.dart';
-import 'package:kaiya/pharma_screen/pharma_profile.dart';
+import 'package:kaiya/pharma_screen/pharma_profile_page/pharma_profile.dart';
 import 'package:kaiya/pharma_tabbarview/category_tabbar_view.dart';
 import 'package:kaiya/pharma_widget/add_button.dart';
 import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
@@ -44,7 +45,7 @@ class _PharHome extends State<PharHome> with TickerProviderStateMixin {
     final List<Widget> _pageList = <Widget>[
       TabNavigatorFirstPage(),
       PharmaOrder(),
-      PharmaNotificationSetting(),
+      PharmaNotification(),
       PharmaProfile(),
     ];
 
@@ -58,7 +59,7 @@ class _PharHome extends State<PharHome> with TickerProviderStateMixin {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(

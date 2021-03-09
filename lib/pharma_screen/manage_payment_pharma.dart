@@ -29,7 +29,7 @@ class _PharmaManagePayment extends State<PharmaManagePayment> {
 
     return ScreenUtilInit(
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(

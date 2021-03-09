@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/pharma_screen/phar_service2.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_view_widget.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_model.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_viewmodel.dart';
+import 'package:provider/provider.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class PharWelcome extends StatefulWidget {
@@ -45,7 +47,7 @@ class _PharWelcome extends State<PharWelcome> with TickerProviderStateMixin {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(
@@ -59,30 +61,19 @@ class _PharWelcome extends State<PharWelcome> with TickerProviderStateMixin {
             centerTitle: true,
             elevation: 10.0,
           ),
-          body: ScopedModel<PharmaFirstPageViewModel>(
-            model: viewModel,
-            child: ScopedModelDescendant<PharmaFirstPageViewModel>(
-                builder: (context, child, model) {
-              return FutureBuilder(
-                future: model.getProfile(),
-                builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-                  if (snapshot.hasData) {
-                    PharProfile pharprofile = model.pharProfile;
-                    return PharmaFirstPageViewWidget(
-                        pharprofile: pharprofile,
+          body: StreamBuilder(
+              stream: Provider.of<PharMaService2>(context).getPharProfile(),
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                viewModel.pharProfile =
+                    Provider.of<PharMaService2>(context).querysnapshot;
+                return viewModel.pharProfile != null
+                    ? PharmaFirstPageViewWidget(
+                        pharprofile: viewModel.pharProfile,
                         widget: widget,
                         tabController: _tabController,
-                        isProductEmpty: _isProductEmpty);
-                  } else {
-                    print(snapshot.error);
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                },
-              );
-            }),
-          ),
+                        isProductEmpty: _isProductEmpty)
+                    : Center(child: CircularProgressIndicator());
+              }),
         ),
       ),
     );

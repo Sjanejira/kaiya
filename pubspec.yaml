@@ -29,7 +29,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
   firebase_core: ^0.7.0
-  firebase_auth: ^0.20.0+1
+  firebase_auth: ^0.20.1
   cloud_firestore: ^0.16.0
   dotted_border: ^1.0.7
   convex_bottom_bar: ^2.6.0
@@ -39,6 +39,7 @@ dependencies:
   scoped_model: ^1.1.0
   custom_navigator: ^0.3.0
   provider: ^4.3.3
+  image_picker: ^0.6.7+22
 
 
 dev_dependencies:

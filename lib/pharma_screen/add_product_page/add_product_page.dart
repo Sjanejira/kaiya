@@ -1,23 +1,37 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/pharma_screen/add_product_page/add_product_view_model.dart';
 import 'package:kaiya/pharma_widget/add_button.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
+import 'package:kaiya/pharma_widget/add_picture_button.dart';
+import 'package:provider/provider.dart';
 
-class PharmaEditAcccount extends StatefulWidget {
-  static const String id = 'pharma_edit_account';
+class PharAddProduct extends StatefulWidget {
+  static const String id = 'add_product_screen';
 
   @override
-  _PharmaEditAcccount createState() => _PharmaEditAcccount();
+  _PharAddProduct createState() => _PharAddProduct();
 }
 
-class _PharmaEditAcccount extends State<PharmaEditAcccount> {
+class _PharAddProduct extends State<PharAddProduct> {
+  final productname = TextEditingController();
+  final brand = TextEditingController();
+  final price = TextEditingController();
+  final sell = TextEditingController();
+  final detail = TextEditingController();
   bool _lights = true;
   bool _darks = true;
   bool _greys = true;
   int selectedValue;
+  AddProductViewModel viewModel;
+
+  @override
+  void initState() {
+    viewModel = AddProductViewModel();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(BoxConstraints(
@@ -26,17 +40,16 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
       maxHeight: MediaQuery.of(context).size.height,
       minHeight: 0,
     ));
-
     return ScreenUtilInit(
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(
           appBar: AppBar(
             brightness: Brightness.light,
             title: const Text(
-              'Edit Profile',
+              'Add Product',
               style: TextStyle(color: Color.fromRGBO(19, 65, 83, 1.0)),
             ),
             backgroundColor: Colors.white,
@@ -53,32 +66,47 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
               padding: EdgeInsets.only(bottom: 10.0.h),
               color: Colors.white,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(top: 10.h),
-                    padding: EdgeInsets.only(top: 30.h),
-                    color: Colors.white,
-                    width: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          radius: 43.r,
-                          backgroundImage: AssetImage('asset/ms.png'),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(top: 10.h, bottom: 6.h),
-                          child: Text(
-                            "Change Picture",
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: Color.fromRGBO(193, 193, 193, 1),
+                  Consumer<AddProductViewModel>(
+                    builder: (context, viewmodel, child) {
+                      return Wrap(
+                        children: [
+                          viewmodel.images.length != 0
+                              ? Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 30),
+                                  child: GridView.count(
+                                    crossAxisSpacing: 3,
+                                    crossAxisCount: 3,
+                                    shrinkWrap: true,
+                                    children: List.generate(
+                                        viewmodel.images.length, (index) {
+                                      return Image.file(
+                                        viewmodel.images[index],
+                                        width: 100,
+                                        height: 100,
+                                      );
+                                    }),
+                                  ),
+                                )
+                              : Text(''),
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: 30.0.w),
+                            child: GestureDetector(
+                              onTap: () => showimagepicker(viewmodel),
+                              child: AddPictureButton(
+                                height: 80.h,
+                                minwidth: 65.w,
+                                paddingtop: 10.h,
+                                margintop: 10.h,
+                                label: 'Add Picture',
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      );
+                    },
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,7 +115,77 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
                         margin: EdgeInsets.only(top: 10.0.h),
                         padding: EdgeInsets.only(left: 30.0.w),
                         child: Text(
-                          "Shop Name : ",
+                          "Show Product",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: Color.fromRGBO(46, 130, 139, 1),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 10.0.h),
+                        padding: EdgeInsets.only(right: 30.0.w),
+                        child: CupertinoSwitch(
+                          activeColor: Color.fromRGBO(46, 130, 139, 1),
+                          value: _lights,
+                          onChanged: (bool value) {
+                            setState(() {
+                              _lights = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    color: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                    child: Divider(
+                      thickness: 1,
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 30.0.w),
+                        child: Text(
+                          "Hot Deal",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: Color.fromRGBO(46, 130, 139, 1),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 5.0.h, bottom: 5.0.h),
+                        padding: EdgeInsets.only(right: 30.0.w),
+                        child: CupertinoSwitch(
+                          activeColor: Color.fromRGBO(46, 130, 139, 1),
+                          value: _darks,
+                          onChanged: (bool value) {
+                            setState(() {
+                              _darks = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    color: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                    child: Divider(
+                      thickness: 1,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
+                        padding: EdgeInsets.only(left: 30.0.w),
+                        child: Text(
+                          "Product Name : ",
                           style: TextStyle(
                             fontSize: 12.sp,
                             color: Color.fromRGBO(46, 130, 139, 1),
@@ -96,12 +194,127 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
                       ),
                       Expanded(
                         child: Container(
-                          margin: EdgeInsets.only(top: 10.0.h),
                           padding: EdgeInsets.only(left: 5.0.w),
                           child: TextField(
+                            controller: productname,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: "Shop name"),
+                                hintText: "Product name"),
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    color: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                    child: Divider(
+                      thickness: 1,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
+                        padding: EdgeInsets.only(left: 30.0.w),
+                        child: Text(
+                          "Brand : ",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: Color.fromRGBO(46, 130, 139, 1),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.only(left: 5.0.w),
+                          child: TextField(
+                            controller: brand,
+                            decoration: InputDecoration(
+                                border: InputBorder.none, hintText: "Brand"),
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    color: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                    child: Divider(
+                      thickness: 1,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
+                        padding: EdgeInsets.only(left: 30.0.w),
+                        child: Text(
+                          "Category : ",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: Color.fromRGBO(46, 130, 139, 1),
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child: Container(
+                          padding: EdgeInsets.only(left: 5.0.w, right: 20.w),
+                          child: RaisedButton(
+                            elevation: 0,
+                            color: Colors.white,
+                            onPressed: showPicker,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Supplymentary",
+                                  style: TextStyle(fontWeight: FontWeight.w300),
+                                ),
+                                Icon(
+                                  CupertinoIcons.chevron_right,
+                                  color: Colors.grey[350],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    color: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                    child: Divider(
+                      thickness: 1,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
+                        padding: EdgeInsets.only(left: 30.0.w),
+                        child: Text(
+                          "Price : ",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: Color.fromRGBO(46, 130, 139, 1),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.only(left: 5.0.w),
+                          child: TextField(
+                            controller: price,
+                            decoration: InputDecoration(
+                                border: InputBorder.none, hintText: "Price"),
                             style: TextStyle(
                               fontSize: 12.sp,
                             ),
@@ -120,104 +333,48 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        padding: EdgeInsets.only(left: 30.0.w),
-                        child: Text(
-                          "Address : ",
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            color: Color.fromRGBO(46, 130, 139, 1),
-                          ),
-                        ),
-                      ),
                       Expanded(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 5.0.w),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: InputBorder.none, hintText: "Address"),
-                            style: TextStyle(
-                              fontSize: 12.sp,
+                        child: Row(children: [
+                          Container(
+                            margin:
+                                EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
+                            padding: EdgeInsets.only(left: 30.0.w),
+                            child: Text(
+                              "Sell : ",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.white,
-                    padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                    child: Divider(
-                      thickness: 1,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
-                        padding: EdgeInsets.only(left: 30.0.w),
-                        child: Text(
-                          "Road : ",
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            color: Color.fromRGBO(46, 130, 139, 1),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 5.0.w),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: InputBorder.none, hintText: "Road"),
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.white,
-                    padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                    child: Divider(
-                      thickness: 1,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
-                        padding: EdgeInsets.only(left: 30.0.w),
-                        child: Text(
-                          "District : ",
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            color: Color.fromRGBO(46, 130, 139, 1),
-                          ),
-                        ),
-                      ),
-                      Flexible(
-                        child: Container(
-                          padding: EdgeInsets.only(right: 20.w, top: 2.h),
-                          child: RaisedButton(
-                            elevation: 0,
-                            color: Colors.white,
-                            onPressed: showPicker,
-                            child: Row(
-                              children: [
-                                Text(
-                                  "Bangmod",
-                                  style: TextStyle(fontWeight: FontWeight.w300),
+                          Expanded(
+                            child: Container(
+                              padding: EdgeInsets.only(left: 5.0.w),
+                              child: TextField(
+                                controller: sell,
+                                enabled: _greys,
+                                decoration: InputDecoration(
+                                    border: InputBorder.none, hintText: "Sell"),
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Color.fromRGBO(144, 46, 46, 1),
                                 ),
-                                Icon(
-                                  CupertinoIcons.chevron_right,
-                                  color: Colors.grey[350],
-                                ),
-                              ],
+                              ),
                             ),
                           ),
+                        ]),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 5.0.h, bottom: 5.0.h),
+                        padding: EdgeInsets.only(right: 30.0.w),
+                        child: CupertinoSwitch(
+                          activeColor: Color.fromRGBO(46, 130, 139, 1),
+                          value: _greys,
+                          onChanged: (bool value) {
+                            setState(() {
+                              _greys = value;
+                            });
+                          },
                         ),
                       ),
                     ],
@@ -230,56 +387,14 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
                     ),
                   ),
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
+                        alignment: Alignment.topCenter,
                         margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
                         padding: EdgeInsets.only(left: 30.0.w),
                         child: Text(
-                          "Province : ",
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            color: Color.fromRGBO(46, 130, 139, 1),
-                          ),
-                        ),
-                      ),
-                      Flexible(
-                        child: Container(
-                          padding: EdgeInsets.only(right: 20.w, top: 2.h),
-                          child: RaisedButton(
-                            elevation: 0,
-                            color: Colors.white,
-                            onPressed: showPicker,
-                            child: Row(
-                              children: [
-                                Text(
-                                  "Bangkok",
-                                  style: TextStyle(fontWeight: FontWeight.w300),
-                                ),
-                                Icon(
-                                  CupertinoIcons.chevron_right,
-                                  color: Colors.grey[350],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.white,
-                    padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                    child: Divider(
-                      thickness: 1,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
-                        padding: EdgeInsets.only(left: 30.0.w),
-                        child: Text(
-                          "Zip Code : ",
+                          "Detail : ",
                           style: TextStyle(
                             fontSize: 12.sp,
                             color: Color.fromRGBO(46, 130, 139, 1),
@@ -288,10 +403,18 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
                       ),
                       Expanded(
                         child: Container(
-                          padding: EdgeInsets.only(left: 5.0.w),
+                          margin: EdgeInsets.only(top: 4.0.h),
+                          padding: EdgeInsets.only(
+                            bottom: 10.0.h,
+                            left: 5.0.w,
+                            right: 30.0.w,
+                          ),
                           child: TextField(
+                            controller: detail,
+                            maxLines: 6,
+                            keyboardType: TextInputType.multiline,
                             decoration: InputDecoration(
-                                border: InputBorder.none, hintText: "Zip Code"),
+                                border: InputBorder.none, hintText: "Detail"),
                             style: TextStyle(
                               fontSize: 12.sp,
                             ),
@@ -300,112 +423,7 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
                       ),
                     ],
                   ),
-                  Container(
-                    color: Colors.white,
-                    padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                    child: Divider(
-                      thickness: 1,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
-                        padding: EdgeInsets.only(left: 30.0.w),
-                        child: Text(
-                          "Phone : ",
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            color: Color.fromRGBO(46, 130, 139, 1),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 5.0.w),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                border: InputBorder.none, hintText: "Phone"),
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.white,
-                    padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                    child: Divider(
-                      thickness: 1,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
-                        padding: EdgeInsets.only(left: 30.0.w),
-                        child: Text(
-                          "Email : ",
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            color: Color.fromRGBO(46, 130, 139, 1),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 5.0.w),
-                          child: TextField(
-                            keyboardType: TextInputType.emailAddress,
-                            decoration: InputDecoration(
-                                border: InputBorder.none, hintText: "Email"),
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.white,
-                    padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                    child: Divider(
-                      thickness: 1,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
-                        padding: EdgeInsets.only(left: 30.0.w),
-                        child: Text(
-                          "Password : ",
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            color: Color.fromRGBO(46, 130, 139, 1),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 5.0.w),
-                          child: TextField(
-                            keyboardType: TextInputType.visiblePassword,
-                            decoration: InputDecoration(
-                                border: InputBorder.none, hintText: "Password"),
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 5.h),
+                  Center(
                     child: RaisedButton(
                       onPressed: () {
                         Navigator.popUntil(
@@ -448,6 +466,36 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
                 Text('Item02'),
                 Text('Item03'),
               ],
+            ),
+          );
+        });
+  }
+
+  showimagepicker(AddProductViewModel viewmodel) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return SafeArea(
+            child: Container(
+              child: new Wrap(
+                children: <Widget>[
+                  new ListTile(
+                      leading: new Icon(Icons.photo_library),
+                      title: new Text('Photo Library'),
+                      onTap: () {
+                        viewmodel.imgFromGallery();
+                        Navigator.of(context).pop();
+                      }),
+                  new ListTile(
+                    leading: new Icon(Icons.photo_camera),
+                    title: new Text('Camera'),
+                    onTap: () {
+                      viewmodel.imgFromCamera();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
             ),
           );
         });
