@@ -1,17 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
+import 'package:kaiya/pharma_talk_screen/talk_widget/call_with_accept_popup.dart';
+import 'package:kaiya/pharma_talk_screen/talk_widget/calling_to_patient_popup.dart';
+import 'package:kaiya/pharma_talk_screen/talk_widget/patient_call_popup.dart';
+import 'package:kaiya/pharma_talk_screen/talk_widget/call_with_queue_popup.dart';
+import 'package:kaiya/pharma_talk_screen/talk_widget/talk_update_delivery.dart';
 
-class Setting extends StatefulWidget {
-  static const String id = 'setting';
+class TalkSetting extends StatefulWidget {
+  static const String id = 'talk_setting';
 
   @override
-  _Setting createState() => _Setting();
+  _TalkSetting createState() => _TalkSetting();
 }
 
-class _Setting extends State<Setting> with TickerProviderStateMixin {
+class _TalkSetting extends State<TalkSetting> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(BoxConstraints(
@@ -39,68 +42,6 @@ class _Setting extends State<Setting> with TickerProviderStateMixin {
           ),
           body: Column(
             children: [
-              Container(
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(top: 30.h, bottom: 7.h, left: 30.w),
-                child: Text(
-                  "My Account",
-                  style: TextStyle(
-                    color: Color.fromRGBO(193, 193, 193, 1),
-                    fontSize: 15.sp,
-                  ),
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 30.w),
-                color: Colors.white,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Account",
-                            style: TextStyle(
-                              color: Color.fromRGBO(19, 65, 83, 1),
-                              fontSize: 15.sp,
-                            ),
-                          ),
-                        ),
-                        Icon(
-                          CupertinoIcons.right_chevron,
-                          color: Color.fromRGBO(193, 193, 193, 1),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(vertical: 8.h),
-                      child: Divider(
-                        thickness: 1,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Payment",
-                            style: TextStyle(
-                              color: Color.fromRGBO(19, 65, 83, 1),
-                              fontSize: 15.sp,
-                            ),
-                          ),
-                        ),
-                        Icon(
-                          CupertinoIcons.right_chevron,
-                          color: Color.fromRGBO(193, 193, 193, 1),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
               Container(
                 alignment: Alignment.centerLeft,
                 padding: EdgeInsets.only(top: 20.h, bottom: 7.h, left: 30.w),
@@ -167,7 +108,9 @@ class _Setting extends State<Setting> with TickerProviderStateMixin {
                 child: Container(
                   margin: EdgeInsets.only(top: 20.h),
                   child: OutlineButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialogCallToPatient(context);
+                    },
                     textColor: Color.fromRGBO(144, 46, 46, 1.0),
                     child: Text("Log Out"),
                     borderSide: BorderSide(

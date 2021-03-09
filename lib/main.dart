@@ -15,6 +15,8 @@ import 'package:kaiya/pharma_screen/pharma_payment.dart';
 import 'package:kaiya/pharma_screen/pharma_product_detial.dart';
 import 'package:kaiya/pharma_screen/pharma_profile_page/pharma_profile.dart';
 import 'package:kaiya/pharma_screen/pharma_shipping.dart';
+import 'package:kaiya/pharma_talk_screen/talk_patient_queue.dart';
+import 'package:kaiya/pharma_talk_screen/talk_setting.dart';
 import 'package:kaiya/setting.dart';
 import 'package:kaiya/setting_languages.dart';
 import 'package:provider/provider.dart';
@@ -32,25 +34,11 @@ class Kaiya extends StatelessWidget {
       create: (context) => PharMaService2(),
       child: MaterialApp(
         theme: ThemeData(primaryColor: Colors.white),
-        initialRoute: PharHome.id,
+        initialRoute: TalkPatientQueue.id,
         routes: {
           PharHome.id: (context) => PharHome(),
-          PharWelcome.id: (context) => PharWelcome(),
-          PharAddProduct.id: (context) => PharAddProduct(),
-          PharProductDetail.id: (context) => PharProductDetail(),
-          CategoryListProduct.id: (context) => CategoryListProduct(),
-          PharmaProfile.id: (context) => PharmaProfile(),
-          Setting.id: (context) => Setting(),
-          PharmaPayment.id: (context) => PharmaPayment(),
-          SettingLanguages.id: (context) => SettingLanguages(),
-          PharmaEditAcccount.id: (context) => PharmaEditAcccount(),
-          PharmaManagePayment.id: (context) => PharmaManagePayment(),
-          PharmaNotificationSetting.id: (context) =>
-              PharmaNotificationSetting(),
-          PharmaShipping.id: (context) => PharmaShipping(),
-          PharmaMySales.id: (context) => PharmaMySales(),
-          PharmaOrderDetail.id: (context) => PharmaOrderDetail(),
-          PharmaOrder.id: (context) => PharmaOrder()
+          TalkSetting.id: (context) => TalkSetting(),
+          TalkPatientQueue.id: (context) => TalkPatientQueue(),
         },
       ),
     );
