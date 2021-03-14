@@ -111,10 +111,6 @@ class _SettingLanguages extends State<SettingLanguages>
               ),
             ],
           ),
-          bottomNavigationBar: PharmaNavBar(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );

@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaiya/pharma_screen/phar_service2.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_view_widget.dart';
-import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_model.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_viewmodel.dart';
 import 'package:provider/provider.dart';
-import 'package:scoped_model/scoped_model.dart';
 
 class PharWelcome extends StatefulWidget {
   PharWelcome({this.onPush});
@@ -36,7 +34,6 @@ class _PharWelcome extends State<PharWelcome> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    bool _isProductEmpty = false;
     ScreenUtil.init(BoxConstraints(
       maxWidth: MediaQuery.of(context).size.width,
       minWidth: 0,
@@ -61,8 +58,8 @@ class _PharWelcome extends State<PharWelcome> with TickerProviderStateMixin {
             centerTitle: true,
             elevation: 10.0,
           ),
-          body: StreamBuilder(
-              stream: Provider.of<PharMaService2>(context).getPharProfile(),
+          body: FutureBuilder(
+              future: Provider.of<PharMaService2>(context).getPharProfile(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 viewModel.pharProfile =
                     Provider.of<PharMaService2>(context).querysnapshot;
@@ -71,7 +68,8 @@ class _PharWelcome extends State<PharWelcome> with TickerProviderStateMixin {
                         pharprofile: viewModel.pharProfile,
                         widget: widget,
                         tabController: _tabController,
-                        isProductEmpty: _isProductEmpty)
+                        viewModel: viewModel,
+                      )
                     : Center(child: CircularProgressIndicator());
               }),
         ),

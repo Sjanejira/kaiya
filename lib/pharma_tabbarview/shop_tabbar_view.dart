@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/pharma_screen/phar_service2.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_view.dart';
+import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_viewmodel.dart';
 import 'package:kaiya/pharma_widget/card_product_widget.dart';
+import 'package:provider/provider.dart';
 
 class ShopTabBarView extends StatelessWidget {
-  ShopTabBarView({this.widget});
+  ShopTabBarView({this.widget, this.viewModel});
   final PharWelcome widget;
+  final PharmaFirstPageViewModel viewModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,15 +38,15 @@ class ShopTabBarView extends StatelessWidget {
                 crossAxisSpacing: 20,
               ),
               shrinkWrap: true,
-              itemCount: 5,
+              itemCount: viewModel.product.length,
               itemBuilder: (BuildContext context, index) {
                 return CardProduct(
                   image: 'asset/ms.png',
-                  productname: "MusicZa",
-                  beforesale: 700,
-                  aftersale: 230,
-                  like: 100,
-                  isonsale: true,
+                  productname: viewModel.product[index].product_name,
+                  beforesale: viewModel.product[index].price,
+                  aftersale: viewModel.product[index].sell,
+                  like: viewModel.product[index].like,
+                  isonsale: viewModel.product[index].on_saled,
                   widget: widget,
                 );
               },

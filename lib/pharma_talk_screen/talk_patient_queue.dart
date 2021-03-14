@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
 
 class TalkPatientQueue extends StatefulWidget {
   static const String id = 'talk_patient_queue';
@@ -12,13 +11,6 @@ class TalkPatientQueue extends StatefulWidget {
 
 class _TalkPatientQueue extends State<TalkPatientQueue>
     with TickerProviderStateMixin {
-  int _selectedIndex = 0;
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(BoxConstraints(
@@ -181,115 +173,6 @@ class _TalkPatientQueue extends State<TalkPatientQueue>
               ],
             ),
           ),
-          bottomNavigationBar: BottomAppBar(
-            elevation: 10,
-            notchMargin: 5,
-            shape: AutomaticNotchedShape(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30.r),
-                  topRight: Radius.circular(30.r),
-                ),
-              ),
-            ),
-            clipBehavior: Clip.antiAlias,
-            color: Colors.white,
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                FittedBox(
-                  fit: BoxFit.fill,
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(
-                          left: 30.0.w,
-                          top: 5.0.h,
-                        ),
-                        child: IconButton(
-                          color: _selectedIndex == 0
-                              ? Color.fromRGBO(46, 130, 139, 1.0)
-                              : Color.fromRGBO(226, 226, 226, 1.0),
-                          icon: Icon(
-                            CupertinoIcons.home,
-                            size: 33.sp,
-                          ),
-                          onPressed: () {
-                            _onItemTapped(0);
-                          },
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(
-                          left: 20.0.w,
-                          top: 5.0.h,
-                        ),
-                        child: IconButton(
-                          color: _selectedIndex == 1
-                              ? Color.fromRGBO(46, 130, 139, 1.0)
-                              : Color.fromRGBO(226, 226, 226, 1.0),
-                          icon: Icon(
-                            CupertinoIcons.square_list,
-                            size: 33.sp,
-                          ),
-                          onPressed: () {
-                            _onItemTapped(1);
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  children: [
-                    FittedBox(
-                      fit: BoxFit.fitHeight,
-                      child: Container(
-                        margin: EdgeInsets.only(
-                          right: 20.0.w,
-                          top: 5.0.h,
-                        ),
-                        child: IconButton(
-                          color: _selectedIndex == 2
-                              ? Color.fromRGBO(46, 130, 139, 1.0)
-                              : Color.fromRGBO(226, 226, 226, 1.0),
-                          icon: Icon(
-                            CupertinoIcons.bell,
-                            size: 33.sp,
-                          ),
-                          onPressed: () {
-                            _onItemTapped(2);
-                          },
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                        right: 30.0.w,
-                        top: 5.0.h,
-                      ),
-                      child: IconButton(
-                        color: _selectedIndex == 3
-                            ? Color.fromRGBO(46, 130, 139, 1.0)
-                            : Color.fromRGBO(226, 226, 226, 1.0),
-                        icon: Icon(
-                          CupertinoIcons.person,
-                          size: 33.0.sp,
-                        ),
-                        onPressed: () {
-                          _onItemTapped(3);
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );

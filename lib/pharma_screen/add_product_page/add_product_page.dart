@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaiya/pharma_screen/add_product_page/add_product_view_model.dart';
-import 'package:kaiya/pharma_widget/add_button.dart';
+import 'package:kaiya/pharma_screen/phar_service2.dart';
 import 'package:kaiya/pharma_widget/add_picture_button.dart';
 import 'package:provider/provider.dart';
 
@@ -15,14 +15,6 @@ class PharAddProduct extends StatefulWidget {
 }
 
 class _PharAddProduct extends State<PharAddProduct> {
-  final productname = TextEditingController();
-  final brand = TextEditingController();
-  final price = TextEditingController();
-  final sell = TextEditingController();
-  final detail = TextEditingController();
-  bool _lights = true;
-  bool _darks = true;
-  bool _greys = true;
   int selectedValue;
   AddProductViewModel viewModel;
 
@@ -127,10 +119,10 @@ class _PharAddProduct extends State<PharAddProduct> {
                         padding: EdgeInsets.only(right: 30.0.w),
                         child: CupertinoSwitch(
                           activeColor: Color.fromRGBO(46, 130, 139, 1),
-                          value: _lights,
+                          value: viewModel.isshow,
                           onChanged: (bool value) {
                             setState(() {
-                              _lights = value;
+                              viewModel.isshow = value;
                             });
                           },
                         ),
@@ -162,10 +154,10 @@ class _PharAddProduct extends State<PharAddProduct> {
                         padding: EdgeInsets.only(right: 30.0.w),
                         child: CupertinoSwitch(
                           activeColor: Color.fromRGBO(46, 130, 139, 1),
-                          value: _darks,
+                          value: viewModel.isHotDeal,
                           onChanged: (bool value) {
                             setState(() {
-                              _darks = value;
+                              viewModel.isHotDeal = value;
                             });
                           },
                         ),
@@ -196,7 +188,7 @@ class _PharAddProduct extends State<PharAddProduct> {
                         child: Container(
                           padding: EdgeInsets.only(left: 5.0.w),
                           child: TextField(
-                            controller: productname,
+                            controller: viewModel.textcontroller_product_name,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Product name"),
@@ -232,7 +224,7 @@ class _PharAddProduct extends State<PharAddProduct> {
                         child: Container(
                           padding: EdgeInsets.only(left: 5.0.w),
                           child: TextField(
-                            controller: brand,
+                            controller: viewModel.textcontroller_brand,
                             decoration: InputDecoration(
                                 border: InputBorder.none, hintText: "Brand"),
                             style: TextStyle(
@@ -312,7 +304,7 @@ class _PharAddProduct extends State<PharAddProduct> {
                         child: Container(
                           padding: EdgeInsets.only(left: 5.0.w),
                           child: TextField(
-                            controller: price,
+                            controller: viewModel.textcontroller_price,
                             decoration: InputDecoration(
                                 border: InputBorder.none, hintText: "Price"),
                             style: TextStyle(
@@ -351,8 +343,8 @@ class _PharAddProduct extends State<PharAddProduct> {
                             child: Container(
                               padding: EdgeInsets.only(left: 5.0.w),
                               child: TextField(
-                                controller: sell,
-                                enabled: _greys,
+                                controller: viewModel.textcontroller_sell,
+                                enabled: viewModel.isOnSaled,
                                 decoration: InputDecoration(
                                     border: InputBorder.none, hintText: "Sell"),
                                 style: TextStyle(
@@ -369,10 +361,10 @@ class _PharAddProduct extends State<PharAddProduct> {
                         padding: EdgeInsets.only(right: 30.0.w),
                         child: CupertinoSwitch(
                           activeColor: Color.fromRGBO(46, 130, 139, 1),
-                          value: _greys,
+                          value: viewModel.isOnSaled,
                           onChanged: (bool value) {
                             setState(() {
-                              _greys = value;
+                              viewModel.isOnSaled = value;
                             });
                           },
                         ),
@@ -410,7 +402,7 @@ class _PharAddProduct extends State<PharAddProduct> {
                             right: 30.0.w,
                           ),
                           child: TextField(
-                            controller: detail,
+                            controller: viewModel.textcontroller_detail,
                             maxLines: 6,
                             keyboardType: TextInputType.multiline,
                             decoration: InputDecoration(
@@ -426,6 +418,17 @@ class _PharAddProduct extends State<PharAddProduct> {
                   Center(
                     child: RaisedButton(
                       onPressed: () {
+                        Provider.of<PharMaService2>(context, listen: false)
+                            .addData(viewModel.updateData(), "product");
+                        viewModel.images.forEach((element) {
+                          Provider.of<PharMaService2>(context, listen: false)
+                              .uploadImageToFirebase(
+                                  element,
+                                  Provider.of<PharMaService2>(context)
+                                      .querysnapshot
+                                      .username,
+                                  "product");
+                        });
                         Navigator.popUntil(
                             context, (Route<dynamic> route) => route.isFirst);
                       },
