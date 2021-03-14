@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kaiya/appkaiya_viewmodel.dart';
 import 'package:kaiya/call_model.dart';
-import 'package:kaiya/pharma_screen/phar_service2.dart';
 import 'package:kaiya/pharma_talk_screen/voice.dart';
-import 'package:provider/provider.dart';
 
 showDialogCallWithAccept(context, AppKaiYaViewModel viewModel, Call call) {
   WidgetsBinding.instance.addPostFrameCallback((_) => showCupertinoDialog(
