@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/pharma_screen/pharma_home.dart';
 
 class PharmaNavBarFloatingButton extends StatelessWidget {
+  PharmaNavBarFloatingButton({this.creatRoute});
+  final Function creatRoute;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +32,9 @@ class PharmaNavBarFloatingButton extends StatelessWidget {
           size: 33.sp,
           color: Color.fromRGBO(226, 226, 226, 1.0),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(creatRoute());
+        },
       ),
     );
   }

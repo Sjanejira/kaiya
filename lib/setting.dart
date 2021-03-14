@@ -23,7 +23,7 @@ class _Setting extends State<Setting> with TickerProviderStateMixin {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(
@@ -163,12 +163,24 @@ class _Setting extends State<Setting> with TickerProviderStateMixin {
                   ],
                 ),
               ),
+              Center(
+                child: Container(
+                  margin: EdgeInsets.only(top: 20.h),
+                  child: OutlineButton(
+                    onPressed: () {},
+                    textColor: Color.fromRGBO(144, 46, 46, 1.0),
+                    child: Text("Log Out"),
+                    borderSide: BorderSide(
+                      color: Color.fromRGBO(144, 46, 46, 1.0),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0.r),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
-          bottomNavigationBar: PharmaNavBar(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );

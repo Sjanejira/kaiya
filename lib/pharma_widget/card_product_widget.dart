@@ -67,28 +67,41 @@ class CardProduct extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          padding: EdgeInsets.only(left: 12.0.w),
-                          child: Text(
-                            "฿${this.beforesale}",
-                            style: TextStyle(
-                                fontSize: 12.sp,
-                                decoration: TextDecoration.lineThrough,
-                                color: Colors.grey[400]),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          padding: EdgeInsets.symmetric(horizontal: 6.0.w),
-                          child: Text(
-                            "฿${this.aftersale}",
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: Color.fromRGBO(144, 46, 46, 1),
-                            ),
-                          ),
-                        ),
+                        this.isonsale
+                            ? Container(
+                                alignment: Alignment.centerLeft,
+                                padding: EdgeInsets.only(left: 12.0.w),
+                                child: Text(
+                                  "฿${this.beforesale}",
+                                  style: TextStyle(
+                                      fontSize: 12.sp,
+                                      decoration: TextDecoration.lineThrough,
+                                      color: Colors.grey[400]),
+                                ),
+                              )
+                            : Container(
+                                alignment: Alignment.centerLeft,
+                                padding: EdgeInsets.only(left: 12.0.w),
+                                child: Text(
+                                  "฿${this.beforesale}",
+                                  style: TextStyle(
+                                      fontSize: 12.sp, color: Colors.grey[400]),
+                                ),
+                              ),
+                        this.isonsale
+                            ? Container(
+                                alignment: Alignment.centerLeft,
+                                padding:
+                                    EdgeInsets.symmetric(horizontal: 6.0.w),
+                                child: Text(
+                                  "฿${this.aftersale}",
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: Color.fromRGBO(144, 46, 46, 1),
+                                  ),
+                                ),
+                              )
+                            : Container(),
                       ],
                     ),
                     Expanded(
