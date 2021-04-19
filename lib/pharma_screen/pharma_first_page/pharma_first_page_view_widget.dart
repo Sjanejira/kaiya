@@ -83,11 +83,11 @@ class PharmaFirstPageViewWidget extends StatelessWidget {
                                             Color.fromRGBO(46, 130, 139, 1.0),
                                       ),
                                       margin:
-                                          EdgeInsets.fromLTRB(0, 10.0, 5.0, 0),
+                                          EdgeInsets.fromLTRB(0, 0.0, 5.0, 0),
                                     ),
                                     Container(
                                       child: Text(
-                                        "บ้านกูเอง",
+                                        "sda Prachautid",
                                         style: TextStyle(
                                           fontSize: 15.0.sp,
                                           color:
@@ -192,7 +192,9 @@ class PharmaFirstPageViewWidget extends StatelessWidget {
       body: Container(
         child: StreamBuilder(
             stream: Provider.of<PharMaService2>(context).getProduct(),
-            builder: (BuildContext context, AsyncSnapshot snapshot) {
+            builder:
+                (BuildContext context, AsyncSnapshot<List<Product>> snapshot) {
+              print(snapshot.data);
               if (snapshot.hasData) {
                 viewModel.product = snapshot.data;
                 if (viewModel.product.length != 0) {

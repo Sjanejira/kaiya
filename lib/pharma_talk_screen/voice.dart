@@ -17,21 +17,21 @@ class VoiceCall extends StatefulWidget {
 class _VoiceCall extends State<VoiceCall> {
   final APP_ID = '2058c3b4fc3b40a89acfc6d01923f60f';
   final Token =
-      '0062058c3b4fc3b40a89acfc6d01923f60fIACdg4+OfvvFRbVFDXTGBgf5rpR9UWzDeNO9sEkntBYqsdJjSIgAAAAAEAAdwi3RCf5OYAEAAQAJ/k5g';
+      '0062058c3b4fc3b40a89acfc6d01923f60fIADk65WWWJvO0mS1Ozn1slh5qJ2lxGNQh+JCac7IWAbT8NJjSIgAAAAAEADqgOQ9b59QYAEAAQBvn1Bg';
 
   final _users = <int>[];
   final _infoStrings = <String>[];
   bool videoTrigger = false;
   bool muted = false;
-  RtcEngine _engine;
+  RtcEngine engineCall;
 
   @override
   void dispose() {
     // clear users
     _users.clear();
     // destroy sdk
-    _engine.leaveChannel();
-    _engine.destroy();
+    engineCall.leaveChannel();
+    engineCall.destroy();
     super.dispose();
   }
 
@@ -43,7 +43,8 @@ class _VoiceCall extends State<VoiceCall> {
   }
 
   Future<void> initialize() async {
-    _engine = await RtcEngine.create(APP_ID);
+    engineCall = await RtcEngine.create(
+        APP_ID); //fill the application ID from agora console to start the API Connection
     if (APP_ID.isEmpty) {
       setState(() {
         _infoStrings.add(
@@ -55,21 +56,22 @@ class _VoiceCall extends State<VoiceCall> {
     }
 
     eventHandler();
-    await _engine.enableWebSdkInteroperability(true);
-    await _engine.joinChannel(Token, '123', null, 0);
+    await engineCall.enableWebSdkInteroperability(true);
+    await engineCall.joinChannel(Token, '123', null,
+        0); //join the channel by using private channel's token
   }
 
   Future<void> startVideo() async {
-    await _engine.enableVideo();
-    await _engine.setChannelProfile(ChannelProfile.LiveBroadcasting);
-    await _engine.setClientRole(ClientRole.Broadcaster);
+    await engineCall.enableVideo();
+    await engineCall.setChannelProfile(ChannelProfile.LiveBroadcasting);
+    await engineCall.setClientRole(ClientRole.Broadcaster);
     VideoEncoderConfiguration configuration = VideoEncoderConfiguration();
     configuration.dimensions = VideoDimensions(1920, 1080);
-    await _engine.setVideoEncoderConfiguration(configuration);
+    await engineCall.setVideoEncoderConfiguration(configuration);
   }
 
   void eventHandler() {
-    _engine.setEventHandler(RtcEngineEventHandler(
+    engineCall.setEventHandler(RtcEngineEventHandler(
       error: (code) {
         setState(() {
           final info = 'onError: $code';
@@ -285,20 +287,70 @@ class _VoiceCall extends State<VoiceCall> {
     setState(() {
       muted = !muted;
     });
-    _engine.muteLocalAudioStream(muted);
+    engineCall.muteLocalAudioStream(muted);
   }
 
   void _onSwitchCamera() {
-    _engine.switchCamera();
+    engineCall.switchCamera();
+  }
+
+  Stream<int> stopWatchStream() {
+    StreamController<int> streamController;
+    Timer timer;
+    Duration timerInterval = Duration(seconds: 1);
+    int counter = 0;
+
+    void stopTimer() {
+      if (timer != null) {
+        timer.cancel();
+        timer = null;
+        counter = 0;
+        streamController.close();
+      }
+    }
+
+    void tick(_) {
+      counter++;
+      streamController.add(counter);
+    }
+
+    void startTimer() {
+      timer = Timer.periodic(timerInterval, tick);
+    }
+
+    streamController = StreamController<int>(
+      onListen: startTimer,
+      onCancel: stopTimer,
+    );
+
+    return streamController.stream;
   }
 
   Widget voiceTalk() {
     return Container(
       alignment: Alignment.topCenter,
       margin: EdgeInsets.only(top: 100),
-      child: CircleAvatar(
-        radius: 100,
-        backgroundImage: AssetImage("asset/ms.png"),
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 100,
+            backgroundImage: AssetImage("asset/ms.png"),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 50),
+            child: Text(
+              "Musicza",
+              style: TextStyle(color: Colors.white, fontSize: 25),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 50),
+            child: Text(
+              "00:03",
+              style: TextStyle(color: Colors.white, fontSize: 15),
+            ),
+          )
+        ],
       ),
     );
   }

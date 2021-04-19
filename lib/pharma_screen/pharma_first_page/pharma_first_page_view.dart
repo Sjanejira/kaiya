@@ -7,8 +7,9 @@ import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_viewmode
 import 'package:provider/provider.dart';
 
 class PharWelcome extends StatefulWidget {
-  PharWelcome({this.onPush});
+  PharWelcome({this.onPush, this.onPushProduct});
   final Function onPush;
+  final Function onPushProduct;
   static const String id = 'welcome_screen';
 
   @override

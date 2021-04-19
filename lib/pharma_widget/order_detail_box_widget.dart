@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/pharma_screen/pharma_order_page/pharma_order_model.dart';
 import 'package:kaiya/pharma_widget/item_box_widget.dart';
 import 'package:kaiya/pharma_widget/order_status_box_widget.dart';
 
 class OrderDetailWidget extends StatelessWidget {
-  OrderDetailWidget({this.typeoforder});
+  OrderDetailWidget({this.typeoforder, this.data});
+  final Order data;
 
   final int typeoforder;
 
@@ -22,7 +24,7 @@ class OrderDetailWidget extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 20.r,
-                    backgroundImage: AssetImage('asset/ms.png'),
+                    backgroundImage: NetworkImage(data.patient_imageUrl),
                   ),
                   Container(
                     margin: EdgeInsets.only(left: 7.w),
@@ -30,11 +32,11 @@ class OrderDetailWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "MusicZa",
+                          data.patient_name,
                           style: TextStyle(fontSize: 15.sp),
                         ),
                         Text(
-                          "#OrderID : 112",
+                          "#OrderID : ${data.orderId}",
                           style: TextStyle(
                             fontSize: 10.sp,
                             color: Color.fromRGBO(193, 193, 193, 1),
@@ -73,15 +75,18 @@ class OrderDetailWidget extends StatelessWidget {
               thickness: 1,
             ),
           ),
-          Column(
-            children: [
-              ItemBox(),
-              ShippingDivider(),
-              // Container(
-              //   padding: EdgeInsets.symmetric(vertical: 10.h),
-              // )
-            ],
-          ),
+          ListView.separated(
+              shrinkWrap: true,
+              itemBuilder: (BuildContext context, int index) {
+                return ItemBox(
+                  item: data.items[index],
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return ShippingDivider();
+              },
+              itemCount: data.items.length),
+          ShippingDivider(),
           Container(
             margin: EdgeInsets.only(bottom: 10.h),
             child: Row(
@@ -96,7 +101,7 @@ class OrderDetailWidget extends StatelessWidget {
                 ),
                 Container(
                   child: Text(
-                    "฿ 1222 ",
+                    "฿ 422 ",
                     style: TextStyle(
                         color: Color.fromRGBO(144, 46, 46, 1),
                         fontSize: 12.sp,

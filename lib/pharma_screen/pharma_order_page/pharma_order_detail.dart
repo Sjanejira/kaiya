@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/pharma_screen/pharma_order_page/pharma_order_model.dart';
 import 'package:kaiya/pharma_widget/order_detail_box_widget.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
-import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
+import 'package:intl/intl.dart';
 
 class PharmaOrderDetail extends StatefulWidget {
+  PharmaOrderDetail({this.data, this.typeoforder});
   static const String id = 'pharma_order_detail';
+  final Order data;
+  final int typeoforder;
 
   @override
   _PharmaOrderDetail createState() => _PharmaOrderDetail();
@@ -16,6 +19,8 @@ class _PharmaOrderDetail extends State<PharmaOrderDetail>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+    final format = DateFormat('HH:mm a');
+    final dayformat = DateFormat('EEEE dd MMM. yyyy');
     ScreenUtil.init(BoxConstraints(
       maxWidth: MediaQuery.of(context).size.width,
       minWidth: 0,
@@ -54,7 +59,14 @@ class _PharmaOrderDetail extends State<PharmaOrderDetail>
                         children: [
                           Container(
                             child: Text(
-                              "Friday 20 Nov. 2020",
+                              dayformat.format(
+                                DateTime.parse(
+                                  widget.data.time_order
+                                      .toDate()
+                                      .toLocal()
+                                      .toString(),
+                                ),
+                              ),
                               style: TextStyle(
                                 fontSize: 10.sp,
                                 color: Color(0xffC1C1C1),
@@ -64,7 +76,14 @@ class _PharmaOrderDetail extends State<PharmaOrderDetail>
                           ),
                           Container(
                             child: Text(
-                              "3.59",
+                              format.format(
+                                DateTime.parse(
+                                  widget.data.time_order
+                                      .toDate()
+                                      .toLocal()
+                                      .toString(),
+                                ),
+                              ),
                               style: TextStyle(
                                 color: Color(0xffC1C1C1),
                                 fontSize: 10.sp,
@@ -81,7 +100,8 @@ class _PharmaOrderDetail extends State<PharmaOrderDetail>
                       ),
                     ),
                     OrderDetailWidget(
-                      typeoforder: 0,
+                      typeoforder: widget.typeoforder,
+                      data: widget.data,
                     ),
                   ],
                 ),

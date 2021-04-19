@@ -1,6 +1,7 @@
 class Product {
   bool show_product, hot_deal, on_saled;
   String pharmacy_username, product_name, brand, category, detail;
+  List imageUrl;
   int price, sell, like;
 
   Product(
@@ -14,7 +15,8 @@ class Product {
       this.price,
       this.detail,
       this.sell,
-      this.like});
+      this.like,
+      this.imageUrl});
 
   Product.fromMap(Map<String, dynamic> map) {
     show_product = map['show'];
@@ -28,5 +30,6 @@ class Product {
     detail = map['detail'];
     sell = map['sell'];
     like = map['like'];
+    imageUrl = map['imageUrl'];
   }
 }

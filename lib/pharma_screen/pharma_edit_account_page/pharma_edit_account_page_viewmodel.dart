@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:kaiya/model/province.dart';
 import 'package:kaiya/pharma_screen/phar_service2.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_model.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +17,8 @@ class PharmaEditAccountViewModel extends ChangeNotifier {
   TextEditingController textcontroller_phone;
   TextEditingController textcontroller_email;
   TextEditingController textcontroller_password;
+  String selectedprovince = "";
+  String selectedamphoe = "";
   File image;
   PharProfile _pharProfile;
   PharProfile get pharProfile {
@@ -51,6 +55,15 @@ class PharmaEditAccountViewModel extends ChangeNotifier {
     image = await ImagePicker.pickImage(
         source: ImageSource.gallery, imageQuality: 50);
     notifyListeners();
+  }
+
+  List<Province> parseJosn(String response) {
+    if (response == null) {
+      return [];
+    }
+    final parsed =
+        json.decode(response.toString()).cast<Map<String, dynamic>>();
+    return parsed.map<Province>((json) => Province.fromJson(json)).toList();
   }
 
   Map<String, dynamic> updateData() {

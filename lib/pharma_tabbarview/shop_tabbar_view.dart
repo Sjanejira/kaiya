@@ -41,13 +41,15 @@ class ShopTabBarView extends StatelessWidget {
               itemCount: viewModel.product.length,
               itemBuilder: (BuildContext context, index) {
                 return CardProduct(
-                  image: 'asset/ms.png',
+                  image: viewModel.product[index].imageUrl[0],
                   productname: viewModel.product[index].product_name,
                   beforesale: viewModel.product[index].price,
                   aftersale: viewModel.product[index].sell,
                   like: viewModel.product[index].like,
                   isonsale: viewModel.product[index].on_saled,
                   widget: widget,
+                  product: viewModel.product[index],
+                  viewModel: viewModel,
                 );
               },
             ),

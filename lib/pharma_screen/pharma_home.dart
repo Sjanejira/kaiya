@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/first_page_navigator.dart';
+import 'package:kaiya/pharma_screen/pharma_order_page/order_navigator.dart';
 import 'package:kaiya/pharma_screen/pharma_order_page/pharma_notification.dart';
 import 'package:kaiya/pharma_screen/pharma_notification_setting_page/pharma_notification_setting.dart';
 import 'package:kaiya/pharma_screen/pharma_order_page/pharma_order.dart';
 import 'package:kaiya/pharma_screen/pharma_profile_page/pharma_profile.dart';
+import 'package:kaiya/pharma_screen/pharma_profile_page/profile_page_navigator.dart';
 import 'package:kaiya/pharma_screen/show_talk_mode.dart';
 import 'package:kaiya/pharma_tabbarview/category_tabbar_view.dart';
 import 'package:kaiya/pharma_talk_screen/show_shopping_mode.dart';
@@ -46,9 +48,9 @@ class _PharHome extends State<PharHome> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final List<Widget> _pageList = <Widget>[
       TabNavigatorFirstPage(),
-      PharmaOrder(),
+      TabNavigatorOrder(),
       PharmaNotification(),
-      PharmaProfile(),
+      TabNavigatorProfilePage(),
     ];
 
     ScreenUtil.init(BoxConstraints(

@@ -1,5 +1,8 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:kaiya/pharma_screen/phar_service2.dart';
+import 'package:provider/provider.dart';
 
 class AddProductViewModel extends ChangeNotifier {
   TextEditingController textcontroller_product_name = TextEditingController();
@@ -12,6 +15,7 @@ class AddProductViewModel extends ChangeNotifier {
   bool isHotDeal = false;
   bool isOnSaled = false;
   List images = [];
+  List refImage = [];
 
   void imgFromCamera() async {
     images.add(await ImagePicker.pickImage(
@@ -25,11 +29,18 @@ class AddProductViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future uploadProductImage(BuildContext context, List image) async {
+    for (File i in image) {
+      refImage.add(await Provider.of<PharMaService2>(context, listen: false)
+          .uploadImageProductToFirebase(i, "musicza", "product"));
+    }
+  }
+
   Map<String, dynamic> updateData() {
     Map<String, dynamic> data = {
-      'pharmacy_name': "musicza",
+      'pharmacy_name': "music",
       'category': "asd",
-      'like': 100,
+      'like': 0,
       'product_name': textcontroller_product_name.text,
       'brand': textcontroller_brand.text,
       'price': int.parse(textcontroller_price.text),
@@ -38,6 +49,7 @@ class AddProductViewModel extends ChangeNotifier {
       'show': isshow,
       'hotdeal': isHotDeal,
       'onsaled': isOnSaled,
+      'imageUrl': refImage,
     };
     return data;
   }

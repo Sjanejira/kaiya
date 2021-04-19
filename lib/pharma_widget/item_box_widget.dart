@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/pharma_screen/pharma_order_page/pharma_order_items_model.dart';
 
 class ItemBox extends StatelessWidget {
+  ItemBox({this.item});
+  final Items item;
   bool isonsale = true;
   @override
   Widget build(BuildContext context) {
@@ -32,14 +35,14 @@ class ItemBox extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "MusicZa",
+                    item.item_name,
                     style: TextStyle(fontSize: 15.sp),
                   ),
                   isonsale
                       ? Row(
                           children: [
                             Text(
-                              "฿ 12",
+                              "฿ ${item.item_price - 3}",
                               style: TextStyle(
                                 fontSize: 10.sp,
                                 color: Color.fromRGBO(193, 193, 193, 1),
@@ -49,7 +52,7 @@ class ItemBox extends StatelessWidget {
                             Container(
                               margin: EdgeInsets.only(left: 4.w),
                               child: Text(
-                                "฿ 13",
+                                "฿ ${item.item_price}",
                                 style: TextStyle(
                                   fontSize: 10.sp,
                                   color: Color(0xff902E2E),
@@ -59,7 +62,7 @@ class ItemBox extends StatelessWidget {
                           ],
                         )
                       : Text(
-                          "฿ 12",
+                          "฿ ${item.item_price}",
                           style: TextStyle(
                             fontSize: 10.sp,
                             color: Color.fromRGBO(193, 193, 193, 1),

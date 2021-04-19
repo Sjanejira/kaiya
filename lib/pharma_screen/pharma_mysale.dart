@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaiya/pharma_widget/order_status_widget.dart';
-import 'package:kaiya/pharma_widget/add_button.dart';
 
 class PharmaMySales extends StatefulWidget {
+  PharmaMySales({this.index, this.onPush});
   static const String id = 'pharma_mysales';
+  final int index;
+  final Function onPush;
 
   @override
   _PharmaMySales createState() => _PharmaMySales();
@@ -17,7 +19,8 @@ class _PharmaMySales extends State<PharmaMySales>
 
   @override
   void initState() {
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController =
+        TabController(length: 4, vsync: this, initialIndex: widget.index);
     super.initState();
   }
 
@@ -29,7 +32,6 @@ class _PharmaMySales extends State<PharmaMySales>
 
   @override
   Widget build(BuildContext context) {
-    bool _isProductEmpty = false;
     ScreenUtil.init(BoxConstraints(
       maxWidth: MediaQuery.of(context).size.width,
       minWidth: 0,
@@ -91,50 +93,10 @@ class _PharmaMySales extends State<PharmaMySales>
                 ),
               ];
             },
-            body: _isProductEmpty
-                ? EmptyProductTabBarView(tabController: _tabController)
-                : HaveProductTabBarView(tabController: _tabController),
+            body: HaveProductTabBarView(tabController: _tabController),
           ),
         ),
       ),
-    );
-  }
-}
-
-class EmptyProductTabBarView extends StatelessWidget {
-  EmptyProductTabBarView({
-    @required TabController tabController,
-  }) : _tabController = tabController;
-
-  final TabController _tabController;
-
-  @override
-  Widget build(BuildContext context) {
-    return TabBarView(
-      controller: _tabController,
-      children: [
-        AddProductButton(
-          height: 100.h,
-          minwidth: 100.w,
-          paddingtop: 120.h,
-          margintop: 10.h,
-          label: "Add Product",
-        ),
-        AddProductButton(
-          height: 100.h,
-          minwidth: 100.w,
-          paddingtop: 120.h,
-          margintop: 10.h,
-          label: "Add Product",
-        ),
-        AddProductButton(
-          height: 100.h,
-          minwidth: 100.w,
-          paddingtop: 120.h,
-          margintop: 10.h,
-          label: "Add Product",
-        ),
-      ],
     );
   }
 }

@@ -1,18 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/pharma_screen/pharma_order_page/pharma_order.dart';
+import 'package:kaiya/pharma_screen/pharma_order_page/pharma_order_detail.dart';
+import 'package:kaiya/pharma_screen/pharma_order_page/pharma_order_model.dart';
 import 'package:kaiya/pharma_widget/item_box_widget.dart';
 import 'package:kaiya/pharma_widget/order_status_box_widget.dart';
 
 class OrderStatusWidget extends StatelessWidget {
-  OrderStatusWidget({this.typeoforder});
-
+  OrderStatusWidget({this.typeoforder, this.data, this.widget});
+  final Order data;
   final int typeoforder;
+  final PharmaOrder widget;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10.h),
+      margin: EdgeInsets.only(bottom: 10.h, top: 10.h),
       padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 10.h),
       color: Colors.white,
       child: Column(
@@ -24,7 +28,7 @@ class OrderStatusWidget extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 20.r,
-                    backgroundImage: AssetImage('asset/ms.png'),
+                    backgroundImage: NetworkImage(data.patient_imageUrl),
                   ),
                   Container(
                     margin: EdgeInsets.only(left: 7.w),
@@ -32,11 +36,11 @@ class OrderStatusWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "MusicZa",
+                          data.patient_name,
                           style: TextStyle(fontSize: 15.sp),
                         ),
                         Text(
-                          "#OrderID : 112",
+                          "#OrderID : ${data.orderId}",
                           style: TextStyle(
                             fontSize: 10.sp,
                             color: Color.fromRGBO(193, 193, 193, 1),
@@ -77,18 +81,23 @@ class OrderStatusWidget extends StatelessWidget {
           ),
           Column(
             children: [
-              ItemBox(),
+              ItemBox(
+                item: data.items[0],
+              ),
               Container(
                 margin: EdgeInsets.only(top: 10.h, bottom: 1.h),
                 child: Divider(
                   thickness: 1,
                 ),
               ),
-              Text(
-                "See More Items",
-                style: TextStyle(
-                  fontSize: 8.sp,
-                  color: Color.fromRGBO(193, 193, 193, 1),
+              GestureDetector(
+                onTap: () => widget.onPush(context, data, typeoforder),
+                child: Text(
+                  "See More Items",
+                  style: TextStyle(
+                    fontSize: 8.sp,
+                    color: Color.fromRGBO(193, 193, 193, 1),
+                  ),
                 ),
               ),
               Container(
@@ -113,7 +122,7 @@ class OrderStatusWidget extends StatelessWidget {
                   ),
                   Container(
                     child: Text(
-                      "฿ 1222 ",
+                      "฿ ${data.total_price} ",
                       style: TextStyle(
                           color: Color.fromRGBO(144, 46, 46, 1),
                           fontSize: 12.sp,
@@ -124,7 +133,10 @@ class OrderStatusWidget extends StatelessWidget {
               ),
               if (typeoforder == OrderStatus.preparing.index)
                 RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    print(typeoforder);
+                    widget.onPush(context, data, typeoforder);
+                  },
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   color: Color.fromRGBO(46, 130, 139, 1.0),
                   textColor: Colors.white,
