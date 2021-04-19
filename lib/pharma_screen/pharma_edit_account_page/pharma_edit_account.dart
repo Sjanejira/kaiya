@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/model/province.dart';
 import 'package:kaiya/pharma_screen/phar_service2.dart';
 import 'package:kaiya/pharma_screen/pharma_edit_account_page/pharma_edit_account_page_viewmodel.dart';
 import 'package:kaiya/pharma_widget/add_button.dart';
 import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
 import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
 import 'package:provider/provider.dart';
+import "package:collection/collection.dart";
 
 class PharmaEditAcccount extends StatefulWidget {
   static const String id = 'pharma_edit_account';
@@ -17,9 +19,15 @@ class PharmaEditAcccount extends StatefulWidget {
 }
 
 class _PharmaEditAcccount extends State<PharmaEditAcccount> {
-  int selectedValue;
+  int selectedValue = 0;
+  int selectedValueAmphoe = 0;
   bool isChangeImage = false;
   PharmaEditAccountViewModel viewModel;
+  bool clickprovince = true;
+  List<Province> provinces = [];
+  List provincelist = [];
+
+  var map = Map();
 
   @override
   void initState() {
@@ -223,11 +231,14 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
                                 child: RaisedButton(
                                   elevation: 0,
                                   color: Colors.white,
-                                  onPressed: showPicker,
+                                  onPressed: () {
+                                    clickprovince = false;
+                                    return showPickerAmphoe();
+                                  },
                                   child: Row(
                                     children: [
                                       Text(
-                                        "Bangmod",
+                                        viewModel.selectedamphoe,
                                         style: TextStyle(
                                             fontWeight: FontWeight.w300),
                                       ),
@@ -269,11 +280,14 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
                                 child: RaisedButton(
                                   elevation: 0,
                                   color: Colors.white,
-                                  onPressed: showPicker,
+                                  onPressed: () {
+                                    clickprovince = true;
+                                    return showPicker();
+                                  },
                                   child: Row(
                                     children: [
                                       Text(
-                                        "Bangkok",
+                                        viewModel.selectedprovince,
                                         style: TextStyle(
                                             fontWeight: FontWeight.w300),
                                       ),
@@ -508,20 +522,74 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
     showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
+          print(selectedValue);
+          return FutureBuilder(
+              future:
+                  Provider.of<PharMaService2>(context).provinceJson(context),
+              builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                if (snapshot.hasData) {
+                  provinces = viewModel.parseJosn(snapshot.data.toString());
+                  var provincesgroup =
+                      groupBy(provinces, (Province obj) => obj.province);
+                  provincelist = provincesgroup.keys.toList();
+                  for (var prov in provincesgroup.keys) {
+                    var amphoegroup = groupBy(
+                        provincesgroup[prov], (Province obj) => obj.amphoe);
+                    map[prov] = amphoegroup.keys.toList();
+                  }
+                  return Container(
+                    height: 300.0.h,
+                    child: CupertinoPicker(
+                      scrollController: FixedExtentScrollController(
+                          initialItem: selectedValue),
+                      backgroundColor: Colors.white,
+                      onSelectedItemChanged: (value) {
+                        setState(() {
+                          if (selectedValue != value) {
+                            selectedValueAmphoe = 0;
+                            viewModel.selectedamphoe = "";
+                          }
+                          selectedValue = value;
+                          viewModel.selectedprovince = provincelist[value];
+                        });
+                      },
+                      itemExtent: 32.0,
+                      children: [
+                        for (String prov in provincelist) Text(prov),
+                      ],
+                    ),
+                  );
+                } else {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              });
+        });
+  }
+
+  showPickerAmphoe() {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          print(selectedValue);
           return Container(
             height: 300.0.h,
             child: CupertinoPicker(
+              scrollController:
+                  FixedExtentScrollController(initialItem: selectedValueAmphoe),
               backgroundColor: Colors.white,
               onSelectedItemChanged: (value) {
                 setState(() {
-                  selectedValue = value;
+                  selectedValueAmphoe = value;
+                  viewModel.selectedamphoe =
+                      map[provincelist[selectedValue]][value];
                 });
               },
               itemExtent: 32.0,
-              children: const [
-                Text('Item01'),
-                Text('Item02'),
-                Text('Item03'),
+              children: [
+                for (String prov in map[provincelist[selectedValue]])
+                  Text(prov),
               ],
             ),
           );

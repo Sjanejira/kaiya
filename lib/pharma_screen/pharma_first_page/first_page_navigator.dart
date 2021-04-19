@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kaiya/pharma_screen/add_product_page/add_product_page.dart';
 import 'package:kaiya/pharma_screen/add_product_page/add_product_view_model.dart';
+import 'package:kaiya/pharma_screen/add_product_page/product_model.dart';
 import 'package:kaiya/pharma_screen/pharma_edit_account_page/pharma_edit_account_page_viewmodel.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_view.dart';
 import 'package:kaiya/pharma_screen/pharma_edit_account_page/pharma_edit_account.dart';
+import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_viewmodel.dart';
 import 'package:kaiya/pharma_screen/pharma_product_detial.dart';
 import 'package:kaiya/pharma_tabbarview/category_product_show_page.dart';
 import 'package:provider/provider.dart';
@@ -41,10 +43,38 @@ class TabNavigatorFirstPage extends StatelessWidget {
     );
   }
 
+  void _pushEditProduct(BuildContext context, Product product,
+      PharmaFirstPageViewModel viewModel) {
+    var routeBuilders =
+        _routeBuildersProductDetail(context, product, viewModel);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return routeBuilders[TabNavigatorRoutes.productdetail](context);
+        },
+      ),
+    );
+  }
+
+  Map<String, WidgetBuilder> _routeBuildersProductDetail(BuildContext context,
+      Product product, PharmaFirstPageViewModel viewModel) {
+    return {
+      TabNavigatorRoutes.productdetail: (context) => PharProductDetail(
+            product: product,
+            viewModel: viewModel,
+          ),
+    };
+  }
+
   Map<String, WidgetBuilder> _routeBuilders(BuildContext context) {
     return {
-      TabNavigatorRoutes.root: (context) =>
-          PharWelcome(onPush: (context, pagego) => _push(context, pagego)),
+      TabNavigatorRoutes.root: (context) => PharWelcome(
+            onPush: (context, pagego) => _push(context, pagego),
+            onPushProduct: (context, product, viewModel) =>
+                _pushEditProduct(context, product, viewModel),
+          ),
       TabNavigatorRoutes.editprofile: (context) =>
           ChangeNotifierProvider<PharmaEditAccountViewModel>(
             create: (context) => PharmaEditAccountViewModel(),

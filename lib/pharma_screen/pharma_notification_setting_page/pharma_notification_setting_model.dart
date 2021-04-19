@@ -14,9 +14,9 @@ class ShoppingNotificationSetting {
   ShoppingNotificationSetting.fromMap(Map<String, dynamic> map) {
     new_message = map['new_message'];
     new_order = map['new_order'];
-    prepare_order = map['payment_success'];
-    sent_order = map['phone_call'];
-    cancelled_order = map['video_call'];
+    prepare_order = map['prepare_order'];
+    sent_order = map['send_order'];
+    cancelled_order = map['cancelled_order'];
     pharmacy_username = map['pharmacy_username'];
   }
 }

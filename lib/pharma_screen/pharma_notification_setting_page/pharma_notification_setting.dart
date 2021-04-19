@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaiya/pharma_screen/phar_service2.dart';
+import 'package:kaiya/pharma_screen/pharma_notification_setting_page/pharma_notification_setting_model.dart';
 import 'package:kaiya/pharma_screen/pharma_notification_setting_page/pharma_notification_setting_viewmodel.dart';
 import 'package:provider/provider.dart';
 
@@ -56,19 +57,16 @@ class _PharmaNotificationSetting extends State<PharmaNotificationSetting>
           body: StreamBuilder(
               stream: Provider.of<PharMaService2>(context)
                   .getShoppingNotificationSetting(),
-              builder: (BuildContext context, AsyncSnapshot snapshot) {
-                viewModel.notificationSetting =
-                    Provider.of<PharMaService2>(context)
-                        .notificationShoppingSnapshot;
-                if (viewModel.notificationSetting != null) {
+              builder: (BuildContext context,
+                  AsyncSnapshot<ShoppingNotificationSetting> snapshot) {
+                if (snapshot.hasData && snapshot.data.sent_order != null) {
+                  print("22 ${snapshot.data.sent_order}");
                   if (isSetNotification == 0) {
-                    _new_message = viewModel.notificationSetting.new_message;
-                    _new_order = viewModel.notificationSetting.new_order;
-                    _cancelled_order =
-                        viewModel.notificationSetting.cancelled_order;
-                    _prepare_order =
-                        viewModel.notificationSetting.prepare_order;
-                    _send_order = viewModel.notificationSetting.sent_order;
+                    _new_message = snapshot.data.new_message;
+                    _new_order = snapshot.data.new_order;
+                    _cancelled_order = snapshot.data.cancelled_order;
+                    _prepare_order = snapshot.data.prepare_order;
+                    _send_order = snapshot.data.sent_order;
                     isSetNotification++;
                   }
                   return Column(

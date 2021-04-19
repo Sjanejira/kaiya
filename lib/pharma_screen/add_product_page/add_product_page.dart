@@ -415,31 +415,29 @@ class _PharAddProduct extends State<PharAddProduct> {
                       ),
                     ],
                   ),
-                  Center(
-                    child: RaisedButton(
-                      onPressed: () {
-                        Provider.of<PharMaService2>(context, listen: false)
-                            .addData(viewModel.updateData(), "product");
-                        viewModel.images.forEach((element) {
-                          Provider.of<PharMaService2>(context, listen: false)
-                              .uploadImageToFirebase(
-                                  element,
-                                  Provider.of<PharMaService2>(context)
-                                      .querysnapshot
-                                      .username,
-                                  "product");
-                        });
-                        Navigator.popUntil(
-                            context, (Route<dynamic> route) => route.isFirst);
-                      },
-                      padding: EdgeInsets.all(0.0),
-                      color: Color.fromRGBO(46, 130, 139, 1.0),
-                      textColor: Colors.white,
-                      child: Text("DONE"),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(13.0.r),
-                      ),
-                    ),
+                  Consumer<AddProductViewModel>(
+                    builder: (context, viewmodel, child) {
+                      return Center(
+                        child: RaisedButton(
+                          onPressed: () async {
+                            await viewmodel.uploadProductImage(
+                                context, viewmodel.images);
+                            viewModel.refImage = viewmodel.refImage;
+                            Provider.of<PharMaService2>(context, listen: false)
+                                .addData(viewModel.updateData(), "product");
+                            Navigator.popUntil(context,
+                                (Route<dynamic> route) => route.isFirst);
+                          },
+                          padding: EdgeInsets.all(0.0),
+                          color: Color.fromRGBO(46, 130, 139, 1.0),
+                          textColor: Colors.white,
+                          child: Text("DONE"),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(13.0.r),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),

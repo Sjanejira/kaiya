@@ -1,5 +1,8 @@
+import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/services.dart';
 import 'package:kaiya/call_model.dart';
+import 'package:kaiya/model/province.dart';
 import 'package:kaiya/pharma_screen/add_product_page/product_model.dart';
 import 'package:kaiya/pharma_screen/pharma_notification_setting_page/pharma_notification_setting_model.dart';
 import 'package:kaiya/pharma_screen/pharma_order_page/pharma_order_model.dart';
@@ -25,7 +28,7 @@ class PharMaService2 extends ChangeNotifier {
   Future<QuerySnapshot> getPharProfile() async {
     var snap = await firestoreInstance
         .collection("pharmacy")
-        .where("pharmacy_name", isEqualTo: "Musicza")
+        .where("pharmacy_username", isEqualTo: "Musicza")
         .get();
     snap.docs.forEach((element) {
       querysnapshot = PharProfile.fromMap(element.data());
@@ -33,10 +36,20 @@ class PharMaService2 extends ChangeNotifier {
     return snap;
   }
 
+  Stream<PharProfile> getProfile() {
+    var snap = firestoreInstance
+        .collection("pharmacy")
+        .where("pharmacy_username", isEqualTo: "Musicza")
+        .snapshots()
+        .map((value) =>
+            value.docs.map((e) => PharProfile.fromMap(e.data())).first);
+    return snap;
+  }
+
   Stream<List<Call>> getCall() {
     var snap = firestoreInstance
         .collection("call")
-        .where("patient_name", isEqualTo: "music")
+        .where("pharmacy_username", isEqualTo: "music")
         .snapshots()
         .map(
           (event) => event.docs.map((e) {
@@ -51,7 +64,7 @@ class PharMaService2 extends ChangeNotifier {
   Stream<QuerySnapshot> getChat() {
     var snap = firestoreInstance
         .collection("chat")
-        .where("pharmacy_name", isEqualTo: "Musicza")
+        .where("pharmacy_username", isEqualTo: "Musicza")
         .snapshots();
     snap.forEach((element) {
       element.docs.forEach((element) {
@@ -66,7 +79,7 @@ class PharMaService2 extends ChangeNotifier {
   Stream<QuerySnapshot> getChatMessages() {
     var snap = firestoreInstance
         .collection("chat")
-        .where("pharmacy_name", isEqualTo: "Musicza")
+        .where("pharmacy_username", isEqualTo: "Musicza")
         .snapshots();
     snap.forEach((element) {
       element.docs.forEach((element) {
@@ -81,16 +94,17 @@ class PharMaService2 extends ChangeNotifier {
   Stream<List<Order>> getOrder() {
     var snap = firestoreInstance
         .collection("order")
-        .where("orderId", isEqualTo: 1)
+        .where("pharmacy_username", isEqualTo: "musicza")
         .snapshots()
         .map(
-          (event) => event.docs
-              .map(
-                (e) => Order.fromMap(
-                  e.data(),
-                ),
-              )
-              .toList(),
+          (event) => event.docs.map(
+            (e) {
+              print(e.data());
+              return Order.fromMap(
+                e.data(),
+              );
+            },
+          ).toList(),
         );
     return snap;
   }
@@ -98,7 +112,7 @@ class PharMaService2 extends ChangeNotifier {
   Stream<List<Product>> getProduct() {
     var snap = firestoreInstance
         .collection("product")
-        .where("pharmacy_name", isEqualTo: "musicza")
+        .where("pharmacy_name", isEqualTo: "music")
         .snapshots()
         .map(
           (event) => event.docs.map((e) {
@@ -107,13 +121,14 @@ class PharMaService2 extends ChangeNotifier {
             );
           }).toList(),
         );
+    print(snap.length);
     return snap;
   }
 
   Future<QuerySnapshot> getMyShipping() async {
     var snap = firestoreInstance
         .collection("myshipping")
-        .where("username", isEqualTo: "Musicza")
+        .where("pharmacy_username", isEqualTo: "Musicza")
         .get();
     return snap;
   }
@@ -121,7 +136,7 @@ class PharMaService2 extends ChangeNotifier {
   Future<QuerySnapshot> getLanguage() async {
     var snap = firestoreInstance
         .collection("language")
-        .where("username", isEqualTo: "Musicza")
+        .where("pharmacy_username", isEqualTo: "Musicza")
         .get();
     return snap;
   }
@@ -129,7 +144,7 @@ class PharMaService2 extends ChangeNotifier {
   Stream<List<Payment>> getPayment() {
     var snap = firestoreInstance
         .collection("payment")
-        .where("bank_name", isEqualTo: "k")
+        .where("pharmacy_username", isEqualTo: "k")
         .snapshots()
         .map(
           (event) => event.docs
@@ -158,19 +173,14 @@ class PharMaService2 extends ChangeNotifier {
     return snap;
   }
 
-  Stream<QuerySnapshot> getShoppingNotificationSetting() {
+  Stream<ShoppingNotificationSetting> getShoppingNotificationSetting() {
     var snap = firestoreInstance
         .collection("notification_phar_shopping")
         .where("pharmacy_username", isEqualTo: "k")
-        .snapshots();
-    snap.forEach((element) {
-      element.docs.forEach((element) {
-        if (element.exists) {
-          notificationShoppingSnapshot =
-              ShoppingNotificationSetting.fromMap(element.data());
-        }
-      });
-    });
+        .snapshots()
+        .map((event) => event.docs
+            .map((e) => ShoppingNotificationSetting.fromMap(e.data()))
+            .last);
     return snap;
   }
 
@@ -181,7 +191,7 @@ class PharMaService2 extends ChangeNotifier {
   Future<void> updateData(Map<String, dynamic> data, String collection) async {
     var docSnap = await firestoreInstance
         .collection(collection)
-        .where("pharmacy_name", isEqualTo: "k")
+        .where("pharmacy_username", isEqualTo: "k")
         .get();
     docSnap.docs.forEach((element) {
       final docRef2 = element.reference.id;
@@ -206,16 +216,34 @@ class PharMaService2 extends ChangeNotifier {
     taskSnapshot.ref.getDownloadURL().then(
       (value) {
         updateProfileImage(value, collection, username);
-        print(value);
       },
     );
+  }
+
+  Future<String> uploadImageProductToFirebase(
+      File _imageFile, String username, String collection) async {
+    var ref;
+    String fileName = basename(_imageFile.path);
+    firebase_storage.Reference firebaseStorageRef = firebase_storage
+        .FirebaseStorage.instance
+        .ref()
+        .child('uploads/$fileName');
+    firebase_storage.UploadTask uploadTask =
+        firebaseStorageRef.putFile(_imageFile);
+    firebase_storage.TaskSnapshot taskSnapshot = await uploadTask;
+    await taskSnapshot.ref.getDownloadURL().then(
+      (value) {
+        ref = value;
+      },
+    );
+    return ref;
   }
 
   Future<void> updateProfileImage(
       String imageUrl, String collection, String username) async {
     var docSnap = await firestoreInstance
         .collection(collection)
-        .where("username", isEqualTo: username)
+        .where("pharmacy_username", isEqualTo: username)
         .get();
     docSnap.docs.forEach((element) {
       final docRef2 = element.reference.id;
@@ -228,5 +256,12 @@ class PharMaService2 extends ChangeNotifier {
         print(e);
       }
     });
+  }
+
+  Future<dynamic> provinceJson(BuildContext context) async {
+    final response = await DefaultAssetBundle.of(context)
+        .loadString('asset/provincedata.json');
+    final data = await json.decode(response);
+    return response;
   }
 }
