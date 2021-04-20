@@ -50,5 +50,6 @@
     "ui": {
       "enabled": true
     }
-  }
+  },
+  "remoteconfig": {}
 }
