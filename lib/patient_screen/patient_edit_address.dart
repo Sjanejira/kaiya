@@ -4,14 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
 import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
 
-class PatientAddAddress extends StatefulWidget {
+class PatientEditAddress extends StatefulWidget {
   static const String id = 'patient_add_address';
 
   @override
-  _PatientAddAddress createState() => _PatientAddAddress();
+  _PatientEditAddress createState() => _PatientEditAddress();
 }
 
-class _PatientAddAddress extends State<PatientAddAddress>
+class _PatientEditAddress extends State<PatientEditAddress>
     with TickerProviderStateMixin {
   bool _lights = true;
   bool _darks = true;
