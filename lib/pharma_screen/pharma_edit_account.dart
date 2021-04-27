@@ -407,7 +407,10 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
                   Container(
                     margin: EdgeInsets.only(top: 5.h),
                     child: RaisedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.popUntil(
+                            context, (Route<dynamic> route) => route.isFirst);
+                      },
                       padding: EdgeInsets.all(0.0),
                       color: Color.fromRGBO(46, 130, 139, 1.0),
                       textColor: Colors.white,
@@ -421,10 +424,6 @@ class _PharmaEditAcccount extends State<PharmaEditAcccount> {
               ),
             ),
           ),
-          bottomNavigationBar: PharmaNavBar(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );

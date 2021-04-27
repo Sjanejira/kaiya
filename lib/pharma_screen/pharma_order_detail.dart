@@ -88,10 +88,6 @@ class _PharmaOrderDetail extends State<PharmaOrderDetail>
               ),
             ],
           ),
-          bottomNavigationBar: PharmaNavBar(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );

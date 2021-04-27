@@ -237,10 +237,6 @@ class _PharmaNotificationSetting extends State<PharmaNotificationSetting>
               ),
             ],
           ),
-          bottomNavigationBar: PharmaNavBar(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );

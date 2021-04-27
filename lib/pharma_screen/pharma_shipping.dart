@@ -368,10 +368,6 @@ class _PharmaShipping extends State<PharmaShipping>
               ),
             ],
           ),
-          bottomNavigationBar: PharmaNavBar(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );
