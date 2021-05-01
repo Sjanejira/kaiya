@@ -21,7 +21,7 @@ class _ChatWithPharma extends State<ChatWithPharma> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(
@@ -198,10 +198,10 @@ class _ChatWithPharma extends State<ChatWithPharma> {
                               width: 70,
                               height: 20,
                               decoration: BoxDecoration(
-                                  color: Color.fromRGBO(46, 130, 139, 1),
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(6),
-                                  ),
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(6),
+                                ),
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -209,9 +209,7 @@ class _ChatWithPharma extends State<ChatWithPharma> {
                                   Text(
                                     'PAY',
                                     style: TextStyle(
-                                      fontSize: 10,
-                                      color: Colors.white
-                                    ),
+                                        fontSize: 10, color: Colors.white),
                                   ),
                                 ],
                               ),

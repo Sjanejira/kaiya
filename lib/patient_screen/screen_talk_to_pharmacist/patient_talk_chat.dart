@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class PaitentChat extends StatefulWidget {
   static const String id = 'patient_chat_with_pharma';
   @override
@@ -11,22 +12,16 @@ class _PaitentChat extends State<PaitentChat> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(BoxConstraints(
-      maxWidth: MediaQuery
-          .of(context)
-          .size
-          .width,
+      maxWidth: MediaQuery.of(context).size.width,
       minWidth: 0,
-      maxHeight: MediaQuery
-          .of(context)
-          .size
-          .height,
+      maxHeight: MediaQuery.of(context).size.height,
       minHeight: 0,
     ));
 
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(
@@ -72,12 +67,12 @@ class _PaitentChat extends State<PaitentChat> {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment
-                                        .start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment
-                                            .center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -97,16 +92,15 @@ class _PaitentChat extends State<PaitentChat> {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment
-                                            .center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "Waiting update order",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(
+                                                color: Color.fromRGBO(
                                                     193, 193, 193, 1),
                                               ),
                                             ),
@@ -143,7 +137,8 @@ class _PaitentChat extends State<PaitentChat> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -153,8 +148,7 @@ class _PaitentChat extends State<PaitentChat> {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -190,12 +184,12 @@ class _PaitentChat extends State<PaitentChat> {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment
-                                        .start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment
-                                            .center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Health Pharmacy",
@@ -215,16 +209,15 @@ class _PaitentChat extends State<PaitentChat> {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment
-                                            .center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "Waiting check order",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(
+                                                color: Color.fromRGBO(
                                                     193, 193, 193, 1),
                                               ),
                                             ),
@@ -261,7 +254,8 @@ class _PaitentChat extends State<PaitentChat> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -271,8 +265,7 @@ class _PaitentChat extends State<PaitentChat> {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,

@@ -24,7 +24,7 @@ class _InChat extends State<InChat> with TickerProviderStateMixin {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -245,9 +245,8 @@ class _InChat extends State<InChat> with TickerProviderStateMixin {
                         width: 290,
                         height: 30,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Color.fromRGBO(239, 239, 239, 1)
-                        ),
+                            borderRadius: BorderRadius.circular(15),
+                            color: Color.fromRGBO(239, 239, 239, 1)),
                       ),
                     ],
                   ),

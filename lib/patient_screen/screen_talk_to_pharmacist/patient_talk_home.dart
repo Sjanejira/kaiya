@@ -21,7 +21,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -272,7 +272,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       'Bangmod',
                                       style: TextStyle(
@@ -295,7 +295,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       '9.00 am - 9.00 pm',
                                       style: TextStyle(
@@ -317,7 +317,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       '฿10',
                                       style: TextStyle(
@@ -387,7 +387,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       'Bangmod',
                                       style: TextStyle(
@@ -410,7 +410,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       '9.00 am - 9.00 pm',
                                       style: TextStyle(
@@ -432,7 +432,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       '฿10',
                                       style: TextStyle(
@@ -502,7 +502,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       'Bangmod',
                                       style: TextStyle(
@@ -525,7 +525,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       '9.00 am - 9.00 pm',
                                       style: TextStyle(
@@ -547,7 +547,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       '฿10',
                                       style: TextStyle(
@@ -617,7 +617,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       'Bangmod',
                                       style: TextStyle(
@@ -640,7 +640,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       '9.00 am - 9.00 pm',
                                       style: TextStyle(
@@ -662,7 +662,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       '฿10',
                                       style: TextStyle(
@@ -732,7 +732,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       'Bangmod',
                                       style: TextStyle(
@@ -755,7 +755,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       '9.00 am - 9.00 pm',
                                       style: TextStyle(
@@ -777,7 +777,7 @@ class _PatientTalkHome extends State<PatientTalkHome> {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(left:2),
+                                    margin: EdgeInsets.only(left: 2),
                                     child: Text(
                                       '฿10',
                                       style: TextStyle(

@@ -21,7 +21,7 @@ class _OnQueue extends State<OnQueue> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -47,7 +47,7 @@ class _OnQueue extends State<OnQueue> {
                     child: Text(
                       'On the phone',
                       style:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
@@ -74,7 +74,7 @@ class _OnQueue extends State<OnQueue> {
                     child: Text(
                       'Queue #1',
                       style:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
                     ),
                   ),
                   Container(
@@ -82,7 +82,7 @@ class _OnQueue extends State<OnQueue> {
                     child: Text(
                       '0:02',
                       style:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
                     ),
                   ),
                   Container(
@@ -106,9 +106,11 @@ class _OnQueue extends State<OnQueue> {
                             blurRadius: 2)
                       ],
                     ),
-                    child: Icon(Icons.phone,
+                    child: Icon(
+                      Icons.phone,
                       color: Color.fromRGBO(255, 255, 255, 1),
-                      size: 30,),
+                      size: 30,
+                    ),
                   ),
                 ],
               ),

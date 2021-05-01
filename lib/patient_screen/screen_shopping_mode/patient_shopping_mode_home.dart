@@ -45,7 +45,7 @@ class _PatientHome extends State<PatientHome> with TickerProviderStateMixin {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(

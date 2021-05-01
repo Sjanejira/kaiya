@@ -21,7 +21,7 @@ class _EmergencyHome extends State<EmergencyHome> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -266,22 +266,27 @@ class _EmergencyHome extends State<EmergencyHome> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text('Emergency Mode will find a pharmacy nearby you auto',
+                    Text(
+                      'Emergency Mode will find a pharmacy nearby you auto',
                       style: TextStyle(
-                        color: Color.fromRGBO(193, 193, 193, 1),
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600
-                      ),),
-                    Text('If you need to choose a pharmacy by yourself',
+                          color: Color.fromRGBO(193, 193, 193, 1),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    Text(
+                      'If you need to choose a pharmacy by yourself',
                       style: TextStyle(
                         color: Color.fromRGBO(193, 193, 193, 1),
                         fontSize: 12,
-                      ),),
-                    Text('please back to home page',
-                    style: TextStyle(
-                      color: Color.fromRGBO(193, 193, 193, 1),
-                      fontSize: 12,
-                    ),),
+                      ),
+                    ),
+                    Text(
+                      'please back to home page',
+                      style: TextStyle(
+                        color: Color.fromRGBO(193, 193, 193, 1),
+                        fontSize: 12,
+                      ),
+                    ),
                   ],
                 ),
               )

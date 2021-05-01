@@ -26,7 +26,7 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -75,7 +75,11 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                             child: Column(
                               children: [
                                 Card(
-                                  margin: EdgeInsets.only(top: 15.0, left: 40.0,right: 20.0,bottom: 10.0),
+                                  margin: EdgeInsets.only(
+                                      top: 15.0,
+                                      left: 40.0,
+                                      right: 20.0,
+                                      bottom: 10.0),
                                   color: Colors.white,
                                   elevation: 2.0, //shadow
                                   shape: RoundedRectangleBorder(
@@ -85,11 +89,13 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                                     height: 40.h,
                                     width: 40.w,
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Icon(
                                           Icons.medical_services,
-                                          color: Color.fromRGBO(46, 130, 139, 1.0),
+                                          color:
+                                              Color.fromRGBO(46, 130, 139, 1.0),
                                         ),
                                       ],
                                     ),
@@ -112,7 +118,11 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                             child: Column(
                               children: [
                                 Card(
-                                  margin: EdgeInsets.only(top: 15.0, left: 20.0,right: 20.0,bottom: 10.0),
+                                  margin: EdgeInsets.only(
+                                      top: 15.0,
+                                      left: 20.0,
+                                      right: 20.0,
+                                      bottom: 10.0),
                                   color: Colors.white,
                                   elevation: 2.0, //shadow
                                   shape: RoundedRectangleBorder(
@@ -122,11 +132,13 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                                     height: 40.h,
                                     width: 40.w,
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Icon(
                                           Icons.handyman,
-                                          color: Color.fromRGBO(46, 130, 139, 1.0),
+                                          color:
+                                              Color.fromRGBO(46, 130, 139, 1.0),
                                         ),
                                       ],
                                     ),
@@ -148,7 +160,11 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                             child: Column(
                               children: [
                                 Card(
-                                  margin: EdgeInsets.only(top: 15.0, left: 20.0,right: 20.0,bottom: 10.0),
+                                  margin: EdgeInsets.only(
+                                      top: 15.0,
+                                      left: 20.0,
+                                      right: 20.0,
+                                      bottom: 10.0),
                                   color: Colors.white,
                                   elevation: 2.0, //shadow
                                   shape: RoundedRectangleBorder(
@@ -158,11 +174,13 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                                     height: 40.h,
                                     width: 40.w,
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Icon(
                                           Icons.clean_hands,
-                                          color: Color.fromRGBO(46, 130, 139, 1.0),
+                                          color:
+                                              Color.fromRGBO(46, 130, 139, 1.0),
                                         ),
                                       ],
                                     ),
@@ -184,7 +202,11 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                             child: Column(
                               children: [
                                 Card(
-                                  margin: EdgeInsets.only(top: 15.0, left: 20.0,right: 20.0,bottom: 10.0),
+                                  margin: EdgeInsets.only(
+                                      top: 15.0,
+                                      left: 20.0,
+                                      right: 20.0,
+                                      bottom: 10.0),
                                   color: Colors.white,
                                   elevation: 2.0, //shadow
                                   shape: RoundedRectangleBorder(
@@ -194,11 +216,13 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                                     height: 40.h,
                                     width: 40.w,
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Icon(
                                           Icons.power,
-                                          color: Color.fromRGBO(46, 130, 139, 1.0),
+                                          color:
+                                              Color.fromRGBO(46, 130, 139, 1.0),
                                         ),
                                       ],
                                     ),
@@ -220,7 +244,11 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                             child: Column(
                               children: [
                                 Card(
-                                  margin: EdgeInsets.only(top: 15.0, left: 20.0,right: 20.0,bottom: 10.0),
+                                  margin: EdgeInsets.only(
+                                      top: 15.0,
+                                      left: 20.0,
+                                      right: 20.0,
+                                      bottom: 10.0),
                                   color: Colors.white,
                                   elevation: 2.0, //shadow
                                   shape: RoundedRectangleBorder(
@@ -230,11 +258,13 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                                     height: 40.h,
                                     width: 40.w,
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Icon(
                                           Icons.medical_services,
-                                          color: Color.fromRGBO(46, 130, 139, 1.0),
+                                          color:
+                                              Color.fromRGBO(46, 130, 139, 1.0),
                                         ),
                                       ],
                                     ),
@@ -256,7 +286,11 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                             child: Column(
                               children: [
                                 Card(
-                                  margin: EdgeInsets.only(top: 15.0, left: 20.0,right: 20.0,bottom: 10.0),
+                                  margin: EdgeInsets.only(
+                                      top: 15.0,
+                                      left: 20.0,
+                                      right: 20.0,
+                                      bottom: 10.0),
                                   color: Colors.white,
                                   elevation: 2.0, //shadow
                                   shape: RoundedRectangleBorder(
@@ -266,11 +300,13 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                                     height: 40.h,
                                     width: 40.w,
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Icon(
                                           Icons.sanitizer,
-                                          color: Color.fromRGBO(46, 130, 139, 1.0),
+                                          color:
+                                              Color.fromRGBO(46, 130, 139, 1.0),
                                         ),
                                       ],
                                     ),
@@ -292,7 +328,11 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                             child: Column(
                               children: [
                                 Card(
-                                  margin: EdgeInsets.only(top: 15.0, left: 20.0,right: 20.0,bottom: 10.0),
+                                  margin: EdgeInsets.only(
+                                      top: 15.0,
+                                      left: 20.0,
+                                      right: 20.0,
+                                      bottom: 10.0),
                                   color: Colors.white,
                                   elevation: 2.0, //shadow
                                   shape: RoundedRectangleBorder(
@@ -302,11 +342,13 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                                     height: 40.h,
                                     width: 40.w,
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Icon(
                                           Icons.masks,
-                                          color: Color.fromRGBO(46, 130, 139, 1.0),
+                                          color:
+                                              Color.fromRGBO(46, 130, 139, 1.0),
                                         ),
                                       ],
                                     ),
@@ -333,7 +375,8 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
                     child: Expanded(
                       child: Container(
                         margin: EdgeInsets.only(top: 10.h, bottom: 10.h),
-                        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 20.w, vertical: 10.h),
                         child: Wrap(
                           crossAxisAlignment: WrapCrossAlignment.center,
                           spacing: 10.0,
@@ -409,9 +452,9 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
               ),
             ),
           ),
-          floatingActionButton: PatientNavBarFloatingButtonCall(
-          ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: PatientNavBarFloatingButtonCall(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
             shape: AutomaticNotchedShape(
               RoundedRectangleBorder(
@@ -500,4 +543,3 @@ class _PatientSelectEachCategories extends State<PatientSelectEachCategories>
     );
   }
 }
-

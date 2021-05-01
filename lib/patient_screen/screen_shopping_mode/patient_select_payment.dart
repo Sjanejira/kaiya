@@ -23,7 +23,7 @@ class _SelectPayment extends State<SelectPayment> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         child: Scaffold(
           body: Center(
             child: Container(
@@ -315,7 +315,8 @@ class _SelectPayment extends State<SelectPayment> {
                                 bottom: 10.0),
                             color: Color.fromRGBO(46, 130, 139, 1),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15.0)),
                             ),
                             child: Text(
                               'CONFIRM',

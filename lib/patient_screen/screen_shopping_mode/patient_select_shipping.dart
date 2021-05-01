@@ -9,10 +9,8 @@ class SelectShipping extends StatefulWidget {
   _SelectShipping createState() => _SelectShipping();
 }
 
-
 class _SelectShipping extends State<SelectShipping> {
   @override
-
   Widget build(BuildContext context) {
     ScreenUtil.init(BoxConstraints(
       maxWidth: MediaQuery.of(context).size.width,
@@ -25,7 +23,7 @@ class _SelectShipping extends State<SelectShipping> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         child: Scaffold(
           body: Center(
             child: Container(
@@ -48,7 +46,7 @@ class _SelectShipping extends State<SelectShipping> {
                             children: [
                               Container(
                                 padding:
-                                EdgeInsets.only(left: 120.0, right: 10.0),
+                                    EdgeInsets.only(left: 120.0, right: 10.0),
                                 child: Text(
                                   'SHIPPING',
                                   textAlign: TextAlign.center,
@@ -70,16 +68,16 @@ class _SelectShipping extends State<SelectShipping> {
                         Container(
                           child: Expanded(
                               child: Container(
-                                margin: EdgeInsets.only(
-                                    top: 20.0,
-                                    left: 20.0,
-                                    right: 20.0,
-                                    bottom: 100.0),
-                                child: Divider(
-                                  color: Color.fromRGBO(193, 193, 193, 1),
-                                  height: 10.0,
-                                ),
-                              )),
+                            margin: EdgeInsets.only(
+                                top: 20.0,
+                                left: 20.0,
+                                right: 20.0,
+                                bottom: 100.0),
+                            child: Divider(
+                              color: Color.fromRGBO(193, 193, 193, 1),
+                              height: 10.0,
+                            ),
+                          )),
                         ),
                         Container(
                           padding: EdgeInsets.only(bottom: 30.0),
@@ -87,7 +85,7 @@ class _SelectShipping extends State<SelectShipping> {
                             children: [
                               Container(
                                 padding:
-                                EdgeInsets.only(bottom: 20.0,right: 50),
+                                    EdgeInsets.only(bottom: 20.0, right: 50),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -113,7 +111,7 @@ class _SelectShipping extends State<SelectShipping> {
                                       padding: EdgeInsets.only(left: 20.0),
                                       child: Column(
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Row(
                                             children: [
@@ -124,13 +122,15 @@ class _SelectShipping extends State<SelectShipping> {
                                                 ),
                                               ),
                                               Container(
-                                                padding: EdgeInsets.only(left: 20.0),
+                                                padding:
+                                                    EdgeInsets.only(left: 20.0),
                                               ),
                                               Text(
                                                 '฿35',
                                                 style: TextStyle(
                                                   fontSize: 12,
-                                                  color: Color.fromRGBO(144, 46, 46, 1),
+                                                  color: Color.fromRGBO(
+                                                      144, 46, 46, 1),
                                                 ),
                                               ),
                                             ],
@@ -141,9 +141,9 @@ class _SelectShipping extends State<SelectShipping> {
                                           Text(
                                             'Receive on this day ',
                                             style: TextStyle(
-                                              fontSize: 10,
-                                              color: Color.fromRGBO(193, 193, 193, 1)
-                                            ),
+                                                fontSize: 10,
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1)),
                                           ),
                                         ],
                                       ),
@@ -153,7 +153,7 @@ class _SelectShipping extends State<SelectShipping> {
                               ),
                               Container(
                                 padding:
-                                EdgeInsets.only(bottom: 20.0,right: 5),
+                                    EdgeInsets.only(bottom: 20.0, right: 5),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -179,7 +179,7 @@ class _SelectShipping extends State<SelectShipping> {
                                       padding: EdgeInsets.only(left: 20.0),
                                       child: Column(
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Row(
                                             children: [
@@ -190,13 +190,15 @@ class _SelectShipping extends State<SelectShipping> {
                                                 ),
                                               ),
                                               Container(
-                                                padding: EdgeInsets.only(left: 20.0),
+                                                padding:
+                                                    EdgeInsets.only(left: 20.0),
                                               ),
                                               Text(
                                                 '฿30',
                                                 style: TextStyle(
                                                   fontSize: 12,
-                                                  color: Color.fromRGBO(144, 46, 46, 1),
+                                                  color: Color.fromRGBO(
+                                                      144, 46, 46, 1),
                                                 ),
                                               ),
                                             ],
@@ -208,8 +210,8 @@ class _SelectShipping extends State<SelectShipping> {
                                             'Receive in 3-7 days',
                                             style: TextStyle(
                                                 fontSize: 10,
-                                                color: Color.fromRGBO(193, 193, 193, 1)
-                                            ),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1)),
                                           ),
                                         ],
                                       ),
@@ -219,7 +221,7 @@ class _SelectShipping extends State<SelectShipping> {
                               ),
                               Container(
                                 padding:
-                                EdgeInsets.only(bottom: 20.0,right: 27),
+                                    EdgeInsets.only(bottom: 20.0, right: 27),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -245,7 +247,7 @@ class _SelectShipping extends State<SelectShipping> {
                                       padding: EdgeInsets.only(left: 20.0),
                                       child: Column(
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Row(
                                             children: [
@@ -256,13 +258,15 @@ class _SelectShipping extends State<SelectShipping> {
                                                 ),
                                               ),
                                               Container(
-                                                padding: EdgeInsets.only(left: 20.0),
+                                                padding:
+                                                    EdgeInsets.only(left: 20.0),
                                               ),
                                               Text(
                                                 '฿50',
                                                 style: TextStyle(
                                                   fontSize: 12,
-                                                  color: Color.fromRGBO(144, 46, 46, 1),
+                                                  color: Color.fromRGBO(
+                                                      144, 46, 46, 1),
                                                 ),
                                               ),
                                             ],
@@ -274,8 +278,8 @@ class _SelectShipping extends State<SelectShipping> {
                                             'Receive in 1-3 days  ',
                                             style: TextStyle(
                                                 fontSize: 10,
-                                                color: Color.fromRGBO(193, 193, 193, 1)
-                                            ),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1)),
                                           ),
                                         ],
                                       ),
@@ -285,7 +289,7 @@ class _SelectShipping extends State<SelectShipping> {
                               ),
                               Container(
                                 padding:
-                                EdgeInsets.only(bottom: 20.0,right: 90),
+                                    EdgeInsets.only(bottom: 20.0, right: 90),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -311,7 +315,7 @@ class _SelectShipping extends State<SelectShipping> {
                                       padding: EdgeInsets.only(left: 20.0),
                                       child: Column(
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Row(
                                             children: [
@@ -322,13 +326,15 @@ class _SelectShipping extends State<SelectShipping> {
                                                 ),
                                               ),
                                               Container(
-                                                padding: EdgeInsets.only(left: 20.0),
+                                                padding:
+                                                    EdgeInsets.only(left: 20.0),
                                               ),
                                               Text(
                                                 '฿40',
                                                 style: TextStyle(
                                                   fontSize: 12,
-                                                  color: Color.fromRGBO(144, 46, 46, 1),
+                                                  color: Color.fromRGBO(
+                                                      144, 46, 46, 1),
                                                 ),
                                               ),
                                             ],
@@ -340,8 +346,8 @@ class _SelectShipping extends State<SelectShipping> {
                                             'Receive in 1-3 days  ',
                                             style: TextStyle(
                                                 fontSize: 10,
-                                                color: Color.fromRGBO(193, 193, 193, 1)
-                                            ),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1)),
                                           ),
                                         ],
                                       ),
@@ -360,7 +366,8 @@ class _SelectShipping extends State<SelectShipping> {
                                       bottom: 10.0),
                                   color: Color.fromRGBO(46, 130, 139, 1),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(15.0)),
                                   ),
                                   child: Text(
                                     'CONFIRM',
@@ -373,7 +380,6 @@ class _SelectShipping extends State<SelectShipping> {
                             ],
                           ),
                         ),
-
                       ],
                     )),
               ),

@@ -32,22 +32,16 @@ class _ShoppingHistory extends State<ShoppingHistory>
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(BoxConstraints(
-      maxWidth: MediaQuery
-          .of(context)
-          .size
-          .width,
+      maxWidth: MediaQuery.of(context).size.width,
       minWidth: 0,
-      maxHeight: MediaQuery
-          .of(context)
-          .size
-          .height,
+      maxHeight: MediaQuery.of(context).size.height,
       minHeight: 0,
     ));
 
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -90,9 +84,9 @@ class _ShoppingHistory extends State<ShoppingHistory>
               ),
             ),
           ),
-          floatingActionButton: PatientNavBarFloatingButtonCall(
-          ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: PatientNavBarFloatingButtonCall(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
             shape: AutomaticNotchedShape(
               RoundedRectangleBorder(
