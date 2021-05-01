@@ -21,7 +21,7 @@ class _PharmaPage extends State<PharmaPage> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -40,8 +40,10 @@ class _PharmaPage extends State<PharmaPage> {
               style: TextStyle(color: Color.fromRGBO(46, 130, 139, 1)),
             ),
             actions: [
-              Icon(CupertinoIcons.bag,
-              color: Color.fromRGBO(193, 193, 193, 1),)
+              Icon(
+                CupertinoIcons.bag,
+                color: Color.fromRGBO(193, 193, 193, 1),
+              )
             ],
           ),
           body: SingleChildScrollView(
@@ -127,23 +129,24 @@ class _PharmaPage extends State<PharmaPage> {
                                   Container(
                                     margin: EdgeInsets.only(left: 20),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                       children: [
                                         Container(
                                           child: Icon(
                                             CupertinoIcons.time,
                                             color:
-                                            Color.fromRGBO(46, 130, 139, 1),
+                                                Color.fromRGBO(46, 130, 139, 1),
                                           ),
                                         ),
                                         Container(
                                           child: Text(
                                             '29 mins',
                                             style: TextStyle(
-                                              color:
-                                              Color.fromRGBO(46, 130, 139, 1),
+                                              color: Color.fromRGBO(
+                                                  46, 130, 139, 1),
                                             ),
                                           ),
                                         ),
@@ -153,23 +156,24 @@ class _PharmaPage extends State<PharmaPage> {
                                   Container(
                                     margin: EdgeInsets.only(left: 10),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                       children: [
                                         Container(
                                           child: Icon(
                                             CupertinoIcons.location_solid,
                                             color:
-                                            Color.fromRGBO(46, 130, 139, 1),
+                                                Color.fromRGBO(46, 130, 139, 1),
                                           ),
                                         ),
                                         Container(
                                           child: Text(
                                             '2.1 km.',
                                             style: TextStyle(
-                                              color:
-                                              Color.fromRGBO(46, 130, 139, 1),
+                                              color: Color.fromRGBO(
+                                                  46, 130, 139, 1),
                                             ),
                                           ),
                                         ),
@@ -179,23 +183,24 @@ class _PharmaPage extends State<PharmaPage> {
                                   Container(
                                     margin: EdgeInsets.only(left: 10),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                       children: [
                                         Container(
                                           child: Icon(
                                             Icons.local_shipping_outlined,
                                             color:
-                                            Color.fromRGBO(46, 130, 139, 1),
+                                                Color.fromRGBO(46, 130, 139, 1),
                                           ),
                                         ),
                                         Container(
                                           child: Text(
                                             '฿20',
                                             style: TextStyle(
-                                              color:
-                                              Color.fromRGBO(46, 130, 139, 1),
+                                              color: Color.fromRGBO(
+                                                  46, 130, 139, 1),
                                             ),
                                           ),
                                         ),
@@ -286,19 +291,20 @@ class _PharmaPage extends State<PharmaPage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 20,top: 20),
+                  margin: EdgeInsets.only(left: 20, top: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text('Product',
+                      Text(
+                        'Product',
                         style: TextStyle(
                             color: Color.fromRGBO(193, 193, 193, 1),
                             fontSize: 13,
-                            fontWeight: FontWeight.w600
-                        ),),
+                            fontWeight: FontWeight.w600),
+                      ),
                       Container(
-                        margin: EdgeInsets.only(top: 5, bottom: 5,right: 20),
+                        margin: EdgeInsets.only(top: 5, bottom: 5, right: 20),
                         child: Divider(
                           thickness: 1,
                         ),

@@ -30,135 +30,137 @@ class _PatientAddress extends State<PatientAddress>
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
-            appBar: AppBar(
-              leading: Container(
-                padding: EdgeInsets.only(left: 30.w),
+          appBar: AppBar(
+            leading: Container(
+              padding: EdgeInsets.only(left: 30.w),
+              child: Icon(
+                Icons.arrow_back_ios,
+                color: Color.fromRGBO(193, 193, 193, 1),
+              ),
+            ),
+            brightness: Brightness.light,
+            title: const Text(
+              'Edit Address',
+              style: TextStyle(color: Color.fromRGBO(19, 65, 83, 1.0)),
+            ),
+            backgroundColor: Colors.white,
+            centerTitle: true,
+            elevation: 8.0,
+            actions: [
+              Container(
+                padding: EdgeInsets.only(right: 30.w),
                 child: Icon(
-                  Icons.arrow_back_ios,
+                  Icons.add,
                   color: Color.fromRGBO(193, 193, 193, 1),
                 ),
-              ),
-              brightness: Brightness.light,
-              title: const Text(
-                'Edit Address',
-                style: TextStyle(color: Color.fromRGBO(19, 65, 83, 1.0)),
-              ),
-              backgroundColor: Colors.white,
-              centerTitle: true,
-              elevation: 8.0,
-              actions: [
+              )
+            ],
+          ),
+          body: Container(
+            color: Color.fromRGBO(250, 250, 250, 1),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
                 Container(
-                  padding: EdgeInsets.only(right: 30.w),
-                  child: Icon(
-                    Icons.add,
-                    color: Color.fromRGBO(193, 193, 193, 1),
+                  padding: EdgeInsets.only(top: 30),
+                ),
+                Container(
+                  color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.only(left: 30.w, top: 10.w),
+                                child: Text(
+                                  "Ravichaya  Ruenrom",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.only(left: 10.w, top: 10.w),
+                                child: Text(
+                                  '0635955499',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 8,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.only(left: 25.w, top: 10.w),
+                                child: Text('15/67 Liab Expressway Road,'),
+                              ),
+                              Container(
+                                padding: EdgeInsets.only(left: 25.w),
+                                child: Text('Thung Khru, Bangkok'),
+                              ),
+                              Container(
+                                padding:
+                                    EdgeInsets.only(left: 25.w, bottom: 20.w),
+                                child: Text('10140'),
+                              ),
+                              Container(
+                                padding:
+                                    EdgeInsets.only(left: 25.w, bottom: 10.w),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.check_circle,
+                                      color: Color.fromRGBO(46, 130, 139, 1),
+                                      size: 18,
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.only(left: 5),
+                                      child: Text(
+                                        'Default',
+                                        style: TextStyle(
+                                          fontSize: 10,
+                                          color:
+                                              Color.fromRGBO(46, 130, 139, 1),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(right: 20.w),
+                        child: Icon(
+                          CupertinoIcons.right_chevron,
+                          color: Color.fromRGBO(193, 193, 193, 1),
+                        ),
+                      ),
+                    ],
                   ),
-                )
+                ),
               ],
             ),
-            body: Container(
-              color: Color.fromRGBO(250, 250, 250, 1),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(top: 30),
-                  ),
-                  Container(
-                    color: Colors.white,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  padding:
-                                      EdgeInsets.only(left: 30.w, top: 10.w),
-                                  child: Text(
-                                    "Ravichaya  Ruenrom",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  padding:
-                                      EdgeInsets.only(left: 10.w, top: 10.w),
-                                  child: Text(
-                                    '0635955499',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 8,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  padding:
-                                      EdgeInsets.only(left: 25.w, top: 10.w),
-                                  child: Text('15/67 Liab Expressway Road,'),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(left: 25.w),
-                                  child: Text('Thung Khru, Bangkok'),
-                                ),
-                                Container(
-                                  padding:
-                                      EdgeInsets.only(left: 25.w, bottom: 20.w),
-                                  child: Text('10140'),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(left: 25.w,bottom: 10.w),
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle,
-                                        color: Color.fromRGBO(46, 130, 139, 1),
-                                        size: 18,
-                                      ),
-                                      Container(
-                                        padding: EdgeInsets.only(left: 5),
-                                        child: Text('Default',style: TextStyle(
-                                          fontSize: 10,
-                                          color: Color.fromRGBO(46, 130, 139, 1),
-                                        ),),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(right: 20.w),
-                          child: Icon(
-                            CupertinoIcons.right_chevron,
-                            color: Color.fromRGBO(193, 193, 193, 1),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          floatingActionButton: PatientNavBarFloatingButtonCall(
           ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: PatientNavBarFloatingButtonCall(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
             shape: AutomaticNotchedShape(
               RoundedRectangleBorder(
@@ -242,8 +244,8 @@ class _PatientAddress extends State<PatientAddress>
               ),
             ),
           ),
-            //nev bar
-            ),
+          //nev bar
+        ),
       ),
     );
   }

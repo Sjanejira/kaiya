@@ -21,7 +21,7 @@ class _Ordermore extends State<Ordermore> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(
@@ -53,8 +53,7 @@ class _Ordermore extends State<Ordermore> {
                         height: 60,
                         decoration: BoxDecoration(
                           image: const DecorationImage(
-                            image: AssetImage(
-                                'asset/bioc.png'),
+                            image: AssetImage('asset/bioc.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -68,20 +67,23 @@ class _Ordermore extends State<Ordermore> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
-                                child: Text('฿700',style: TextStyle(
-                                  color: Color.fromRGBO(193, 193, 193, 1)
-                                ),),
+                                child: Text(
+                                  '฿700',
+                                  style: TextStyle(
+                                      color: Color.fromRGBO(193, 193, 193, 1)),
+                                ),
                               ),
                               Container(
                                 margin: EdgeInsets.only(left: 10),
-                                child: Text('฿650',style: TextStyle(
-                                    color: Color.fromRGBO(144, 46, 46, 1)
-                                ),),
+                                child: Text(
+                                  '฿650',
+                                  style: TextStyle(
+                                      color: Color.fromRGBO(144, 46, 46, 1)),
+                                ),
                               ),
                               Container(
                                 child: Row(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Container(
                                       margin: EdgeInsets.only(left: 80),
@@ -89,17 +91,16 @@ class _Ordermore extends State<Ordermore> {
                                       height: 25,
                                       decoration: BoxDecoration(
                                         image: const DecorationImage(
-                                          image: AssetImage(
-                                              'asset/Group 495.png'),
+                                          image:
+                                              AssetImage('asset/Group 495.png'),
                                           fit: BoxFit.fitHeight,
                                         ),
-                                        borderRadius:
-                                        BorderRadius.circular(50),
+                                        borderRadius: BorderRadius.circular(50),
                                       ),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(
-                                          left: 3, right: 3),
+                                      margin:
+                                          EdgeInsets.only(left: 3, right: 3),
                                       child: Text('1'),
                                     ),
                                     Container(
@@ -107,12 +108,11 @@ class _Ordermore extends State<Ordermore> {
                                       height: 25,
                                       decoration: BoxDecoration(
                                         image: const DecorationImage(
-                                          image: AssetImage(
-                                              'asset/Group 494.png'),
+                                          image:
+                                              AssetImage('asset/Group 494.png'),
                                           fit: BoxFit.fitHeight,
                                         ),
-                                        borderRadius:
-                                        BorderRadius.circular(50),
+                                        borderRadius: BorderRadius.circular(50),
                                       ),
                                     ),
                                   ],
@@ -165,10 +165,8 @@ class _Ordermore extends State<Ordermore> {
                           children: [
                             Text(
                               'ADD',
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.white
-                              ),
+                              style:
+                                  TextStyle(fontSize: 12, color: Colors.white),
                             ),
                           ],
                         ),

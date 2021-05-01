@@ -21,7 +21,7 @@ class _PharmaInfo extends State<PharmaInfo> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(

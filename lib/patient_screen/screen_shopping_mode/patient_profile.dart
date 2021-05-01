@@ -26,7 +26,7 @@ class _PatientProfile extends State<PatientProfile>
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -130,7 +130,11 @@ class _PatientProfile extends State<PatientProfile>
                           Stack(
                             children: [
                               Container(
-                                padding: EdgeInsets.only(top: 6.w,bottom: 6.w,right: 6.w,left: 10.w),
+                                padding: EdgeInsets.only(
+                                    top: 6.w,
+                                    bottom: 6.w,
+                                    right: 6.w,
+                                    left: 10.w),
                                 child: Column(
                                   children: [
                                     Icon(
@@ -156,8 +160,7 @@ class _PatientProfile extends State<PatientProfile>
                                   child: Text(
                                     "2",
                                     style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 12),
+                                        color: Colors.white, fontSize: 12),
                                   ),
                                 ),
                               )
@@ -192,8 +195,7 @@ class _PatientProfile extends State<PatientProfile>
                                   child: Text(
                                     "1",
                                     style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 12),
+                                        color: Colors.white, fontSize: 12),
                                   ),
                                 ),
                               )
@@ -228,8 +230,10 @@ class _PatientProfile extends State<PatientProfile>
                                       shape: BoxShape.circle),
                                   child: Text(
                                     "1",
-                                    style: TextStyle(color: Colors.white,
-                                    fontSize: 12,),
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                    ),
                                   ),
                                 ),
                               )
@@ -376,9 +380,9 @@ class _PatientProfile extends State<PatientProfile>
               ),
             ],
           ),
-          floatingActionButton: PatientNavBarFloatingButtonCall(
-          ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: PatientNavBarFloatingButtonCall(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
             shape: AutomaticNotchedShape(
               RoundedRectangleBorder(

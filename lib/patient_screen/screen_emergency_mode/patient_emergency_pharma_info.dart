@@ -21,7 +21,7 @@ class _EmergencyPharmaInfo extends State<EmergencyPharmaInfo> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -172,7 +172,7 @@ class _EmergencyPharmaInfo extends State<EmergencyPharmaInfo> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 20,top: 10),
+                    margin: EdgeInsets.only(left: 20, top: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -203,8 +203,11 @@ class _EmergencyPharmaInfo extends State<EmergencyPharmaInfo> {
                               fontSize: 15),
                         ),
                         Container(
-                            margin: EdgeInsets.only(top: 5),
-                            child: Text('Everyday :  9.00 am - 9.00 pm',),),
+                          margin: EdgeInsets.only(top: 5),
+                          child: Text(
+                            'Everyday :  9.00 am - 9.00 pm',
+                          ),
+                        ),
                       ],
                     ),
                   )

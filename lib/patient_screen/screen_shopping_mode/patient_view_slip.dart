@@ -9,20 +9,13 @@ class ViewSlip extends StatefulWidget {
   _ViewSlip createState() => _ViewSlip();
 }
 
-
 class _ViewSlip extends State<ViewSlip> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(BoxConstraints(
-      maxWidth: MediaQuery
-          .of(context)
-          .size
-          .width,
+      maxWidth: MediaQuery.of(context).size.width,
       minWidth: 0,
-      maxHeight: MediaQuery
-          .of(context)
-          .size
-          .height,
+      maxHeight: MediaQuery.of(context).size.height,
       minHeight: 0,
     ));
 
@@ -30,11 +23,10 @@ class _ViewSlip extends State<ViewSlip> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         child: Scaffold(
           body: Center(
             child: Container(
-
               child: Card(
                 color: Colors.white,
                 elevation: 5.0,
@@ -54,7 +46,7 @@ class _ViewSlip extends State<ViewSlip> {
                             children: [
                               Container(
                                 padding:
-                                EdgeInsets.only(left: 120.0, right: 10.0),
+                                    EdgeInsets.only(left: 120.0, right: 10.0),
                                 child: Text(
                                   'SLIP PAYMENT',
                                   textAlign: TextAlign.center,
@@ -65,7 +57,8 @@ class _ViewSlip extends State<ViewSlip> {
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.only(left: 70.0,right: 20.0),
+                                padding:
+                                    EdgeInsets.only(left: 70.0, right: 20.0),
                                 child: Icon(
                                   Icons.close,
                                 ),
@@ -76,16 +69,16 @@ class _ViewSlip extends State<ViewSlip> {
                         Container(
                           child: Expanded(
                               child: Container(
-                                margin: EdgeInsets.only(
-                                    top: 20.0,
-                                    left: 20.0,
-                                    right: 20.0,
-                                    bottom: 100.0),
-                                child: Divider(
-                                  color: Color.fromRGBO(193, 193, 193, 1),
-                                  height: 10.0,
-                                ),
-                              )),
+                            margin: EdgeInsets.only(
+                                top: 20.0,
+                                left: 20.0,
+                                right: 20.0,
+                                bottom: 100.0),
+                            child: Divider(
+                              color: Color.fromRGBO(193, 193, 193, 1),
+                              height: 10.0,
+                            ),
+                          )),
                         ),
                         Container(
                           padding: EdgeInsets.only(bottom: 40.0),
@@ -99,21 +92,19 @@ class _ViewSlip extends State<ViewSlip> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Container(
-
                                       child: Image(
                                         //bank pic
-                                        image: AssetImage('asset/Slip for project.png'),
+                                        image: AssetImage(
+                                            'asset/Slip for project.png'),
                                         fit: BoxFit.fill,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-
                             ],
                           ),
                         ),
-
                       ],
                     )),
               ),

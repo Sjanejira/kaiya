@@ -6,7 +6,6 @@ import 'package:kaiya/patient_widget/card_product_widget.dart';
 import 'package:kaiya/patient_widget//navbar/patient_navBar.dart';
 import 'package:kaiya/patient_widget//navbar/patient_navBarFloatinButton.dart';
 
-
 class PatientSeeAllProduct extends StatefulWidget {
   static const String id = 'patient_all_product_list';
 
@@ -27,7 +26,7 @@ class _PatientSeeAllProduct extends State<PatientSeeAllProduct>
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -47,8 +46,7 @@ class _PatientSeeAllProduct extends State<PatientSeeAllProduct>
             actions: <Widget>[
               IconButton(
                 icon: const Icon(CupertinoIcons.search,
-                    size: 35.0,
-                    color: Colors.grey),
+                    size: 35.0, color: Colors.grey),
               ),
               IconButton(
                 icon: const Icon(
@@ -135,9 +133,9 @@ class _PatientSeeAllProduct extends State<PatientSeeAllProduct>
               ),
             ),
           ),
-          floatingActionButton: PatientNavBarFloatingButtonCall(
-          ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: PatientNavBarFloatingButtonCall(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
             shape: AutomaticNotchedShape(
               RoundedRectangleBorder(
@@ -226,4 +224,3 @@ class _PatientSeeAllProduct extends State<PatientSeeAllProduct>
     );
   }
 }
-

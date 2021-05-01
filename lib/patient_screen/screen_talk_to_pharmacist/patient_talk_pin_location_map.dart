@@ -7,7 +7,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:kaiya/patient_widget/google_map.dart';
 
-
 class PinOnGGMap extends StatefulWidget {
   static const String id = 'patient_pin_location_on_ggmap';
 
@@ -28,7 +27,7 @@ class _PinOnGGMap extends State<PinOnGGMap> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         child: Scaffold(
           appBar: AppBar(
             leading: Icon(
