@@ -22,7 +22,7 @@ class _Login extends State<Login> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         child: Scaffold(
           body: Center(
             child: Column(
@@ -227,7 +227,7 @@ class _Login extends State<Login> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              margin: EdgeInsets.only(left:35,right: 10),
+                              margin: EdgeInsets.only(left: 35, right: 10),
                               width: 20,
                               height: 20,
                               decoration: BoxDecoration(
@@ -265,7 +265,7 @@ class _Login extends State<Login> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              margin: EdgeInsets.only(left:35,right: 10),
+                              margin: EdgeInsets.only(left: 35, right: 10),
                               width: 20,
                               height: 20,
                               decoration: BoxDecoration(

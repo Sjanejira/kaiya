@@ -21,7 +21,7 @@ class _ChatNoMore extends State<ChatNoMore> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(
@@ -92,7 +92,7 @@ class _ChatNoMore extends State<ChatNoMore> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
@@ -108,7 +108,7 @@ class _ChatNoMore extends State<ChatNoMore> {
                                       'x1',
                                       style: TextStyle(
                                           color:
-                                          Color.fromRGBO(193, 193, 193, 1)),
+                                              Color.fromRGBO(193, 193, 193, 1)),
                                     ),
                                   ),
                                 ],
@@ -121,7 +121,7 @@ class _ChatNoMore extends State<ChatNoMore> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
@@ -210,9 +210,7 @@ class _ChatNoMore extends State<ChatNoMore> {
                                   Text(
                                     'PAY',
                                     style: TextStyle(
-                                        fontSize: 10,
-                                        color: Colors.white
-                                    ),
+                                        fontSize: 10, color: Colors.white),
                                   ),
                                 ],
                               ),
@@ -268,7 +266,7 @@ class _ChatNoMore extends State<ChatNoMore> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
@@ -284,7 +282,7 @@ class _ChatNoMore extends State<ChatNoMore> {
                                       'x1',
                                       style: TextStyle(
                                           color:
-                                          Color.fromRGBO(193, 193, 193, 1)),
+                                              Color.fromRGBO(193, 193, 193, 1)),
                                     ),
                                   ),
                                 ],
@@ -297,7 +295,7 @@ class _ChatNoMore extends State<ChatNoMore> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(

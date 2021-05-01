@@ -27,364 +27,362 @@ class _PatientEditAddress extends State<PatientEditAddress>
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
-            appBar: AppBar(
-              leading: Container(
-                padding: EdgeInsets.only(left: 30.w),
+          appBar: AppBar(
+            leading: Container(
+              padding: EdgeInsets.only(left: 30.w),
+              child: Icon(
+                Icons.arrow_back_ios,
+                color: Color.fromRGBO(193, 193, 193, 1),
+              ),
+            ),
+            brightness: Brightness.light,
+            title: const Text(
+              'Edit Address',
+              style: TextStyle(color: Color.fromRGBO(19, 65, 83, 1.0)),
+            ),
+            backgroundColor: Colors.white,
+            centerTitle: true,
+            elevation: 8.0,
+            actions: [
+              Container(
+                padding: EdgeInsets.only(right: 30.w),
                 child: Icon(
-                  Icons.arrow_back_ios,
+                  Icons.delete_outline,
                   color: Color.fromRGBO(193, 193, 193, 1),
                 ),
-              ),
-              brightness: Brightness.light,
-              title: const Text(
-                'Edit Address',
-                style: TextStyle(color: Color.fromRGBO(19, 65, 83, 1.0)),
-              ),
-              backgroundColor: Colors.white,
-              centerTitle: true,
-              elevation: 8.0,
-              actions: [
+              )
+            ],
+          ),
+          body: Container(
+            color: Color.fromRGBO(250, 250, 250, 1),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
                 Container(
-                  padding: EdgeInsets.only(right: 30.w),
-                  child: Icon(
-                    Icons.delete_outline,
-                    color: Color.fromRGBO(193, 193, 193, 1),
+                  padding: EdgeInsets.only(top: 30),
+                ),
+                Container(
+                  color: Colors.white,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 10.0.h),
+                            padding: EdgeInsets.only(left: 30.0.w),
+                            child: Text(
+                              "Name : ",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin: EdgeInsets.only(top: 10.0.h),
+                              padding: EdgeInsets.only(left: 5.0.w),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "Ravichaya Ruenrom"),
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        color: Colors.white,
+                        padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                        child: Divider(
+                          thickness: 1,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 10.0.h),
+                            padding: EdgeInsets.only(left: 30.0.w),
+                            child: Text(
+                              "Phone : ",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin: EdgeInsets.only(top: 10.0.h),
+                              padding: EdgeInsets.only(left: 5.0.w),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "0635955499"),
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        color: Colors.white,
+                        padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                        child: Divider(
+                          thickness: 1,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 10.0.h),
+                            padding: EdgeInsets.only(left: 30.0.w),
+                            child: Text(
+                              "Address : ",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin: EdgeInsets.only(top: 10.0.h),
+                              padding: EdgeInsets.only(left: 5.0.w),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "15/67 Liab Expressway Road"),
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        color: Colors.white,
+                        padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                        child: Divider(
+                          thickness: 1,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            margin:
+                                EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
+                            padding: EdgeInsets.only(left: 30.0.w),
+                            child: Text(
+                              "District : ",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                              ),
+                            ),
+                          ),
+                          Flexible(
+                            child: Container(
+                              padding: EdgeInsets.only(left: 1.w, top: 2.h),
+                              child: RaisedButton(
+                                elevation: 0,
+                                color: Colors.white,
+                                onPressed: showPicker,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Thung Kri",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: 12),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.only(left: 5),
+                                      child: Icon(
+                                        CupertinoIcons.chevron_right,
+                                        color: Colors.grey[350],
+                                        size: 15,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        color: Colors.white,
+                        padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                        child: Divider(
+                          thickness: 1,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            margin:
+                                EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
+                            padding: EdgeInsets.only(left: 30.0.w),
+                            child: Text(
+                              "Province : ",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                              ),
+                            ),
+                          ),
+                          Flexible(
+                            child: Container(
+                              padding: EdgeInsets.only(left: 1.w, top: 2.h),
+                              child: RaisedButton(
+                                elevation: 0,
+                                color: Colors.white,
+                                onPressed: showPicker,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Bangkok",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: 12),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.only(left: 5),
+                                      child: Icon(
+                                        CupertinoIcons.chevron_right,
+                                        color: Colors.grey[350],
+                                        size: 15,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        color: Colors.white,
+                        padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                        child: Divider(
+                          thickness: 1,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 10.0.h),
+                            padding: EdgeInsets.only(left: 30.0.w),
+                            child: Text(
+                              "Zip Code : ",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin: EdgeInsets.only(top: 10.0.h),
+                              padding: EdgeInsets.only(left: 5.0.w),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "10140"),
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        color: Colors.white,
+                        padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                        child: Divider(
+                          thickness: 1,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.only(top: 20),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10.0.h),
+                            padding: EdgeInsets.only(right: 160.0.w),
+                            child: Text(
+                              "Set Default ",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: Color.fromRGBO(19, 65, 83, 1),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10.0.h),
+                            padding: EdgeInsets.only(right: 20.0.w),
+                            child: CupertinoSwitch(
+                              activeColor: Color.fromRGBO(46, 130, 139, 1),
+                              value: _blue,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  _blue = value;
+                                });
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 20.h, bottom: 10.h),
+                        child: RaisedButton(
+                          onPressed: () {},
+                          padding: EdgeInsets.only(
+                              left: 30.0, right: 30.0, top: 10.0, bottom: 10.0),
+                          color: Color.fromRGBO(46, 130, 139, 1),
+                          shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15.0)),
+                          ),
+                          child: Text(
+                            'DONE',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                )
+                ),
               ],
             ),
-            body: Container(
-              color: Color.fromRGBO(250, 250, 250, 1),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(top: 30),
-                  ),
-                  Container(
-                    color: Colors.white,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10.0.h),
-                              padding: EdgeInsets.only(left: 30.0.w),
-                              child: Text(
-                                "Name : ",
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  color: Color.fromRGBO(46, 130, 139, 1),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(top: 10.0.h),
-                                padding: EdgeInsets.only(left: 5.0.w),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      hintText: "Ravichaya Ruenrom"),
-                                  style: TextStyle(
-                                    fontSize: 12.sp,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          color: Colors.white,
-                          padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                          child: Divider(
-                            thickness: 1,
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10.0.h),
-                              padding: EdgeInsets.only(left: 30.0.w),
-                              child: Text(
-                                "Phone : ",
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  color: Color.fromRGBO(46, 130, 139, 1),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(top: 10.0.h),
-                                padding: EdgeInsets.only(left: 5.0.w),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none, hintText: "0635955499"),
-                                  style: TextStyle(
-                                    fontSize: 12.sp,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          color: Colors.white,
-                          padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                          child: Divider(
-                            thickness: 1,
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10.0.h),
-                              padding: EdgeInsets.only(left: 30.0.w),
-                              child: Text(
-                                "Address : ",
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  color: Color.fromRGBO(46, 130, 139, 1),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(top: 10.0.h),
-                                padding: EdgeInsets.only(left: 5.0.w),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none, hintText: "15/67 Liab Expressway Road"),
-                                  style: TextStyle(
-                                    fontSize: 12.sp,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          color: Colors.white,
-                          padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                          child: Divider(
-                            thickness: 1,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                              margin:
-                                  EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
-                              padding: EdgeInsets.only(left: 30.0.w),
-                              child: Text(
-                                "District : ",
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  color: Color.fromRGBO(46, 130, 139, 1),
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Container(
-                                padding: EdgeInsets.only(left: 1.w, top: 2.h),
-                                child: RaisedButton(
-                                  elevation: 0,
-                                  color: Colors.white,
-                                  onPressed: showPicker,
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "Thung Kri",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w300,
-                                            fontSize: 12),
-                                      ),
-                                      Container(
-                                        padding: EdgeInsets.only(left: 5),
-                                        child: Icon(
-                                          CupertinoIcons.chevron_right,
-                                          color: Colors.grey[350],
-                                          size: 15,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          color: Colors.white,
-                          padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                          child: Divider(
-                            thickness: 1,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                              margin:
-                                  EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
-                              padding: EdgeInsets.only(left: 30.0.w),
-                              child: Text(
-                                "Province : ",
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  color: Color.fromRGBO(46, 130, 139, 1),
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Container(
-                                padding: EdgeInsets.only(left: 1.w, top: 2.h),
-                                child: RaisedButton(
-                                  elevation: 0,
-                                  color: Colors.white,
-                                  onPressed: showPicker,
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "Bangkok",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w300,
-                                            fontSize: 12),
-                                      ),
-                                      Container(
-                                        padding: EdgeInsets.only(left: 5),
-                                        child: Icon(
-                                          CupertinoIcons.chevron_right,
-                                          color: Colors.grey[350],
-                                          size: 15,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          color: Colors.white,
-                          padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                          child: Divider(
-                            thickness: 1,
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10.0.h),
-                              padding: EdgeInsets.only(left: 30.0.w),
-                              child: Text(
-                                "Zip Code : ",
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  color: Color.fromRGBO(46, 130, 139, 1),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(top: 10.0.h),
-                                padding: EdgeInsets.only(left: 5.0.w),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none, hintText: "10140"),
-                                  style: TextStyle(
-                                    fontSize: 12.sp,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          color: Colors.white,
-                          padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                          child: Divider(
-                            thickness: 1,
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.only(top: 20),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 10.0.h),
-                              padding: EdgeInsets.only(right: 160.0.w),
-                              child: Text(
-                                "Set Default ",
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  color: Color.fromRGBO(19, 65, 83, 1),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 10.0.h),
-                              padding: EdgeInsets.only(right: 20.0.w),
-                              child: CupertinoSwitch(
-                                activeColor: Color.fromRGBO(46, 130, 139, 1),
-                                value: _blue,
-                                onChanged: (bool value) {
-                                  setState(() {
-                                    _blue = value;
-                                  });
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 20.h, bottom: 10.h),
-                          child: RaisedButton(
-                            onPressed: () {},
-                            padding: EdgeInsets.only(
-                                left: 30.0,
-                                right: 30.0,
-                                top: 10.0,
-                                bottom: 10.0),
-                            color: Color.fromRGBO(46, 130, 139, 1),
-                            shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(15.0)),
-                            ),
-                            child: Text(
-                              'DONE',
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          floatingActionButton: PatientNavBarFloatingButtonCall(
           ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: PatientNavBarFloatingButtonCall(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
             shape: AutomaticNotchedShape(
               RoundedRectangleBorder(
@@ -468,8 +466,8 @@ class _PatientEditAddress extends State<PatientEditAddress>
               ),
             ),
           ),
-            //nev bar
-            ),
+          //nev bar
+        ),
       ),
     );
   }

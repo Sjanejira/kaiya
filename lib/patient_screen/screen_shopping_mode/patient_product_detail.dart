@@ -18,41 +18,41 @@ final List<String> imgList = [
 
 final List<Widget> imageSliders = imgList
     .map((item) => Container(
-  child: Container(
-    child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-        child: Stack(
-          children: <Widget>[
-            Container(
-              alignment: Alignment.center,
-              child: Image.network(
-                item,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                margin: EdgeInsets.only(bottom: 5.h),
-                decoration: BoxDecoration(
-                    color: Color.fromRGBO(226, 226, 226, 1),
-                    borderRadius:
-                    BorderRadius.all(Radius.circular(20.0))),
-                padding: EdgeInsets.symmetric(
-                    vertical: 5.h, horizontal: 10.0.w),
-                child: Text(
-                  '${imgList.indexOf(item).toInt() + 1} / ${imgList.length}',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 6.sp,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        )),
-  ),
-))
+          child: Container(
+            child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                child: Stack(
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.center,
+                      child: Image.network(
+                        item,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 5.h),
+                        decoration: BoxDecoration(
+                            color: Color.fromRGBO(226, 226, 226, 1),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20.0))),
+                        padding: EdgeInsets.symmetric(
+                            vertical: 5.h, horizontal: 10.0.w),
+                        child: Text(
+                          '${imgList.indexOf(item).toInt() + 1} / ${imgList.length}',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 6.sp,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
+          ),
+        ))
     .toList();
 
 class _PatientProductDetail extends State<PatientProductDetail> {
@@ -69,7 +69,7 @@ class _PatientProductDetail extends State<PatientProductDetail> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -169,17 +169,17 @@ class _PatientProductDetail extends State<PatientProductDetail> {
                   ),
                   Container(
                     padding:
-                    EdgeInsets.only(left: 30.0.w, top: 7.h, bottom: 7.h),
+                        EdgeInsets.only(left: 30.0.w, top: 7.h, bottom: 7.h),
                     color: Colors.white,
                     margin: EdgeInsets.only(top: 10.h),
                     child: Row(
                       children: [
                         Container(
                             child: Icon(
-                              Icons.local_shipping_outlined,
-                              color: Color.fromRGBO(46, 130, 139, 1),
-                              size: 24.0,
-                            )),
+                          Icons.local_shipping_outlined,
+                          color: Color.fromRGBO(46, 130, 139, 1),
+                          size: 24.0,
+                        )),
                         Container(
                           padding: EdgeInsets.only(left: 5.w),
                           child: Text(
@@ -255,7 +255,7 @@ class _PatientProductDetail extends State<PatientProductDetail> {
                             Container(
                               alignment: Alignment.topCenter,
                               margin:
-                              EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
+                                  EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
                               padding: EdgeInsets.only(left: 35.0.w),
                               child: Text(
                                 "Detail : ",
@@ -275,9 +275,9 @@ class _PatientProductDetail extends State<PatientProductDetail> {
                                 ),
                                 child: Text(
                                   "Tylenol Extra Strength caplets with 500mg of acetaminophen"
-                                      "help reduce fever and provide temporary relief of minor aches and pains."
-                                      "From the #1 doctor-recommended brand of pain reliever,"
-                                      "each caplet contains 500 mg of acetaminophen for effective,extra strength pain relief.",
+                                  "help reduce fever and provide temporary relief of minor aches and pains."
+                                  "From the #1 doctor-recommended brand of pain reliever,"
+                                  "each caplet contains 500 mg of acetaminophen for effective,extra strength pain relief.",
                                   maxLines: 10,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
@@ -327,7 +327,7 @@ class _PatientProductDetail extends State<PatientProductDetail> {
                           child: OutlineButton(
                             onPressed: () {
                               Navigator.popUntil(context,
-                                      (Route<dynamic> route) => route.isFirst);
+                                  (Route<dynamic> route) => route.isFirst);
                             },
                             textColor: Color.fromRGBO(46, 130, 139, 1.0),
                             child: Text("Chat"),
@@ -344,7 +344,7 @@ class _PatientProductDetail extends State<PatientProductDetail> {
                           child: OutlineButton(
                             onPressed: () {
                               Navigator.popUntil(context,
-                                      (Route<dynamic> route) => route.isFirst);
+                                  (Route<dynamic> route) => route.isFirst);
                             },
                             textColor: Color.fromRGBO(46, 130, 139, 1.0),
                             child: Text("View Shop"),
@@ -360,8 +360,8 @@ class _PatientProductDetail extends State<PatientProductDetail> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(
-                        left: 35.0.w, top: 10.h, bottom: 5.h),
+                    padding:
+                        EdgeInsets.only(left: 35.0.w, top: 10.h, bottom: 5.h),
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "For Same Shop",
@@ -429,7 +429,7 @@ class _PatientProductDetail extends State<PatientProductDetail> {
                     children: [
                       MaterialButton(
                         minWidth: 60.w,
-                        padding: EdgeInsets.only(left: 30.0,right: 20),
+                        padding: EdgeInsets.only(left: 30.0, right: 20),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -443,7 +443,7 @@ class _PatientProductDetail extends State<PatientProductDetail> {
                       ),
                       MaterialButton(
                         minWidth: 60.w,
-                        padding: EdgeInsets.only(left: 10.0,right: 20.0),
+                        padding: EdgeInsets.only(left: 10.0, right: 20.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -457,39 +457,41 @@ class _PatientProductDetail extends State<PatientProductDetail> {
                       ),
                     ],
                   ),
-                  Row(children: [
-                    Container(
-                      margin: EdgeInsets.only(left: 20.0,right: 20.0),
-                      alignment: Alignment.center,
-                      child: FlatButton(
-                        onPressed: () {
-                          Navigator.popUntil(context,
-                                  (Route<dynamic> route) => route.isFirst);
-                        },
-                        textColor: Colors.white,
-                        child: Text("Add Cart"),
-                        color: Color.fromRGBO(46, 130, 139, 1.0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0.r),
+                  Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 20.0, right: 20.0),
+                        alignment: Alignment.center,
+                        child: FlatButton(
+                          onPressed: () {
+                            Navigator.popUntil(context,
+                                (Route<dynamic> route) => route.isFirst);
+                          },
+                          textColor: Colors.white,
+                          child: Text("Add Cart"),
+                          color: Color.fromRGBO(46, 130, 139, 1.0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0.r),
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      child: FlatButton(
-                        onPressed: () {
-                          Navigator.popUntil(context,
-                                  (Route<dynamic> route) => route.isFirst);
-                        },
-                        textColor: Colors.white,
-                        child: Text("Buy Now"),
-                        color: Color.fromRGBO(16, 65, 83, 1.0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0.r),
+                      Container(
+                        alignment: Alignment.center,
+                        child: FlatButton(
+                          onPressed: () {
+                            Navigator.popUntil(context,
+                                (Route<dynamic> route) => route.isFirst);
+                          },
+                          textColor: Colors.white,
+                          child: Text("Buy Now"),
+                          color: Color.fromRGBO(16, 65, 83, 1.0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0.r),
+                          ),
                         ),
                       ),
-                    ),
-                  ],)
+                    ],
+                  )
                 ],
               ),
             ),
@@ -499,4 +501,3 @@ class _PatientProductDetail extends State<PatientProductDetail> {
     );
   }
 }
-

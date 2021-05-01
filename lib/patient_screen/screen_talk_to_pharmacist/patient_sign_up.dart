@@ -22,7 +22,7 @@ class _Signup extends State<Signup> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         child: Scaffold(
           body: Center(
             child: Column(
@@ -59,10 +59,11 @@ class _Signup extends State<Signup> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              margin: EdgeInsets.only(left: 20),
-                              child: Icon(Icons.arrow_back_ios_outlined,
-                              color: Color.fromRGBO(193, 193, 193, 1),)
-                            ),
+                                margin: EdgeInsets.only(left: 20),
+                                child: Icon(
+                                  Icons.arrow_back_ios_outlined,
+                                  color: Color.fromRGBO(193, 193, 193, 1),
+                                )),
                             Container(
                               margin: EdgeInsets.only(left: 90),
                               child: Text(
@@ -273,7 +274,7 @@ class _Signup extends State<Signup> {
                           color: Color.fromRGBO(46, 130, 139, 1),
                           shape: RoundedRectangleBorder(
                             borderRadius:
-                            BorderRadius.all(Radius.circular(10.0)),
+                                BorderRadius.all(Radius.circular(10.0)),
                           ),
                           child: Text(
                             'Sign Up',

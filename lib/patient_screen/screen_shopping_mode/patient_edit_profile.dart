@@ -30,7 +30,7 @@ class _PatientEditProfile extends State<PatientEditProfile> {
 
     return ScreenUtilInit(
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -146,8 +146,9 @@ class _PatientEditProfile extends State<PatientEditProfile> {
                               children: [
                                 Text(
                                   "October 26, 1998",
-                                  style: TextStyle(fontWeight: FontWeight.w300,
-                                  fontSize: 12),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 12),
                                 ),
                                 Container(
                                   padding: EdgeInsets.only(left: 5),
@@ -191,7 +192,8 @@ class _PatientEditProfile extends State<PatientEditProfile> {
                           padding: EdgeInsets.only(left: 5.0.w),
                           child: TextField(
                             decoration: InputDecoration(
-                                border: InputBorder.none, hintText: "0987654321"),
+                                border: InputBorder.none,
+                                hintText: "0987654321"),
                             style: TextStyle(
                               fontSize: 12.sp,
                             ),
@@ -263,7 +265,8 @@ class _PatientEditProfile extends State<PatientEditProfile> {
                           padding: EdgeInsets.only(left: 5.0.w),
                           child: TextField(
                             decoration: InputDecoration(
-                                border: InputBorder.none, hintText: "Ravichms@hotmail.com"),
+                                border: InputBorder.none,
+                                hintText: "Ravichms@hotmail.com"),
                             style: TextStyle(
                               fontSize: 12.sp,
                             ),
@@ -308,16 +311,12 @@ class _PatientEditProfile extends State<PatientEditProfile> {
                       ),
                     ],
                   ),
-
                   Container(
                     margin: EdgeInsets.only(top: 5.h),
                     child: RaisedButton(
                       onPressed: () {},
                       padding: EdgeInsets.only(
-                          left: 30.0,
-                          right: 30.0,
-                          top: 10.0,
-                          bottom: 10.0),
+                          left: 30.0, right: 30.0, top: 10.0, bottom: 10.0),
                       color: Color.fromRGBO(46, 130, 139, 1),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -335,9 +334,9 @@ class _PatientEditProfile extends State<PatientEditProfile> {
             ),
           ),
           //add nevbar
-          floatingActionButton: PatientNavBarFloatingButtonCall(
-          ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: PatientNavBarFloatingButtonCall(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
             shape: AutomaticNotchedShape(
               RoundedRectangleBorder(

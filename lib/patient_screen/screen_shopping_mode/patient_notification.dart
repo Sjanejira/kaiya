@@ -26,330 +26,330 @@ class _PatientNotification extends State<PatientNotification>
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
-            appBar: AppBar(
-              brightness: Brightness.light,
-              title: const Text(
-                'Notification',
-                style: TextStyle(color: Color.fromRGBO(19, 65, 83, 1.0)),
-              ),
-              backgroundColor: Colors.white,
-              centerTitle: true,
-              elevation: 8.0,
+          appBar: AppBar(
+            brightness: Brightness.light,
+            title: const Text(
+              'Notification',
+              style: TextStyle(color: Color.fromRGBO(19, 65, 83, 1.0)),
             ),
-            body: Center(
+            backgroundColor: Colors.white,
+            centerTitle: true,
+            elevation: 8.0,
+          ),
+          body: Center(
+            child: Container(
+              color: Color.fromRGBO(250, 250, 250, 1),
               child: Container(
-                color: Color.fromRGBO(250, 250, 250, 1),
-                child: Container(
-                  padding: EdgeInsets.only(top: 30),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(bottom: 20),
-                        width: 350,
-                        height: 70,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.1),
-                              spreadRadius: 2,
-                              blurRadius: 10,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.only(left: 15),
-                                  width: 50,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    image: const DecorationImage(
-                                      image: NetworkImage(
-                                          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
-                                      fit: BoxFit.cover,
-                                    ),
+                padding: EdgeInsets.only(top: 30),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      width: 350,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.1),
+                            spreadRadius: 2,
+                            blurRadius: 10,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(left: 15),
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  image: const DecorationImage(
+                                    image: NetworkImage(
+                                        'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 15),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Text(
-                                            'Order ID #923456',
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 15),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Order ID #923456',
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Color.fromRGBO(
+                                                  19, 65, 83, 1)),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.only(
+                                              top: 5, left: 117),
+                                          child: Text(
+                                            '23 Nov',
                                             style: TextStyle(
-                                                fontSize: 12,
-                                                color:
-                                                    Color.fromRGBO(19, 65, 83, 1)),
+                                                fontSize: 9,
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1)),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            padding: EdgeInsets.only(top: 8),
+                                            child: Text(
+                                              'Preparing',
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Color.fromRGBO(
+                                                      144, 46, 46, 1)),
+                                            ),
                                           ),
                                           Container(
-                                            margin: EdgeInsets.only(top: 5 ,left: 117),
+                                            margin: EdgeInsets.only(left: 160),
                                             child: Text(
-                                              '23 Nov',
+                                              '3:59 pm.',
                                               style: TextStyle(
                                                   fontSize: 9,
-                                                  color:
-                                                  Color.fromRGBO(193, 193, 193, 1)),
+                                                  color: Color.fromRGBO(
+                                                      193, 193, 193, 1)),
                                             ),
                                           ),
                                         ],
                                       ),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              padding: EdgeInsets.only(top: 8),
-                                              child: Text(
-                                                'Preparing',
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    color:
-                                                        Color.fromRGBO(144, 46, 46, 1)),
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.only(left: 160),
-                                              child: Text(
-                                                '3:59 pm.',
-                                                style: TextStyle(
-                                                    fontSize: 9,
-                                                    color:
-                                                    Color.fromRGBO(193, 193, 193, 1)),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(bottom: 20),
-                        width: 350,
-                        height: 70,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.1),
-                              spreadRadius: 2,
-                              blurRadius: 10,
-                              offset:
-                              Offset(0, 3), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.only(left: 15),
-                                  width: 50,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    image: const DecorationImage(
-                                      image: NetworkImage(
-                                          'https://images.theconversation.com/files/256057/original/file-20190129-108364-17hlc1x.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop'),
-                                      fit: BoxFit.cover,
                                     ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      width: 350,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.1),
+                            spreadRadius: 2,
+                            blurRadius: 10,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(left: 15),
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  image: const DecorationImage(
+                                    image: NetworkImage(
+                                        'https://images.theconversation.com/files/256057/original/file-20190129-108364-17hlc1x.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop'),
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 15),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Text(
-                                            'Order ID #123456',
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 15),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Order ID #123456',
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Color.fromRGBO(
+                                                  19, 65, 83, 1)),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.only(
+                                              top: 5, left: 117),
+                                          child: Text(
+                                            '22 Nov',
                                             style: TextStyle(
-                                                fontSize: 12,
-                                                color:
-                                                Color.fromRGBO(19, 65, 83, 1)),
+                                                fontSize: 9,
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1)),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            padding: EdgeInsets.only(top: 8),
+                                            child: Text(
+                                              'Shipping',
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Color.fromRGBO(
+                                                      144, 46, 46, 1)),
+                                            ),
                                           ),
                                           Container(
-                                            margin: EdgeInsets.only(top: 5 ,left: 117),
+                                            margin: EdgeInsets.only(left: 160),
                                             child: Text(
-                                              '22 Nov',
+                                              '10:59 pm.',
                                               style: TextStyle(
                                                   fontSize: 9,
-                                                  color:
-                                                  Color.fromRGBO(193, 193, 193, 1)),
+                                                  color: Color.fromRGBO(
+                                                      193, 193, 193, 1)),
                                             ),
                                           ),
                                         ],
                                       ),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              padding: EdgeInsets.only(top: 8),
-                                              child: Text(
-                                                'Shipping',
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    color:
-                                                    Color.fromRGBO(144, 46, 46, 1)),
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.only(left: 160),
-                                              child: Text(
-                                                '10:59 pm.',
-                                                style: TextStyle(
-                                                    fontSize: 9,
-                                                    color:
-                                                    Color.fromRGBO(193, 193, 193, 1)),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(bottom: 20),
-                        width: 350,
-                        height: 70,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.1),
-                              spreadRadius: 2,
-                              blurRadius: 10,
-                              offset:
-                              Offset(0, 3), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.only(left: 15),
-                                  width: 50,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    image: const DecorationImage(
-                                      image: NetworkImage(
-                                          'https://images.theconversation.com/files/369567/original/file-20201116-23-18wlnv.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop'),
-                                      fit: BoxFit.cover,
                                     ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      width: 350,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.1),
+                            spreadRadius: 2,
+                            blurRadius: 10,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(left: 15),
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  image: const DecorationImage(
+                                    image: NetworkImage(
+                                        'https://images.theconversation.com/files/369567/original/file-20201116-23-18wlnv.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop'),
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 15),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Text(
-                                            'Order ID #72049',
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 15),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Order ID #72049',
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Color.fromRGBO(
+                                                  19, 65, 83, 1)),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.only(
+                                              top: 5, left: 117),
+                                          child: Text(
+                                            '20 Nov',
                                             style: TextStyle(
-                                                fontSize: 12,
-                                                color:
-                                                Color.fromRGBO(19, 65, 83, 1)),
+                                                fontSize: 9,
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1)),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            padding: EdgeInsets.only(top: 8),
+                                            child: Text(
+                                              'Shipping',
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Color.fromRGBO(
+                                                      144, 46, 46, 1)),
+                                            ),
                                           ),
                                           Container(
-                                            margin: EdgeInsets.only(top: 5 ,left: 117),
+                                            margin: EdgeInsets.only(left: 160),
                                             child: Text(
-                                              '20 Nov',
+                                              '1:59 pm.',
                                               style: TextStyle(
                                                   fontSize: 9,
-                                                  color:
-                                                  Color.fromRGBO(193, 193, 193, 1)),
+                                                  color: Color.fromRGBO(
+                                                      193, 193, 193, 1)),
                                             ),
                                           ),
                                         ],
                                       ),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              padding: EdgeInsets.only(top: 8),
-                                              child: Text(
-                                                'Shipping',
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    color:
-                                                    Color.fromRGBO(144, 46, 46, 1)),
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.only(left: 160),
-                                              child: Text(
-                                                '1:59 pm.',
-                                                style: TextStyle(
-                                                    fontSize: 9,
-                                                    color:
-                                                    Color.fromRGBO(193, 193, 193, 1)),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            )
-                          ],
-                        ),
+                              ),
+                            ],
+                          )
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
-          floatingActionButton: PatientNavBarFloatingButtonCall(
           ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: PatientNavBarFloatingButtonCall(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
             shape: AutomaticNotchedShape(
               RoundedRectangleBorder(
@@ -433,8 +433,8 @@ class _PatientNotification extends State<PatientNotification>
               ),
             ),
           ),
-            //nev bar
-            ),
+          //nev bar
+        ),
       ),
     );
   }

@@ -7,7 +7,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:kaiya/patient_widget/google_map.dart';
 
-
 class SelectOnMap extends StatefulWidget {
   static const String id = 'patient_select_pharma_on_ggmap';
 
@@ -28,7 +27,7 @@ class _SelectOnMap extends State<SelectOnMap> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -37,11 +36,13 @@ class _SelectOnMap extends State<SelectOnMap> {
               Icons.arrow_back_ios_outlined,
               color: Color.fromRGBO(193, 193, 193, 1),
             ),
-            title: Text('Select Pharmacy',
-            style: TextStyle(
-              color: Color.fromRGBO(19, 65, 83, 1),
-              fontWeight: FontWeight.bold,
-            ),),
+            title: Text(
+              'Select Pharmacy',
+              style: TextStyle(
+                color: Color.fromRGBO(19, 65, 83, 1),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
           body: Column(
             children: [

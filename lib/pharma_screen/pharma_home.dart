@@ -16,7 +16,7 @@ import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
 import 'package:kaiya/pharma_tabbarview/shop_tabbar_view.dart';
 
 class PharHome extends StatefulWidget {
-  static const String id = 'home_screen';
+  static const String id = 'home_screen_phar';
 
   @override
   _PharHome createState() => _PharHome();

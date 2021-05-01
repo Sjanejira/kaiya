@@ -25,7 +25,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -53,121 +53,6 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                       child: Column(
                         children: [
                           Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 38),
-                                width: 50,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  image: const DecorationImage(
-                                    image: NetworkImage(
-                                        'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
-                                    fit: BoxFit.cover,
-                                  ),
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 20),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          "Kaiya",
-                                          style: TextStyle(
-                                            fontSize: 15.sp,
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.only(left: 180),
-                                          child: Text(
-                                            "10:59 pm.",
-                                            style: TextStyle(
-                                              fontSize: 8.sp,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          child: Text(
-                                            "We’re preparing this order.",
-                                            style: TextStyle(
-                                              fontSize: 10.sp,
-                                              color:
-                                                  Color.fromRGBO(193, 193, 193, 1),
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.only(left: 100),
-                                          child: Positioned(
-                                            right: 15.w,
-                                            child: Container(
-                                              padding: EdgeInsets.all(4.r),
-                                              decoration: BoxDecoration(
-                                                  color: Color.fromRGBO(
-                                                      144, 46, 46, 1),
-                                                  shape: BoxShape.circle),
-                                              child: Text(
-                                                "2",
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 12),
-                                              ),
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 19),
-                                width: 70,
-                                height: 60,
-                                color: Color.fromRGBO(144, 46, 46, 1),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text('Delete',
-                                    textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 13,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ]
-                          ),
-                          Container(
-                            width: 460,
-                            height: 1,
-                            color: Colors.grey[350],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Container(
-                      width: 460,
-                      height: 61,
-                      child: Column(
-                        children: [
-                          Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
@@ -187,10 +72,12 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -210,15 +97,16 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "We’re preparing this order.",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(193, 193, 193, 1),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
                                               ),
                                             ),
                                           ),
@@ -254,7 +142,8 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -264,8 +153,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -302,10 +190,12 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -325,15 +215,16 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "We’re preparing this order.",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(193, 193, 193, 1),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
                                               ),
                                             ),
                                           ),
@@ -369,7 +260,8 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -379,8 +271,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -417,10 +308,12 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -440,15 +333,16 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "We’re preparing this order.",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(193, 193, 193, 1),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
                                               ),
                                             ),
                                           ),
@@ -484,7 +378,8 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -494,8 +389,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -532,10 +426,12 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -555,15 +451,16 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "We’re preparing this order.",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(193, 193, 193, 1),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
                                               ),
                                             ),
                                           ),
@@ -599,7 +496,8 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -609,8 +507,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -647,10 +544,12 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -670,15 +569,16 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "We’re preparing this order.",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(193, 193, 193, 1),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
                                               ),
                                             ),
                                           ),
@@ -714,7 +614,8 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -724,8 +625,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -762,10 +662,12 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -785,15 +687,16 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "We’re preparing this order.",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(193, 193, 193, 1),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
                                               ),
                                             ),
                                           ),
@@ -829,7 +732,8 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -839,8 +743,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -877,10 +780,12 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -900,15 +805,16 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "We’re preparing this order.",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(193, 193, 193, 1),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
                                               ),
                                             ),
                                           ),
@@ -944,7 +850,8 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -954,8 +861,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -992,10 +898,12 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -1015,15 +923,16 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "We’re preparing this order.",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(193, 193, 193, 1),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
                                               ),
                                             ),
                                           ),
@@ -1059,7 +968,8 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -1069,8 +979,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -1107,10 +1016,12 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -1130,15 +1041,16 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "We’re preparing this order.",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(193, 193, 193, 1),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
                                               ),
                                             ),
                                           ),
@@ -1174,7 +1086,8 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -1184,8 +1097,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -1222,10 +1134,12 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -1245,15 +1159,16 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "We’re preparing this order.",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(193, 193, 193, 1),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
                                               ),
                                             ),
                                           ),
@@ -1289,7 +1204,8 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -1299,8 +1215,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -1337,10 +1252,12 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -1360,15 +1277,16 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "We’re preparing this order.",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(193, 193, 193, 1),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
                                               ),
                                             ),
                                           ),
@@ -1404,7 +1322,8 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -1414,8 +1333,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -1452,10 +1370,12 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -1475,15 +1395,16 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "We’re preparing this order.",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(193, 193, 193, 1),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
                                               ),
                                             ),
                                           ),
@@ -1519,7 +1440,8 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -1529,8 +1451,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -1567,10 +1488,130 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "Kaiya",
+                                            style: TextStyle(
+                                              fontSize: 15.sp,
+                                            ),
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.only(left: 180),
+                                            child: Text(
+                                              "10:59 pm.",
+                                              style: TextStyle(
+                                                fontSize: 8.sp,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            child: Text(
+                                              "We’re preparing this order.",
+                                              style: TextStyle(
+                                                fontSize: 10.sp,
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.only(left: 100),
+                                            child: Positioned(
+                                              right: 15.w,
+                                              child: Container(
+                                                padding: EdgeInsets.all(4.r),
+                                                decoration: BoxDecoration(
+                                                    color: Color.fromRGBO(
+                                                        144, 46, 46, 1),
+                                                    shape: BoxShape.circle),
+                                                child: Text(
+                                                  "2",
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12),
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 19),
+                                  width: 70,
+                                  height: 60,
+                                  color: Color.fromRGBO(144, 46, 46, 1),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Delete',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ]),
+                          Container(
+                            width: 460,
+                            height: 1,
+                            color: Colors.grey[350],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Container(
+                      width: 460,
+                      height: 61,
+                      child: Column(
+                        children: [
+                          Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(left: 38),
+                                  width: 50,
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                    image: const DecorationImage(
+                                      image: NetworkImage(
+                                          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             "Kaiya",
@@ -1590,15 +1631,16 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                         ],
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             child: Text(
                                               "We’re preparing this order.",
                                               style: TextStyle(
                                                 fontSize: 10.sp,
-                                                color:
-                                                Color.fromRGBO(193, 193, 193, 1),
+                                                color: Color.fromRGBO(
+                                                    193, 193, 193, 1),
                                               ),
                                             ),
                                           ),
@@ -1634,7 +1676,8 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Delete',
+                                      Text(
+                                        'Delete',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
@@ -1644,8 +1687,7 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
-                              ]
-                          ),
+                              ]),
                           Container(
                             width: 460,
                             height: 1,
@@ -1659,9 +1701,9 @@ class _ChatShopping extends State<ChatShopping> with TickerProviderStateMixin {
               ),
             ),
           ),
-          floatingActionButton: PatientNavBarFloatingButtonCall(
-          ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: PatientNavBarFloatingButtonCall(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
             shape: AutomaticNotchedShape(
               RoundedRectangleBorder(

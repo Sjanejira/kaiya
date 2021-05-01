@@ -21,7 +21,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(
@@ -92,7 +92,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
@@ -108,7 +108,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                                       'x1',
                                       style: TextStyle(
                                           color:
-                                          Color.fromRGBO(193, 193, 193, 1)),
+                                              Color.fromRGBO(193, 193, 193, 1)),
                                     ),
                                   ),
                                 ],
@@ -121,7 +121,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
@@ -210,9 +210,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                                   Text(
                                     'PAY',
                                     style: TextStyle(
-                                        fontSize: 10,
-                                        color: Colors.white
-                                    ),
+                                        fontSize: 10, color: Colors.white),
                                   ),
                                 ],
                               ),
@@ -268,7 +266,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
@@ -284,7 +282,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                                       'x1',
                                       style: TextStyle(
                                           color:
-                                          Color.fromRGBO(193, 193, 193, 1)),
+                                              Color.fromRGBO(193, 193, 193, 1)),
                                     ),
                                   ),
                                 ],
@@ -328,7 +326,9 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                             borderRadius: BorderRadius.all(
                               Radius.circular(6),
                             ),
-                            border: Border.all(color: Color.fromRGBO(193, 193, 193, 1),),
+                            border: Border.all(
+                              color: Color.fromRGBO(193, 193, 193, 1),
+                            ),
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -337,8 +337,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                                 'Pending check stock',
                                 style: TextStyle(
                                     fontSize: 10,
-                                    color: Color.fromRGBO(193, 193, 193, 1)
-                                ),
+                                    color: Color.fromRGBO(193, 193, 193, 1)),
                               ),
                             ],
                           ),
@@ -392,7 +391,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
@@ -408,7 +407,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                                       'x1',
                                       style: TextStyle(
                                           color:
-                                          Color.fromRGBO(193, 193, 193, 1)),
+                                              Color.fromRGBO(193, 193, 193, 1)),
                                     ),
                                   ),
                                 ],
@@ -420,7 +419,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
@@ -436,7 +435,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                                       'x1',
                                       style: TextStyle(
                                           color:
-                                          Color.fromRGBO(193, 193, 193, 1)),
+                                              Color.fromRGBO(193, 193, 193, 1)),
                                     ),
                                   ),
                                 ],
@@ -449,7 +448,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
@@ -538,9 +537,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                                   Text(
                                     'PAY',
                                     style: TextStyle(
-                                        fontSize: 10,
-                                        color: Colors.white
-                                    ),
+                                        fontSize: 10, color: Colors.white),
                                   ),
                                 ],
                               ),
@@ -596,7 +593,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
@@ -612,7 +609,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                                       'x1',
                                       style: TextStyle(
                                           color:
-                                          Color.fromRGBO(193, 193, 193, 1)),
+                                              Color.fromRGBO(193, 193, 193, 1)),
                                     ),
                                   ),
                                 ],
@@ -624,7 +621,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
@@ -640,7 +637,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                                       'x1',
                                       style: TextStyle(
                                           color:
-                                          Color.fromRGBO(193, 193, 193, 1)),
+                                              Color.fromRGBO(193, 193, 193, 1)),
                                     ),
                                   ),
                                 ],
@@ -653,7 +650,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(

@@ -31,7 +31,7 @@ class _PatientAddAddress extends State<PatientAddAddress>
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: true,
         bottom: true,
         child: Scaffold(
@@ -198,7 +198,8 @@ class _PatientAddAddress extends State<PatientAddAddress>
                                   color: Colors.white,
                                   onPressed: showPicker,
                                   child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Text(
                                         "Select",
@@ -250,7 +251,8 @@ class _PatientAddAddress extends State<PatientAddAddress>
                                   color: Colors.white,
                                   onPressed: showPicker,
                                   child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Text(
                                         "Select",
@@ -354,7 +356,10 @@ class _PatientAddAddress extends State<PatientAddAddress>
                           child: RaisedButton(
                             onPressed: () {},
                             padding: EdgeInsets.only(
-                                left: 30.0, right: 30.0, top: 10.0, bottom: 10.0),
+                                left: 30.0,
+                                right: 30.0,
+                                top: 10.0,
+                                bottom: 10.0),
                             color: Color.fromRGBO(46, 130, 139, 1),
                             shape: RoundedRectangleBorder(
                               borderRadius:
