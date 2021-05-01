@@ -6,6 +6,8 @@ import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
 
 class Setting extends StatefulWidget {
   static const String id = 'setting';
+  Setting({this.onPush});
+  final Function onPush;
 
   @override
   _Setting createState() => _Setting();
@@ -23,7 +25,7 @@ class _Setting extends State<Setting> with TickerProviderStateMixin {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(
@@ -80,23 +82,26 @@ class _Setting extends State<Setting> with TickerProviderStateMixin {
                         thickness: 1,
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Payment",
-                            style: TextStyle(
-                              color: Color.fromRGBO(19, 65, 83, 1),
-                              fontSize: 15.sp,
+                    GestureDetector(
+                      onTap: () => widget.onPush(context, "managepayment"),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            child: Text(
+                              "Payment",
+                              style: TextStyle(
+                                color: Color.fromRGBO(19, 65, 83, 1),
+                                fontSize: 15.sp,
+                              ),
                             ),
                           ),
-                        ),
-                        Icon(
-                          CupertinoIcons.right_chevron,
-                          color: Color.fromRGBO(193, 193, 193, 1),
-                        ),
-                      ],
+                          Icon(
+                            CupertinoIcons.right_chevron,
+                            color: Color.fromRGBO(193, 193, 193, 1),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -118,23 +123,26 @@ class _Setting extends State<Setting> with TickerProviderStateMixin {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Notification",
-                            style: TextStyle(
-                              color: Color.fromRGBO(19, 65, 83, 1),
-                              fontSize: 15.sp,
+                    GestureDetector(
+                      onTap: () => widget.onPush(context, "navigationsetting"),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            child: Text(
+                              "Notification",
+                              style: TextStyle(
+                                color: Color.fromRGBO(19, 65, 83, 1),
+                                fontSize: 15.sp,
+                              ),
                             ),
                           ),
-                        ),
-                        Icon(
-                          CupertinoIcons.right_chevron,
-                          color: Color.fromRGBO(193, 193, 193, 1),
-                        ),
-                      ],
+                          Icon(
+                            CupertinoIcons.right_chevron,
+                            color: Color.fromRGBO(193, 193, 193, 1),
+                          ),
+                        ],
+                      ),
                     ),
                     Container(
                       padding: EdgeInsets.symmetric(vertical: 8.h),
@@ -163,12 +171,24 @@ class _Setting extends State<Setting> with TickerProviderStateMixin {
                   ],
                 ),
               ),
+              Center(
+                child: Container(
+                  margin: EdgeInsets.only(top: 20.h),
+                  child: OutlineButton(
+                    onPressed: () {},
+                    textColor: Color.fromRGBO(144, 46, 46, 1.0),
+                    child: Text("Log Out"),
+                    borderSide: BorderSide(
+                      color: Color.fromRGBO(144, 46, 46, 1.0),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0.r),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
-          bottomNavigationBar: PharmaNavBar(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
         ),
       ),
     );

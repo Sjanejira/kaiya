@@ -2,66 +2,61 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:kaiya/pharma_screen/add_product_page/product_model.dart';
+import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_viewmodel.dart';
 
 class PharProductDetail extends StatefulWidget {
+  PharProductDetail({this.product, this.viewModel});
   static const String id = 'pharma_product_detail';
-
+  final Product product;
+  final PharmaFirstPageViewModel viewModel;
   @override
   _PharProductDetail createState() => _PharProductDetail();
 }
 
-final List<String> imgList = [
-  'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-  'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
-  'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
-  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
-];
-
-final List<Widget> imageSliders = imgList
-    .map((item) => Container(
-          child: Container(
-            child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                      alignment: Alignment.center,
-                      child: Image.network(
-                        item,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Container(
-                        margin: EdgeInsets.only(bottom: 5.h),
-                        decoration: BoxDecoration(
-                            color: Color.fromRGBO(226, 226, 226, 1),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20.0))),
-                        padding: EdgeInsets.symmetric(
-                            vertical: 5.h, horizontal: 10.0.w),
-                        child: Text(
-                          '${imgList.indexOf(item).toInt() + 1} / ${imgList.length}',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 6.sp,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                )),
-          ),
-        ))
-    .toList();
-
 class _PharProductDetail extends State<PharProductDetail> {
   int _current = 0;
+
   @override
   Widget build(BuildContext context) {
+    final List<Widget> imageSliders = widget.product.imageUrl
+        .map((item) => Container(
+              child: Container(
+                child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                    child: Stack(
+                      children: <Widget>[
+                        Container(
+                          alignment: Alignment.center,
+                          child: Image.network(
+                            item,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                            margin: EdgeInsets.only(bottom: 5.h),
+                            decoration: BoxDecoration(
+                                color: Color.fromRGBO(226, 226, 226, 1),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20.0))),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 5.h, horizontal: 10.0.w),
+                            child: Text(
+                              '${widget.product.imageUrl.indexOf(item).toInt() + 1} / ${widget.product.imageUrl.length}',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 6.sp,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
+            ))
+        .toList();
     ScreenUtil.init(BoxConstraints(
       maxWidth: MediaQuery.of(context).size.width,
       minWidth: 0,
@@ -72,7 +67,7 @@ class _PharProductDetail extends State<PharProductDetail> {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(
@@ -110,7 +105,7 @@ class _PharProductDetail extends State<PharProductDetail> {
                     alignment: Alignment.centerLeft,
                     padding: EdgeInsets.only(left: 35.0.w, top: 10.h),
                     child: Text(
-                      "Vitamin",
+                      widget.product.product_name,
                       style: TextStyle(
                         fontSize: 15.sp,
                       ),
@@ -128,7 +123,7 @@ class _PharProductDetail extends State<PharProductDetail> {
                               alignment: Alignment.centerLeft,
                               padding: EdgeInsets.only(left: 35.0.w, top: 5.h),
                               child: Text(
-                                "฿700",
+                                "฿${widget.product.price}",
                                 style: TextStyle(
                                     fontSize: 15.sp,
                                     decoration: TextDecoration.lineThrough,
@@ -140,7 +135,7 @@ class _PharProductDetail extends State<PharProductDetail> {
                               padding: EdgeInsets.only(
                                   left: 6.0.w, right: 6.w, top: 5.h),
                               child: Text(
-                                "฿1000000000",
+                                "฿${widget.product.sell}",
                                 style: TextStyle(
                                   fontSize: 15.sp,
                                   color: Color.fromRGBO(144, 46, 46, 1),
@@ -245,7 +240,7 @@ class _PharProductDetail extends State<PharProductDetail> {
                               ),
                               padding: EdgeInsets.only(left: 5.0.w),
                               child: Text(
-                                "Vistra",
+                                widget.product.brand,
                                 style: TextStyle(
                                   fontSize: 12.sp,
                                 ),
@@ -278,7 +273,7 @@ class _PharProductDetail extends State<PharProductDetail> {
                                   right: 30.0.w,
                                 ),
                                 child: Text(
-                                  "Blackmores Bilberry 2500 taken as a dietary supplement provides the nutritional value of bilberry extract.Provides anthocyanocides 9 mg/tablet from Bilberry extract 25 mg. Guaranteed standardized active substance",
+                                  widget.product.detail,
                                   maxLines: 10,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
@@ -307,12 +302,13 @@ class _PharProductDetail extends State<PharProductDetail> {
                             Container(
                               padding: EdgeInsets.only(left: 40.w, right: 10.w),
                               child: CircleAvatar(
-                                backgroundImage: AssetImage('asset/ms.png'),
+                                backgroundImage: NetworkImage(
+                                    widget.viewModel.pharProfile.imageUrl),
                               ),
                             ),
                             Container(
                               child: Text(
-                                "MusicZa",
+                                widget.viewModel.pharProfile.pharmacy_name,
                                 style: TextStyle(
                                   color: Color.fromRGBO(19, 65, 83, 1),
                                   fontSize: 15.sp,

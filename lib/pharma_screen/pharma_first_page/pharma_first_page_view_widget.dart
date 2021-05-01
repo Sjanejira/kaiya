@@ -1,27 +1,32 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kaiya/pharma_screen/add_product_page/product_model.dart';
+import 'package:kaiya/pharma_screen/phar_service2.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_view.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_viewmodel.dart';
 import 'package:kaiya/pharma_tabbarview/category_tabbar_view.dart';
+import 'package:kaiya/pharma_tabbarview/product_tabbar_view.dart';
 import 'package:kaiya/pharma_tabbarview/shop_tabbar_view.dart';
 import 'package:kaiya/pharma_widget/add_button.dart';
+import 'package:provider/provider.dart';
+import "package:collection/collection.dart";
 
 class PharmaFirstPageViewWidget extends StatelessWidget {
-  const PharmaFirstPageViewWidget({
-    Key key,
-    @required this.pharprofile,
-    @required this.widget,
-    @required TabController tabController,
-    @required bool isProductEmpty,
-  })  : _tabController = tabController,
-        _isProductEmpty = isProductEmpty,
+  const PharmaFirstPageViewWidget(
+      {Key key,
+      @required this.pharprofile,
+      @required this.widget,
+      @required TabController tabController,
+      this.viewModel})
+      : _tabController = tabController,
         super(key: key);
 
   final PharProfile pharprofile;
   final PharWelcome widget;
   final TabController _tabController;
-  final bool _isProductEmpty;
+  final PharmaFirstPageViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {
@@ -78,11 +83,11 @@ class PharmaFirstPageViewWidget extends StatelessWidget {
                                             Color.fromRGBO(46, 130, 139, 1.0),
                                       ),
                                       margin:
-                                          EdgeInsets.fromLTRB(0, 10.0, 5.0, 0),
+                                          EdgeInsets.fromLTRB(0, 0.0, 5.0, 0),
                                     ),
                                     Container(
                                       child: Text(
-                                        "บ้านกูเอง",
+                                        "sda Prachautid",
                                         style: TextStyle(
                                           fontSize: 15.0.sp,
                                           color:
@@ -131,7 +136,7 @@ class PharmaFirstPageViewWidget extends StatelessWidget {
                 ),
               ),
             ),
-            expandedHeight: 180.h,
+            expandedHeight: 190.h,
             bottom: PreferredSize(
               preferredSize: Size(double.infinity, 30.h),
               child: Column(
@@ -185,12 +190,28 @@ class PharmaFirstPageViewWidget extends StatelessWidget {
         ];
       },
       body: Container(
-        child: _isProductEmpty
-            ? EmptyProductTabBarView(tabController: _tabController)
-            : HaveProductTabBarView(
-                tabController: _tabController,
-                widget: widget,
-              ),
+        child: StreamBuilder(
+            stream: Provider.of<PharMaService2>(context).getProduct(),
+            builder:
+                (BuildContext context, AsyncSnapshot<List<Product>> snapshot) {
+              print(snapshot.data);
+              if (snapshot.hasData) {
+                viewModel.product = snapshot.data;
+                if (viewModel.product.length != 0) {
+                  return HaveProductTabBarView(
+                    tabController: _tabController,
+                    widget: widget,
+                    viewModel: viewModel,
+                  );
+                } else {
+                  return EmptyProductTabBarView(tabController: _tabController);
+                }
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            }),
       ),
     );
   }
@@ -238,10 +259,11 @@ class EmptyProductTabBarView extends StatelessWidget {
 }
 
 class HaveProductTabBarView extends StatelessWidget {
-  HaveProductTabBarView({@required TabController tabController, this.widget})
+  HaveProductTabBarView(
+      {@required TabController tabController, this.widget, this.viewModel})
       : _tabController = tabController;
   final PharWelcome widget;
-
+  final PharmaFirstPageViewModel viewModel;
   final TabController _tabController;
 
   @override
@@ -251,16 +273,16 @@ class HaveProductTabBarView extends StatelessWidget {
       children: [
         ShopTabBarView(
           widget: widget,
+          viewModel: viewModel,
         ),
-        AddProductButton(
-          height: 100.h,
-          minwidth: 100.w,
-          paddingtop: 120.h,
-          margintop: 10.h,
-          label: "Add Product",
+        ProductTabBarView(
           widget: widget,
+          viewModel: viewModel,
         ),
-        CategoryTabBarView(),
+        CategoryTabBarView(
+          widget: widget,
+          viewModel: viewModel,
+        ),
       ],
     );
   }

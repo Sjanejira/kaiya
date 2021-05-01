@@ -2,10 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/first_page_navigator.dart';
-import 'package:kaiya/pharma_screen/pharma_notification.dart';
-import 'package:kaiya/pharma_screen/pharma_order.dart';
-import 'package:kaiya/pharma_screen/pharma_profile.dart';
+import 'package:kaiya/pharma_screen/pharma_order_page/order_navigator.dart';
+import 'package:kaiya/pharma_screen/pharma_order_page/pharma_notification.dart';
+import 'package:kaiya/pharma_screen/pharma_notification_setting_page/pharma_notification_setting.dart';
+import 'package:kaiya/pharma_screen/pharma_order_page/pharma_order.dart';
+import 'package:kaiya/pharma_screen/pharma_profile_page/pharma_profile.dart';
+import 'package:kaiya/pharma_screen/pharma_profile_page/profile_page_navigator.dart';
+import 'package:kaiya/pharma_screen/show_talk_mode.dart';
 import 'package:kaiya/pharma_tabbarview/category_tabbar_view.dart';
+import 'package:kaiya/pharma_talk_screen/show_shopping_mode.dart';
 import 'package:kaiya/pharma_widget/add_button.dart';
 import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
 import 'package:kaiya/pharma_tabbarview/shop_tabbar_view.dart';
@@ -43,9 +48,9 @@ class _PharHome extends State<PharHome> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final List<Widget> _pageList = <Widget>[
       TabNavigatorFirstPage(),
-      PharmaOrder(),
-      PharmaNotificationSetting(),
-      PharmaProfile(),
+      TabNavigatorOrder(),
+      PharmaNotification(),
+      TabNavigatorProfilePage(),
     ];
 
     ScreenUtil.init(BoxConstraints(
@@ -58,7 +63,7 @@ class _PharHome extends State<PharHome> with TickerProviderStateMixin {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       allowFontScaling: true,
-      child: SafeArea(
+      builder: () => SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(
@@ -176,10 +181,38 @@ class _PharHome extends State<PharHome> with TickerProviderStateMixin {
           ),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: PharmaNavBarFloatingButton(),
+          floatingActionButton: PharmaNavBarFloatingButton(
+            creatRoute: () => _createRoute(),
+          ),
         ),
       ),
     );
+  }
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => ShowTalkMode(),
+        transitionDuration: Duration(milliseconds: 1000),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          AnimationController animation2 = AnimationController(
+            vsync: this,
+            duration: Duration(milliseconds: 500),
+          );
+          var begin = 0.0;
+          var end = 1.0;
+          var curve = Curves.ease;
+
+          var tween = Tween<double>(begin: begin, end: end);
+          var curvedAnimation = CurvedAnimation(
+            parent: animation,
+            curve: curve,
+          );
+
+          return FadeTransition(
+            opacity: tween.animate(curvedAnimation),
+            child: child,
+          );
+        });
   }
 }
 

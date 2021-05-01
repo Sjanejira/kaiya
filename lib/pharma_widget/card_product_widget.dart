@@ -1,18 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/pharma_screen/add_product_page/product_model.dart';
 import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_view.dart';
+import 'package:kaiya/pharma_screen/pharma_first_page/pharma_first_page_viewmodel.dart';
 
 class CardProduct extends StatelessWidget {
-  CardProduct({
-    this.image,
-    this.productname,
-    this.beforesale,
-    this.aftersale,
-    this.like,
-    this.isonsale,
-    this.widget,
-  });
+  CardProduct(
+      {this.image,
+      this.productname,
+      this.beforesale,
+      this.aftersale,
+      this.like,
+      this.isonsale,
+      this.widget,
+      this.product,
+      this.viewModel});
 
   final String image;
   final String productname;
@@ -21,6 +24,8 @@ class CardProduct extends StatelessWidget {
   final int like;
   final bool isonsale;
   final PharWelcome widget;
+  final Product product;
+  final PharmaFirstPageViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +57,7 @@ class CardProduct extends StatelessWidget {
                       ),
                     ),
                     Image(
-                      image: AssetImage(image),
+                      image: NetworkImage(image),
                       height: 80.h,
                       width: 140.w,
                     ),
@@ -67,28 +72,41 @@ class CardProduct extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          padding: EdgeInsets.only(left: 12.0.w),
-                          child: Text(
-                            "฿${this.beforesale}",
-                            style: TextStyle(
-                                fontSize: 12.sp,
-                                decoration: TextDecoration.lineThrough,
-                                color: Colors.grey[400]),
-                          ),
-                        ),
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          padding: EdgeInsets.symmetric(horizontal: 6.0.w),
-                          child: Text(
-                            "฿${this.aftersale}",
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: Color.fromRGBO(144, 46, 46, 1),
-                            ),
-                          ),
-                        ),
+                        this.isonsale
+                            ? Container(
+                                alignment: Alignment.centerLeft,
+                                padding: EdgeInsets.only(left: 12.0.w),
+                                child: Text(
+                                  "฿${this.beforesale}",
+                                  style: TextStyle(
+                                      fontSize: 12.sp,
+                                      decoration: TextDecoration.lineThrough,
+                                      color: Colors.grey[400]),
+                                ),
+                              )
+                            : Container(
+                                alignment: Alignment.centerLeft,
+                                padding: EdgeInsets.only(left: 12.0.w),
+                                child: Text(
+                                  "฿${this.beforesale}",
+                                  style: TextStyle(
+                                      fontSize: 12.sp, color: Colors.grey[400]),
+                                ),
+                              ),
+                        this.isonsale
+                            ? Container(
+                                alignment: Alignment.centerLeft,
+                                padding:
+                                    EdgeInsets.symmetric(horizontal: 6.0.w),
+                                child: Text(
+                                  "฿${this.aftersale}",
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: Color.fromRGBO(144, 46, 46, 1),
+                                  ),
+                                ),
+                              )
+                            : Container(),
                       ],
                     ),
                     Expanded(
@@ -120,8 +138,8 @@ class CardProduct extends StatelessWidget {
               ),
             ),
             onTap: () {
-              print('click');
-              widget.onPush(context, "productdetail");
+              print(product);
+              widget.onPushProduct(context, product, viewModel);
             },
           ),
         ),
