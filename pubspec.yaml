@@ -39,6 +39,8 @@ dependencies:
   scoped_model: ^1.1.0
   custom_navigator: ^0.3.0
   provider: ^4.3.3
+  google_maps_flutter: ^1.2.0
+  flutter_typeahead: ^1.2.0
 
 
 dev_dependencies:

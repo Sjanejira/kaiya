@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/patient_widget/navbar/patient_navBarFloatinButton.dart';
 import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
 import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
 
 class PatientEditAddress extends StatefulWidget {
-  static const String id = 'patient_add_address';
+  static const String id = 'patient_edit_address';
 
   @override
   _PatientEditAddress createState() => _PatientEditAddress();
@@ -13,11 +14,7 @@ class PatientEditAddress extends StatefulWidget {
 
 class _PatientEditAddress extends State<PatientEditAddress>
     with TickerProviderStateMixin {
-  bool _lights = true;
-  bool _darks = true;
   bool _blue = true;
-  bool _red = true;
-  bool _grey = true;
   int selectedValue;
   @override
   Widget build(BuildContext context) {
@@ -31,8 +28,8 @@ class _PatientEditAddress extends State<PatientEditAddress>
       designSize: Size(360, 690),
       allowFontScaling: true,
       child: SafeArea(
-        top: false,
-        bottom: false,
+        top: true,
+        bottom: true,
         child: Scaffold(
             appBar: AppBar(
               leading: Container(
@@ -44,12 +41,21 @@ class _PatientEditAddress extends State<PatientEditAddress>
               ),
               brightness: Brightness.light,
               title: const Text(
-                'New Address',
+                'Edit Address',
                 style: TextStyle(color: Color.fromRGBO(19, 65, 83, 1.0)),
               ),
               backgroundColor: Colors.white,
               centerTitle: true,
               elevation: 8.0,
+              actions: [
+                Container(
+                  padding: EdgeInsets.only(right: 30.w),
+                  child: Icon(
+                    Icons.delete_outline,
+                    color: Color.fromRGBO(193, 193, 193, 1),
+                  ),
+                )
+              ],
             ),
             body: Container(
               color: Color.fromRGBO(250, 250, 250, 1),
@@ -84,7 +90,8 @@ class _PatientEditAddress extends State<PatientEditAddress>
                                 padding: EdgeInsets.only(left: 5.0.w),
                                 child: TextField(
                                   decoration: InputDecoration(
-                                      border: InputBorder.none, hintText: "Aomsin"),
+                                      border: InputBorder.none,
+                                      hintText: "Ravichaya Ruenrom"),
                                   style: TextStyle(
                                     fontSize: 12.sp,
                                   ),
@@ -120,7 +127,7 @@ class _PatientEditAddress extends State<PatientEditAddress>
                                 padding: EdgeInsets.only(left: 5.0.w),
                                 child: TextField(
                                   decoration: InputDecoration(
-                                      border: InputBorder.none, hintText: ""),
+                                      border: InputBorder.none, hintText: "0635955499"),
                                   style: TextStyle(
                                     fontSize: 12.sp,
                                   ),
@@ -156,7 +163,7 @@ class _PatientEditAddress extends State<PatientEditAddress>
                                 padding: EdgeInsets.only(left: 5.0.w),
                                 child: TextField(
                                   decoration: InputDecoration(
-                                      border: InputBorder.none, hintText: ""),
+                                      border: InputBorder.none, hintText: "15/67 Liab Expressway Road"),
                                   style: TextStyle(
                                     fontSize: 12.sp,
                                   ),
@@ -175,7 +182,8 @@ class _PatientEditAddress extends State<PatientEditAddress>
                         Row(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
+                              margin:
+                                  EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
                               padding: EdgeInsets.only(left: 30.0.w),
                               child: Text(
                                 "District : ",
@@ -193,11 +201,13 @@ class _PatientEditAddress extends State<PatientEditAddress>
                                   color: Colors.white,
                                   onPressed: showPicker,
                                   child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Text(
-                                        "Select",
-                                        style: TextStyle(fontWeight: FontWeight.w300,
+                                        "Thung Kri",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w300,
                                             fontSize: 12),
                                       ),
                                       Container(
@@ -225,7 +235,8 @@ class _PatientEditAddress extends State<PatientEditAddress>
                         Row(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
+                              margin:
+                                  EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
                               padding: EdgeInsets.only(left: 30.0.w),
                               child: Text(
                                 "Province : ",
@@ -243,11 +254,13 @@ class _PatientEditAddress extends State<PatientEditAddress>
                                   color: Colors.white,
                                   onPressed: showPicker,
                                   child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Text(
-                                        "Select",
-                                        style: TextStyle(fontWeight: FontWeight.w300,
+                                        "Bangkok",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w300,
                                             fontSize: 12),
                                       ),
                                       Container(
@@ -292,7 +305,7 @@ class _PatientEditAddress extends State<PatientEditAddress>
                                 padding: EdgeInsets.only(left: 5.0.w),
                                 child: TextField(
                                   decoration: InputDecoration(
-                                      border: InputBorder.none, hintText: ""),
+                                      border: InputBorder.none, hintText: "10140"),
                                   style: TextStyle(
                                     fontSize: 12.sp,
                                   ),
@@ -342,7 +355,7 @@ class _PatientEditAddress extends State<PatientEditAddress>
                           ],
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: 20.h,bottom: 10.h),
+                          margin: EdgeInsets.only(top: 20.h, bottom: 10.h),
                           child: RaisedButton(
                             onPressed: () {},
                             padding: EdgeInsets.only(
@@ -352,7 +365,8 @@ class _PatientEditAddress extends State<PatientEditAddress>
                                 bottom: 10.0),
                             color: Color.fromRGBO(46, 130, 139, 1),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15.0)),
                             ),
                             child: Text(
                               'DONE',
@@ -367,9 +381,95 @@ class _PatientEditAddress extends State<PatientEditAddress>
                   ),
                 ],
               ),
-            )
-          //nev bar
-        ),
+            ),
+          floatingActionButton: PatientNavBarFloatingButtonCall(
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          bottomNavigationBar: BottomAppBar(
+            shape: AutomaticNotchedShape(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30.r),
+                  topRight: Radius.circular(30.r),
+                ),
+              ),
+            ),
+            notchMargin: 5,
+            color: Colors.white,
+            elevation: 10.0,
+            child: Container(
+              height: 60.h,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.home,
+                              color: Color.fromRGBO(46, 130, 139, 1),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.square_list,
+                              color: Color.fromRGBO(226, 226, 226, 1.0),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.bell,
+                              color: Color.fromRGBO(226, 226, 226, 1.0),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.person,
+                              color: Color.fromRGBO(226, 226, 226, 1.0),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+            //nev bar
+            ),
       ),
     );
   }

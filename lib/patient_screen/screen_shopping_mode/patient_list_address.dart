@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/patient_widget/navbar/patient_navBarFloatinButton.dart';
 import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
 import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
 
@@ -30,8 +31,8 @@ class _PatientAddress extends State<PatientAddress>
       designSize: Size(360, 690),
       allowFontScaling: true,
       child: SafeArea(
-        top: false,
-        bottom: false,
+        top: true,
+        bottom: true,
         child: Scaffold(
             appBar: AppBar(
               leading: Container(
@@ -154,7 +155,93 @@ class _PatientAddress extends State<PatientAddress>
                   ),
                 ],
               ),
-            )
+            ),
+          floatingActionButton: PatientNavBarFloatingButtonCall(
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          bottomNavigationBar: BottomAppBar(
+            shape: AutomaticNotchedShape(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30.r),
+                  topRight: Radius.circular(30.r),
+                ),
+              ),
+            ),
+            notchMargin: 5,
+            color: Colors.white,
+            elevation: 10.0,
+            child: Container(
+              height: 60.h,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.home,
+                              color: Color.fromRGBO(46, 130, 139, 1),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.square_list,
+                              color: Color.fromRGBO(226, 226, 226, 1.0),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.bell,
+                              color: Color.fromRGBO(226, 226, 226, 1.0),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.person,
+                              color: Color.fromRGBO(226, 226, 226, 1.0),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
             //nev bar
             ),
       ),

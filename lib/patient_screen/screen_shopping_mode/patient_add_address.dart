@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/patient_widget/navbar/patient_navBarFloatinButton.dart';
 import 'package:kaiya/pharma_widget/navbar/pharma_navBar.dart';
 import 'package:kaiya/pharma_widget/navbar/pharma_navBarFloatinButton.dart';
 
@@ -31,8 +32,8 @@ class _PatientAddAddress extends State<PatientAddAddress>
       designSize: Size(360, 690),
       allowFontScaling: true,
       child: SafeArea(
-        top: false,
-        bottom: false,
+        top: true,
+        bottom: true,
         child: Scaffold(
           appBar: AppBar(
             leading: Container(
@@ -51,7 +52,9 @@ class _PatientAddAddress extends State<PatientAddAddress>
             centerTitle: true,
             elevation: 8.0,
           ),
-            body: Container(
+          body: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Container(
               color: Color.fromRGBO(250, 250, 250, 1),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -84,7 +87,8 @@ class _PatientAddAddress extends State<PatientAddAddress>
                                 padding: EdgeInsets.only(left: 5.0.w),
                                 child: TextField(
                                   decoration: InputDecoration(
-                                      border: InputBorder.none, hintText: "Aomsin"),
+                                      border: InputBorder.none,
+                                      hintText: "Aomsin"),
                                   style: TextStyle(
                                     fontSize: 12.sp,
                                   ),
@@ -175,7 +179,8 @@ class _PatientAddAddress extends State<PatientAddAddress>
                         Row(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
+                              margin:
+                                  EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
                               padding: EdgeInsets.only(left: 30.0.w),
                               child: Text(
                                 "District : ",
@@ -197,7 +202,8 @@ class _PatientAddAddress extends State<PatientAddAddress>
                                     children: [
                                       Text(
                                         "Select",
-                                        style: TextStyle(fontWeight: FontWeight.w300,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w300,
                                             fontSize: 12),
                                       ),
                                       Container(
@@ -225,7 +231,8 @@ class _PatientAddAddress extends State<PatientAddAddress>
                         Row(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
+                              margin:
+                                  EdgeInsets.only(top: 13.0.h, bottom: 13.0.h),
                               padding: EdgeInsets.only(left: 30.0.w),
                               child: Text(
                                 "Province : ",
@@ -247,7 +254,8 @@ class _PatientAddAddress extends State<PatientAddAddress>
                                     children: [
                                       Text(
                                         "Select",
-                                        style: TextStyle(fontWeight: FontWeight.w300,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w300,
                                             fontSize: 12),
                                       ),
                                       Container(
@@ -342,17 +350,15 @@ class _PatientAddAddress extends State<PatientAddAddress>
                           ],
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: 20.h,bottom: 10.h),
+                          margin: EdgeInsets.only(top: 20.h, bottom: 10.h),
                           child: RaisedButton(
                             onPressed: () {},
                             padding: EdgeInsets.only(
-                                left: 30.0,
-                                right: 30.0,
-                                top: 10.0,
-                                bottom: 10.0),
+                                left: 30.0, right: 30.0, top: 10.0, bottom: 10.0),
                             color: Color.fromRGBO(46, 130, 139, 1),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15.0)),
                             ),
                             child: Text(
                               'DONE',
@@ -367,8 +373,94 @@ class _PatientAddAddress extends State<PatientAddAddress>
                   ),
                 ],
               ),
-            )
-          //nev bar
+            ),
+          ),
+          floatingActionButton: PatientNavBarFloatingButtonCall(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          bottomNavigationBar: BottomAppBar(
+            shape: AutomaticNotchedShape(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30.r),
+                  topRight: Radius.circular(30.r),
+                ),
+              ),
+            ),
+            notchMargin: 5,
+            color: Colors.white,
+            elevation: 10.0,
+            child: Container(
+              height: 50.h,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.home,
+                              color: Color.fromRGBO(46, 130, 139, 1),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.square_list,
+                              color: Color.fromRGBO(226, 226, 226, 1.0),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.bell,
+                              color: Color.fromRGBO(226, 226, 226, 1.0),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.person,
+                              color: Color.fromRGBO(226, 226, 226, 1.0),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );
