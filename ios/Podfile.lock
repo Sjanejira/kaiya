@@ -212,10 +212,10 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
-  - agora_rtc_engine (3.3.1):
-    - AgoraRtcEngine_iOS (= 3.3.1)
+  - agora_rtc_engine (3.3.3):
+    - AgoraRtcEngine_iOS (= 3.3.2)
     - Flutter
-  - AgoraRtcEngine_iOS (3.3.1)
+  - AgoraRtcEngine_iOS (3.3.2)
   - BoringSSL-GRPC (0.0.7):
     - BoringSSL-GRPC/Implementation (= 0.0.7)
     - BoringSSL-GRPC/Interface (= 0.0.7)
@@ -446,8 +446,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
-  agora_rtc_engine: 72d3da83dd75e98aa9650ea64e1534f5e365e841
-  AgoraRtcEngine_iOS: 17e55feec1bde14adc30fd9d743332d1e7821b62
+  agora_rtc_engine: 23c0066f14070ca989ddce82d4b28d7151e6ade1
+  AgoraRtcEngine_iOS: 851e11fa7cbc0cba04f407eac1a9e32b872765a1
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   cloud_firestore: 357b92d4778d7715d76a393db5f89e7dcc9b7401
   Firebase: 26223c695fe322633274198cb19dca8cb7e54416
@@ -462,7 +462,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 1906bf163afdb7c432d2e3b5c40ceb9dd2df5820
   FirebaseInstallations: 30646fc9a61c6f4ee3cd7a8b7231721842b40c95
   FirebaseStorage: 5002b1895bfe74a5ce92ad54f966e6162d0da2e5
-  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_keyboard_visibility: 0339d06371254c3eb25eeb90ba8d17dca8f9c069
   google_maps_flutter: c7f9c73576de1fbe152a227bfd6e6c4ae8088619
   GoogleAppMeasurement: 8d3c0aeede16ab7764144b5a4ca8e1d4323841b7

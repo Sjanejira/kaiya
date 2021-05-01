@@ -82,7 +82,7 @@ class Kaiya extends StatelessWidget {
             primaryColorLight: Colors.white,
             primaryColor: Colors.white,
             accentColor: Color(0xff134153)),
-        initialRoute: TalkHome.id,
+        initialRoute: ChatWithPharma.id,
         routes: {
           PharHome.id: (context) => PharHome(),
           TalkSetting.id: (context) => TalkSetting(),
@@ -95,26 +95,24 @@ class Kaiya extends StatelessWidget {
 
           //shopping mode
           PatientAddAddress.id: (context) => PatientAddAddress(),
-          ChatShopping.id: (context) => ChatShopping(),
+          ChatShopping.id: (context) => ChatShopping(), //InChat
           PatientEditAddress.id: (context) => PatientEditAddress(),
           PatientEditProfile.id: (context) => PatientEditProfile(),
           InChat.id: (context) => InChat(),
           PatientAddress.id: (context) => PatientAddress(),
           PatientNotification.id: (context) => PatientNotification(),
-          PatientNotificationSetting.id: (context) =>
-              PatientNotificationSetting(),
+          PatientNotificationSetting.id: (context) => PatientNotificationSetting(),
           PatientProductDetail.id: (context) => PatientProductDetail(),
-          PatientProfile.id: (context) => PatientProfile(),
+          PatientProfile.id: (context) => PatientProfile(), //PatientEditProfile,ShoppingWishlist,ShoppingHistory
           PatientSeeAllProduct.id: (context) => PatientSeeAllProduct(),
-          PatientSelectEachCategories.id: (context) =>
-              PatientSelectEachCategories(),
+          PatientSelectEachCategories.id: (context) => PatientSelectEachCategories(),
           SelectPayment.id: (context) => SelectPayment(),
-          MyorderSelectPayment.id: (context) => MyorderSelectPayment(), //
+          MyorderSelectPayment.id: (context) => MyorderSelectPayment(), //SelectPayment
           SelectShipping.id: (context) => SelectShipping(),
-          MyorderSelectShipping.id: (context) => MyorderSelectShipping(), //
+          MyorderSelectShipping.id: (context) => MyorderSelectShipping(), //SelectShipping
           ShoppingCart.id: (context) => ShoppingCart(), //
           ShoppingHistory.id: (context) => ShoppingHistory(),
-          PatientHome.id: (context) => PatientHome(),
+          PatientHome.id: (context) => PatientHome(), //PatientSeeAllProduct,PatientSelectEachCategories,ShoppingCart,PatientTalkHome,PatientNotification,PatientProfile
           ShoppingWishlist.id: (context) => ShoppingWishlist(),
           ViewSlip.id: (context) => ViewSlip(),
 
@@ -130,19 +128,23 @@ class Kaiya extends StatelessWidget {
           Login.id: (context) => Login(),
           Signup.id: (context) => Signup(),
           PinOnGGMap.id: (context) => PinOnGGMap(),
-          Mapgg.id: (context) => Mapgg(),
+          Mapgg.id: (context) => Mapgg(), //wiget
           SeeAllPharma.id: (context) => SeeAllPharma(),
+
+          //flow
           PaitentChat.id: (context) => PaitentChat(),
           ChatWithPharma.id: (context) => ChatWithPharma(),
           ChatWithMoreOrder.id: (context) => ChatWithMoreOrder(),
           ChatNoMore.id: (context) => ChatNoMore(),
           Ordermore.id: (context) => Ordermore(),
-          PatientTalkHome.id: (context) => PatientTalkHome(),
+
+
+          PatientTalkHome.id: (context) => PatientTalkHome(), //EmergencyHome,SelectOnMap,PharmaPage,SeeAllPharma,PaitentChat,PatientHome
           CallPharma.id: (context) => CallPharma(),
           VideoCallPharma.id: (context) => VideoCallPharma(),
           OnQueue.id: (context) => OnQueue(),
           PharmaInfo.id: (context) => PharmaInfo(),
-          PharmaPage.id: (context) => PharmaPage(),
+          PharmaPage.id: (context) => PharmaPage(), //PharmaInfo,CallPharma,VideoCallPharma,OnQueue,ChatWithPharma
           SelectOnMap.id: (context) => SelectOnMap(),
         },
       ),
