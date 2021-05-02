@@ -1,17 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:kaiya/patient_widget/navbar/patient_navBar.dart';
 import 'package:kaiya/patient_widget/navbar/patient_navBarFloatinButton.dart';
+import 'package:kaiya/patient_widget/card_product_widget.dart';
 
-import 'package:kaiya/patient_widget/calendar_widget.dart';
-
-class SetSchedule extends StatefulWidget {
-  static const String id = '';
+class ViewPharmaMedicine extends StatefulWidget {
+  static const String id = 'view_pharmacy_each_cate_medicine';
   @override
-  _SetSchedule createState() => _SetSchedule();
+  _ViewPharmaMedicine createState() => _ViewPharmaMedicine();
 }
 
-class _SetSchedule extends State<SetSchedule> {
+class _ViewPharmaMedicine extends State<ViewPharmaMedicine> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(BoxConstraints(
@@ -29,69 +30,101 @@ class _SetSchedule extends State<SetSchedule> {
         bottom: false,
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Schedule',
-            style: TextStyle(
-              color: Color.fromRGBO(19, 65, 83, 1),
-              fontWeight: FontWeight.bold,
-            ),),
-            centerTitle: true,
-            leading: Icon(CupertinoIcons.back,
-            color: Color.fromRGBO(193, 193, 193, 1),),
+            brightness: Brightness.light,
+            elevation: 8.0,
+            leading: Icon(
+              CupertinoIcons.back,
+              color: Color.fromRGBO(193, 193, 193, 1),
+            ),
+            title: Text(
+              'Medicine',
+              style: TextStyle(
+                  color: Color.fromRGBO(46, 65, 83, 1),
+                  fontWeight: FontWeight.bold),
+            ),
           ),
-          body: Container(
+          body: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
-                  child: Container(
-                    margin: EdgeInsets.only(top: 20),
-                    child: KaiYaCalendarApr(),
-                  ),
-                ),
                 Container(
-                  margin: EdgeInsets.only(top: 30,left: 30),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: Text('Recent Pill List',style: TextStyle(
-                          color: Color.fromRGBO(193, 193, 193, 1)
-                        ),),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 10),
-                        width: 250,
-                        height: 1,
-                        color: Color.fromRGBO(193, 193, 193, 1),
-                      )
-                    ],
+                  width: 390,
+                  color: Color.fromRGBO(255, 255, 255, 1),
+                  child: Center(
+                    child: Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: 20.0,
+                      direction: Axis.horizontal,
+                      children: [
+                        CardsaleProduct(
+                          image: 'asset/ms.png',
+                          productname: "MusicZa",
+                          beforesale: 99,
+                          aftersale: 100,
+                          isonsale: true,
+                        ),
+                        CardnormalProduct(
+                          image: 'asset/ms.png',
+                          productname: "MusicZa",
+                          price: 100,
+                          isonsale: true,
+                        ),
+                        CardnormalProduct(
+                          image: 'asset/ms.png',
+                          productname: "MusicZa",
+                          price: 100,
+                          isonsale: true,
+                        ),
+                        CardsaleProduct(
+                          image: 'asset/ms.png',
+                          productname: "MusicZa",
+                          beforesale: 99,
+                          aftersale: 100,
+                          isonsale: true,
+                        ),
+                        CardsaleProduct(
+                          image: 'asset/ms.png',
+                          productname: "MusicZa",
+                          beforesale: 99,
+                          aftersale: 100,
+                          isonsale: true,
+                        ),
+                        CardsaleProduct(
+                          image: 'asset/ms.png',
+                          productname: "MusicZa",
+                          beforesale: 99,
+                          aftersale: 100,
+                          isonsale: true,
+                        ),
+                        CardsaleProduct(
+                          image: 'asset/ms.png',
+                          productname: "MusicZa",
+                          beforesale: 99,
+                          aftersale: 100,
+                          isonsale: true,
+                        ),
+                        CardsaleProduct(
+                          image: 'asset/ms.png',
+                          productname: "MusicZa",
+                          beforesale: 99,
+                          aftersale: 100,
+                          isonsale: true,
+                        ),
+                        CardsaleProduct(
+                          image: 'asset/ms.png',
+                          productname: "MusicZa",
+                          beforesale: 99,
+                          aftersale: 100,
+                          isonsale: true,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 300,top: 190),
-                  width: 80,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    color: Color.fromRGBO(46, 130, 139, 1),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.2),
-                        spreadRadius: 2,
-                        blurRadius: 10,
-                        offset: Offset(0, 3), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  child: Icon(CupertinoIcons.plus,color: Color.fromRGBO(255, 255, 255, 1),
-                  size: 50,),
                 ),
               ],
             ),
           ),
-          backgroundColor: Color.fromRGBO(250, 250, 250, 1),
-          floatingActionButton: PatientNavBarFloatingButtonChat(),
+          floatingActionButton: PatientNavBarFloatingButtonCall(),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(

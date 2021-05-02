@@ -6,6 +6,14 @@ import 'package:kaiya/patient_screen/screen_emergency_mode/patient_emergency_mai
 import 'package:kaiya/patient_screen/screen_emergency_mode/patient_emergency_on_queue.dart';
 import 'package:kaiya/patient_screen/screen_emergency_mode/patient_emergency_pharma_info.dart';
 import 'package:kaiya/patient_screen/screen_emergency_mode/patient_emergency_video_call.dart';
+import 'package:kaiya/patient_screen/screen_shopping_mode/my_order_pay.dart';
+import 'package:kaiya/patient_screen/screen_shopping_mode/my_order_prepare.dart';
+import 'package:kaiya/patient_screen/screen_shopping_mode/my_order_shipping.dart';
+import 'package:kaiya/patient_screen/screen_shopping_mode/my_order_success.dart';
+import 'package:kaiya/patient_screen/screen_shopping_mode/patient_view_pharmacy_categories.dart';
+import 'package:kaiya/patient_screen/screen_shopping_mode/patient_view_pharmacy_each_categories.dart';
+import 'package:kaiya/patient_screen/screen_shopping_mode/patient_view_pharmacy_product.dart';
+import 'package:kaiya/patient_screen/screen_shopping_mode/patient_view_pharmacy_shop.dart';
 
 import 'package:kaiya/patient_screen/screen_shopping_mode/patient_add_address.dart';
 import 'package:kaiya/patient_screen/screen_shopping_mode/patient_chat_shopping_mode.dart';
@@ -29,9 +37,13 @@ import 'package:kaiya/patient_screen/screen_shopping_mode/patient_shopping_mode_
 import 'package:kaiya/patient_screen/screen_shopping_mode/patient_shopping_wishlist.dart';
 import 'package:kaiya/patient_screen/screen_shopping_mode/patient_view_slip.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_call.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_delivery.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_fav_pharma.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_history.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_pharma_detail.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_pharma_near_you.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_queue.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_schedule.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_select_pharma_map.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_video_call.dart';
 
@@ -82,7 +94,7 @@ class Kaiya extends StatelessWidget {
             primaryColorLight: Colors.white,
             primaryColor: Colors.white,
             accentColor: Color(0xff134153)),
-        initialRoute: ChatWithPharma.id,
+        initialRoute: SetSchedule.id,
         routes: {
           PharHome.id: (context) => PharHome(),
           TalkSetting.id: (context) => TalkSetting(),
@@ -103,7 +115,7 @@ class Kaiya extends StatelessWidget {
           PatientNotification.id: (context) => PatientNotification(),
           PatientNotificationSetting.id: (context) => PatientNotificationSetting(),
           PatientProductDetail.id: (context) => PatientProductDetail(),
-          PatientProfile.id: (context) => PatientProfile(), //PatientEditProfile,ShoppingWishlist,ShoppingHistory
+          PatientProfile.id: (context) => PatientProfile(), //PatientEditProfile,ShoppingWishlist,ShoppingHistory,MyOrderPay,MyOrderPrepare,MyOrderShipping,MyOrderSuccess
           PatientSeeAllProduct.id: (context) => PatientSeeAllProduct(),
           PatientSelectEachCategories.id: (context) => PatientSelectEachCategories(),
           SelectPayment.id: (context) => SelectPayment(),
@@ -115,6 +127,14 @@ class Kaiya extends StatelessWidget {
           PatientHome.id: (context) => PatientHome(), //PatientSeeAllProduct,PatientSelectEachCategories,ShoppingCart,PatientTalkHome,PatientNotification,PatientProfile
           ShoppingWishlist.id: (context) => ShoppingWishlist(),
           ViewSlip.id: (context) => ViewSlip(),
+          ViewPharmaShop.id: (context) => ViewPharmaShop(), //ViewPharmaProduct,ViewPharmaCategories,ShoppingCart,InChat
+          ViewPharmaProduct.id: (context) => ViewPharmaProduct(),//ViewPharmaShop,ViewPharmaCategories,ShoppingCart,InChat
+          ViewPharmaCategories.id: (context) => ViewPharmaCategories(),//ViewPharmaProduct,ViewPharmaShp,ShoppingCart,InChat,ViewPharmaMedicine
+          ViewPharmaMedicine.id: (context) => ViewPharmaMedicine(),
+          MyOrderPay.id: (context) => MyOrderPay(),
+          MyOrderPrepare.id: (context) => MyOrderPrepare(),
+          MyOrderShipping.id: (context) => MyOrderShipping(),
+          MyOrderSuccess.id: (context) => MyOrderSuccess(),
 
           //emergency mode
           EmergencyHome.id: (context) => EmergencyHome(),
@@ -130,22 +150,24 @@ class Kaiya extends StatelessWidget {
           PinOnGGMap.id: (context) => PinOnGGMap(),
           Mapgg.id: (context) => Mapgg(), //wiget
           SeeAllPharma.id: (context) => SeeAllPharma(),
-
-          //flow
+          //flow chat
           PaitentChat.id: (context) => PaitentChat(),
           ChatWithPharma.id: (context) => ChatWithPharma(),
           ChatWithMoreOrder.id: (context) => ChatWithMoreOrder(),
           ChatNoMore.id: (context) => ChatNoMore(),
           Ordermore.id: (context) => Ordermore(),
 
-
-          PatientTalkHome.id: (context) => PatientTalkHome(), //EmergencyHome,SelectOnMap,PharmaPage,SeeAllPharma,PaitentChat,PatientHome
+          PatientTalkHome.id: (context) => PatientTalkHome(), //EmergencyHome,SelectOnMap,PharmaPage,SeeAllPharma,PaitentChat,PatientHome,SelectDelivering,FavPharmacy,History
           CallPharma.id: (context) => CallPharma(),
           VideoCallPharma.id: (context) => VideoCallPharma(),
           OnQueue.id: (context) => OnQueue(),
           PharmaInfo.id: (context) => PharmaInfo(),
           PharmaPage.id: (context) => PharmaPage(), //PharmaInfo,CallPharma,VideoCallPharma,OnQueue,ChatWithPharma
           SelectOnMap.id: (context) => SelectOnMap(),
+          SelectDelivering.id: (context) => SelectDelivering(), //PinOnGGMap
+          FavPharmacy.id: (context) => FavPharmacy(),
+          History.id: (context) => History(),
+          SetSchedule.id: (context) => SetSchedule(),
         },
       ),
     );

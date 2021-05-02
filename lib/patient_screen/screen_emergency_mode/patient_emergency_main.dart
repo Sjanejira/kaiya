@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaiya/patient_widget/navbar/patient_navBarFloatinButton.dart';
 
 class EmergencyHome extends StatefulWidget {
   static const String id = 'patient_emergency';
@@ -293,7 +294,92 @@ class _EmergencyHome extends State<EmergencyHome> {
             ],
           ),
           backgroundColor: Color.fromRGBO(250, 250, 250, 1),
-          //nevbar
+          floatingActionButton: PatientNavBarFloatingButtonChat(),
+          floatingActionButtonLocation:
+          FloatingActionButtonLocation.centerDocked,
+          bottomNavigationBar: BottomAppBar(
+            shape: AutomaticNotchedShape(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30.r),
+                  topRight: Radius.circular(30.r),
+                ),
+              ),
+            ),
+            notchMargin: 5,
+            color: Colors.white,
+            elevation: 10.0,
+            child: Container(
+              height: 50.h,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.home,
+                              color: Color.fromRGBO(46, 130, 139, 1),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.square_list,
+                              color: Color.fromRGBO(226, 226, 226, 1.0),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.bell,
+                              color: Color.fromRGBO(226, 226, 226, 1.0),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                      MaterialButton(
+                        minWidth: 40.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              CupertinoIcons.person,
+                              color: Color.fromRGBO(226, 226, 226, 1.0),
+                              size: 33.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );

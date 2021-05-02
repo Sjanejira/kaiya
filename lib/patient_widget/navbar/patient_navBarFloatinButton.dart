@@ -28,7 +28,7 @@ class PatientNavBarFloatingButtonChat extends StatelessWidget {
         shape: CircleBorder(),
         elevation: 10.0,
         child: Icon(
-          CupertinoIcons.chat_bubble_text,
+          CupertinoIcons.cart,
           size: 33.sp,
           color: Color.fromRGBO(226, 226, 226, 1.0),
         ),
