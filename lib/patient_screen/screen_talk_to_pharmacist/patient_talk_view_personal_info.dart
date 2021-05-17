@@ -67,7 +67,7 @@ class _ViewPersonalInfo extends State<ViewPersonalInfo> {
                     ),
                   ],
                 ),
-                child: Column(s
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
