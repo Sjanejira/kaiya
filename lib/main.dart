@@ -39,12 +39,14 @@ import 'package:kaiya/patient_screen/screen_shopping_mode/patient_view_slip.dart
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_ask_to_sent_personal_info.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_chat_buy_for_other.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_chat_buy_for_other_after_selected.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_confirm_delete_personal_info.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_detail_my_personal_infomation.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_empty_cart.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_fill_rate_for_pharmacy.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_has_queue.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_no_on_queue.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_personal_information.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_profile.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_rate_for_pharmacy.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_schedule_fill_pill_info.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_schedule_pill_info.dart';
@@ -115,7 +117,7 @@ class Kaiya extends StatelessWidget {
             primaryColorLight: Colors.white,
             primaryColor: Colors.white,
             accentColor: Color(0xff134153)),
-        initialRoute: ShowSchedule.id,
+        initialRoute: ViewPersonalInfo.id,
         routes: {
           PharHome.id: (context) => PharHome(),
           TalkSetting.id: (context) => TalkSetting(),
@@ -211,6 +213,8 @@ class Kaiya extends StatelessWidget {
           PersonalInformation.id: (context) => PersonalInformation(),
           MyPersonalInformation.id: (context) => MyPersonalInformation(),
           ShowSchedule.id: (context) => ShowSchedule(),
+          PatientTalkProfile.id: (context) => PatientTalkProfile(),
+          ConfirmDelete.id: (context) => ConfirmDelete(),
         },
       ),
     );

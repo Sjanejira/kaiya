@@ -48,353 +48,447 @@ class _PillFillInfo extends State<PillFillInfo> {
             ],
             elevation: 8.0,
           ),
-          body: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Center(
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 30),
-                        width: 140,
-                        height: 140,
-                        color: Color.fromRGBO(255, 255, 255, 1),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 10),
-                        child: Text(
-                          'Change Picture',
-                          style:
-                          TextStyle(color: Color.fromRGBO(46, 130, 139, 1)),
-                        ),
-                      ),
-                    ],
-                  ),
+          body: Center(
+          child: Container(
+          width: 340,
+          height: 610,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(20),),
+            color: Color.fromRGBO(255, 255, 255, 1),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.1),
+                spreadRadius: 2,
+                blurRadius: 3,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: 30),
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage('asset/pon.png'),
+                      fit: BoxFit.cover,
+                    )
                 ),
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  width: 390,
-                  height: 450,
-                  color: Color.fromRGBO(255, 255, 255, 1),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                width: 320,
+                height: 40,
+                //color: Colors.pink[100],
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Row(
                         children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 40),
-                                child: Text(
-                                  'Pill Name',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(193, 193, 193, 1),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Container(
+                            margin: EdgeInsets.only(left: 20,right: 20),
+                            child: Text('Name: ',
+                              style: TextStyle(
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                                fontWeight: FontWeight.bold,
+                              ),),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 10, left: 90),
-                            width: 250,
-                            height: 1,
-                            color: Color.fromRGBO(193, 193, 193, 1),
+                            child: Text('Ponchon',
+                              style: TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 1),
+                              ),),
                           ),
                         ],
                       ),
-                      Column(
+                    ),
+                    Container(
+                      width: 280,
+                      height: 1,
+                      color: Color.fromRGBO(193, 193, 193, 1),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                width: 320,
+                height: 40,
+                //color: Colors.pink[100],
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Row(
                         children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 40),
-                                child: Text(
-                                  'Quantity',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(193, 193, 193, 1),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 35),
-                                child: Text(
-                                  '1',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(255, 255, 255, 1),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 140),
-                                child: Text(
-                                  'Pill/Time',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(193, 193, 193, 1),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Container(
+                            margin: EdgeInsets.only(left: 20,right: 20),
+                            child: Text('Birthday: ',
+                              style: TextStyle(
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                                fontWeight: FontWeight.bold,
+                              ),),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 10, left: 90),
-                            width: 250,
-                            height: 1,
-                            color: Color.fromRGBO(193, 193, 193, 1),
+                            child: Text('February 27, 1999',
+                              style: TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 1),
+                              ),),
                           ),
                         ],
                       ),
-                      Column(
+                    ),
+                    Container(
+                      width: 280,
+                      height: 1,
+                      color: Color.fromRGBO(193, 193, 193, 1),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                width: 320,
+                height: 40,
+                //color: Colors.pink[100],
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Row(
                         children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 40),
-                                child: Text(
-                                  'Time',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(193, 193, 193, 1),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Container(
+                            margin: EdgeInsets.only(left: 20,right: 20),
+                            child: Text('Ages: ',
+                              style: TextStyle(
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                                fontWeight: FontWeight.bold,
+                              ),),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 10, left: 90),
-                            width: 250,
-                            height: 1,
-                            color: Color.fromRGBO(193, 193, 193, 1),
+                            child: Text('22',
+                              style: TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 1),
+                              ),),
                           ),
                         ],
                       ),
-                      Column(
+                    ),
+                    Container(
+                      width: 280,
+                      height: 1,
+                      color: Color.fromRGBO(193, 193, 193, 1),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                width: 320,
+                height: 40,
+                //color: Colors.pink[100],
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Row(
                         children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 40),
-                                child: Text(
-                                  'Frequency',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(193, 193, 193, 1),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 25),
-                                child: Text(
-                                  '3',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(255, 255, 255, 1),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 140),
-                                child: Text(
-                                  'Times/Day',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(193, 193, 193, 1),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Container(
+                            margin: EdgeInsets.only(left: 20,right: 20),
+                            child: Text('Gender: ',
+                              style: TextStyle(
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                                fontWeight: FontWeight.bold,
+                              ),),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 10, left: 90),
-                            width: 250,
-                            height: 1,
-                            color: Color.fromRGBO(193, 193, 193, 1),
+                            child: Text('Female',
+                              style: TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 1),
+                              ),),
                           ),
                         ],
                       ),
-                      Column(
+                    ),
+                    Container(
+                      width: 280,
+                      height: 1,
+                      color: Color.fromRGBO(193, 193, 193, 1),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                width: 320,
+                height: 40,
+                //color: Colors.pink[100],
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Row(
                         children: [
                           Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 40),
-                                child: Text(
-                                  'Reminder',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(193, 193, 193, 1),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(top: 10, left: 90),
-                            width: 250,
-                            height: 1,
-                            color: Color.fromRGBO(193, 193, 193, 1),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 40),
-                                child: Text(
-                                  'Date',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(193, 193, 193, 1),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 120,
-                                height: 35,
-                                margin: EdgeInsets.only(left: 60),
-                                decoration: BoxDecoration(
-                                  borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                                  border: Border.all(
-                                    color: Color.fromRGBO(19, 65, 83, 1),
-                                  ),
-                                ),
-                                child: Center(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        CupertinoIcons.calendar,
-                                        color: Color.fromRGBO(19, 65, 83, 1),
-                                      ),
-                                      Text(
-                                        'Choose Date',
-                                        style: TextStyle(
-                                          color: Color.fromRGBO(19, 65, 83, 1),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(top: 10, left: 90),
-                            width: 250,
-                            height: 1,
-                            color: Color.fromRGBO(193, 193, 193, 1),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 40),
-                                child: Text(
-                                  'Dosage',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(193, 193, 193, 1),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 45),
-                                child: Text(
-                                  '31',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(255, 255, 255, 1),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 140),
-                                child: Text(
-                                  'Tablets',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(193, 193, 193, 1),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(top: 10, left: 90),
-                            width: 250,
-                            height: 1,
-                            color: Color.fromRGBO(193, 193, 193, 1),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 40),
-                                child: Text(
-                                  'Color Card',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(193, 193, 193, 1),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
                               Container(
                                 margin: EdgeInsets.only(left: 20),
-                                width: 20,
-                                height: 20,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Color.fromRGBO(96, 13, 125, 1),
-                                ),
+                                child: Text('Weight ',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(46, 130, 139, 1),
+                                    fontWeight: FontWeight.bold,
+                                  ),),
                               ),
                               Container(
-                                margin: EdgeInsets.only(left: 10),
-                                child: Icon(
-                                  CupertinoIcons.forward,
-                                  color: Color.fromRGBO(193, 193, 193, 1),
-                                ),
-                              )
+                                child: Text('(kg.)',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(193, 193, 193, 1),
+                                    fontWeight: FontWeight.bold,
+                                  ),),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(right: 10),
+                                child: Text(':',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(46, 130, 139, 1),
+                                    fontWeight: FontWeight.bold,
+                                  ),),
+                              ),
+                              Container(
+                                child: Text('50',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(0, 0, 0, 1),
+                                  ),),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(left: 20),
+                                child: Text('Height ',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(46, 130, 139, 1),
+                                    fontWeight: FontWeight.bold,
+                                  ),),
+                              ),
+                              Container(
+                                child: Text('(cm.)',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(193, 193, 193, 1),
+                                    fontWeight: FontWeight.bold,
+                                  ),),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(right: 10),
+                                child: Text(':',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(46, 130, 139, 1),
+                                    fontWeight: FontWeight.bold,
+                                  ),),
+                              ),
+                              Container(
+                                child: Text('170',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(0, 0, 0, 1),
+                                  ),),
+                              ),
                             ],
                           ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Container(
+                      width: 280,
+                      height: 1,
+                      color: Color.fromRGBO(193, 193, 193, 1),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                width: 320,
+                height: 40,
+                //color: Colors.pink[100],
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(left: 20,right: 20),
+                            child: Text('Congenital disease : ',
+                              style: TextStyle(
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                                fontWeight: FontWeight.bold,
+                              ),),
+                          ),
+                          Container(
+                            width: 90,
+                            height: 25,
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(226, 226, 226, 1),
+                              borderRadius: BorderRadius.all(Radius.circular(10),),
+                            ),
+                            child: Center(
+                              child: Text('Allergy (nut)',
+                                style: TextStyle(
+                                  color: Color.fromRGBO(0, 0, 0, 1),
+                                ),),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 280,
+                      height: 1,
+                      color: Color.fromRGBO(193, 193, 193, 1),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                width: 320,
+                height: 40,
+                //color: Colors.pink[100],
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(left: 20,right: 20),
+                            child: Text('Allergic drugs & Reactions: : ',
+                              style: TextStyle(
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                                fontWeight: FontWeight.bold,
+                              ),),
+                          ),
+                          Container(
+                            width: 50,
+                            height: 25,
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(226, 226, 226, 1),
+                              borderRadius: BorderRadius.all(Radius.circular(10),),
+                            ),
+                            child: Center(
+                              child: Text('None',
+                                style: TextStyle(
+                                  color: Color.fromRGBO(0, 0, 0, 1),
+                                ),),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 280,
+                      height: 1,
+                      color: Color.fromRGBO(193, 193, 193, 1),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                width: 320,
+                height: 40,
+                //color: Colors.pink[100],
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(left: 20,right: 20),
+                            child: Text('Relationship: ',
+                              style: TextStyle(
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                                fontWeight: FontWeight.bold,
+                              ),),
+                          ),
+                          Container(
+                            child: Text('Mother',
+                              style: TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 1),
+                              ),),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 280,
+                      height: 1,
+                      color: Color.fromRGBO(193, 193, 193, 1),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                width: 320,
+                height: 40,
+                //color: Colors.pink[100],
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(left: 20,right: 20),
+                            child: Text('Phone:',
+                              style: TextStyle(
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                                fontWeight: FontWeight.bold,
+                              ),),
+                          ),
+                          Container(
+                            child: Text('098-765-4321',
+                              style: TextStyle(
+                                color: Color.fromRGBO(0, 0, 0, 1),
+                              ),),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          backgroundColor: Color.fromRGBO(250, 250, 250, 1),
+        ),
+      ),
+      backgroundColor: Color.fromRGBO(250, 250, 250, 1.0),
           floatingActionButton: PatientNavBarFloatingButtonShop(),
           floatingActionButtonLocation:
           FloatingActionButtonLocation.centerDocked,
