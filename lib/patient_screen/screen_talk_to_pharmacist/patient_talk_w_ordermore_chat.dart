@@ -739,7 +739,7 @@ class _ChatWithMoreOrder extends State<ChatWithMoreOrder> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'RATE DRIVER',
+                                    'VIEW DRIVER',
                                     style: TextStyle(
                                       fontSize: 10,
                                       color: Color.fromRGBO(46, 130, 139, 1),

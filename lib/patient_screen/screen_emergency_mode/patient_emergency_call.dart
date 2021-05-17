@@ -45,7 +45,7 @@ class _EmergencyCall extends State<EmergencyCall> {
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     child: Text(
-                      'Calling',
+                      'Calling...',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),

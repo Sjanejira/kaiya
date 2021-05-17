@@ -363,7 +363,7 @@ class _History extends State<History> {
               ),
             ),
             backgroundColor: Color.fromRGBO(255, 255, 255, 1),
-            floatingActionButton: PatientNavBarFloatingButtonChat(),
+            floatingActionButton: PatientNavBarFloatingButtonShop(),
             floatingActionButtonLocation:
             FloatingActionButtonLocation.centerDocked,
             bottomNavigationBar: BottomAppBar(
@@ -379,7 +379,7 @@ class _History extends State<History> {
               color: Colors.white,
               elevation: 10.0,
               child: Container(
-                height: 60.h,
+                height: 50.h,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -391,10 +391,13 @@ class _History extends State<History> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
-                                CupertinoIcons.home,
-                                color: Color.fromRGBO(46, 130, 139, 1),
-                                size: 33.0,
+                              Container(
+                                margin: EdgeInsets.only(left: 10),
+                                child: Icon(
+                                  CupertinoIcons.home,
+                                  color: Color.fromRGBO(46, 130, 139, 1),
+                                  size: 33.0,
+                                ),
                               ),
                             ],
                           ),
@@ -404,10 +407,13 @@ class _History extends State<History> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
-                                CupertinoIcons.chat_bubble_text,
-                                color: Color.fromRGBO(226, 226, 226, 1.0),
-                                size: 33.0,
+                              Container(
+                                margin: EdgeInsets.only(left: 10),
+                                child: Icon(
+                                  CupertinoIcons.chat_bubble_text,
+                                  color: Color.fromRGBO(226, 226, 226, 1.0),
+                                  size: 33.0,
+                                ),
                               ),
                             ],
                           ),
@@ -422,10 +428,13 @@ class _History extends State<History> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
-                                CupertinoIcons.bell,
-                                color: Color.fromRGBO(226, 226, 226, 1.0),
-                                size: 33.0,
+                              Container(
+                                margin: EdgeInsets.only(right: 10),
+                                child: Icon(
+                                  CupertinoIcons.bell,
+                                  color: Color.fromRGBO(226, 226, 226, 1.0),
+                                  size: 33.0,
+                                ),
                               ),
                             ],
                           ),
@@ -435,10 +444,13 @@ class _History extends State<History> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
-                                CupertinoIcons.person,
-                                color: Color.fromRGBO(226, 226, 226, 1.0),
-                                size: 33.0,
+                              Container(
+                                margin: EdgeInsets.only(right: 10),
+                                child: Icon(
+                                  CupertinoIcons.person,
+                                  color: Color.fromRGBO(226, 226, 226, 1.0),
+                                  size: 33.0,
+                                ),
                               ),
                             ],
                           ),

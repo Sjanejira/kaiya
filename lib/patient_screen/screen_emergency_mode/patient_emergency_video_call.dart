@@ -45,7 +45,7 @@ class _EmergencyVideoCall extends State<EmergencyVideoCall> {
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     child: Text(
-                      'Video Calling',
+                      'Video Calling...',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),

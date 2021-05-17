@@ -36,6 +36,23 @@ import 'package:kaiya/patient_screen/screen_shopping_mode/patient_shopping_histo
 import 'package:kaiya/patient_screen/screen_shopping_mode/patient_shopping_mode_home.dart';
 import 'package:kaiya/patient_screen/screen_shopping_mode/patient_shopping_wishlist.dart';
 import 'package:kaiya/patient_screen/screen_shopping_mode/patient_view_slip.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_ask_to_sent_personal_info.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_chat_buy_for_other.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_chat_buy_for_other_after_selected.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_detail_my_personal_infomation.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_empty_cart.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_fill_rate_for_pharmacy.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_has_queue.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_no_on_queue.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_personal_information.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_rate_for_pharmacy.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_schedule_fill_pill_info.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_schedule_pill_info.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_schedule_pill_info_color.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_select_other_info.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_select_personal_info_card.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_selected_personal_info_card.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_show_pharma_has_queue.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_call.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_delivery.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_fav_pharma.dart';
@@ -45,7 +62,10 @@ import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_phar
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_queue.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_schedule.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_select_pharma_map.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_sum_order_on_call.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_update_status.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_video_call.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_view_personal_info.dart';
 
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/select_role.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_login.dart';
@@ -136,27 +156,27 @@ class Kaiya extends StatelessWidget {
           MyOrderShipping.id: (context) => MyOrderShipping(),
           MyOrderSuccess.id: (context) => MyOrderSuccess(),
 
-          //emergency mode
-          EmergencyHome.id: (context) => EmergencyHome(),
-          EmergencyPharmaInfo.id: (context) => EmergencyPharmaInfo(),
+          //emergency mode 100% complete UI same
+          EmergencyCall.id: (context) => EmergencyCall(),//implement ui
+          EmergencyHome.id: (context) => EmergencyHome(),//edit bottom app bar
           EmergencyOnQueue.id: (context) => EmergencyOnQueue(),
-          EmergencyCall.id: (context) => EmergencyCall(),
-          EmergencyVideoCall.id: (context) => EmergencyVideoCall(),
+          EmergencyPharmaInfo.id: (context) => EmergencyPharmaInfo(),
+          EmergencyVideoCall.id: (context) => EmergencyVideoCall(),//implement ui
 
           //talk with pharmaist mode
           SelectRole.id: (context) => SelectRole(),
           Login.id: (context) => Login(),
           Signup.id: (context) => Signup(),
+          SeeAllPharma.id: (context) => SeeAllPharma(),//add bottom app bar + call icon
           PinOnGGMap.id: (context) => PinOnGGMap(),
           Mapgg.id: (context) => Mapgg(), //wiget
-          SeeAllPharma.id: (context) => SeeAllPharma(),
+
           //flow chat
           PaitentChat.id: (context) => PaitentChat(),
           ChatWithPharma.id: (context) => ChatWithPharma(),
           ChatWithMoreOrder.id: (context) => ChatWithMoreOrder(),
           ChatNoMore.id: (context) => ChatNoMore(),
           Ordermore.id: (context) => Ordermore(),
-
           PatientTalkHome.id: (context) => PatientTalkHome(), //EmergencyHome,SelectOnMap,PharmaPage,SeeAllPharma,PaitentChat,PatientHome,SelectDelivering,FavPharmacy,History
           CallPharma.id: (context) => CallPharma(),
           VideoCallPharma.id: (context) => VideoCallPharma(),
@@ -167,7 +187,28 @@ class Kaiya extends StatelessWidget {
           SelectDelivering.id: (context) => SelectDelivering(), //PinOnGGMap
           FavPharmacy.id: (context) => FavPharmacy(),
           History.id: (context) => History(),
-          SetSchedule.id: (context) => SetSchedule(),
+          SetSchedule.id: (context) => SetSchedule(), //ยังไม่เสร็จอยู่ดีเวรเอ้ย
+
+          EmptyCart.id: (context) => EmptyCart(),
+          PatientPharmaHasQueue.id: (context) => PatientPharmaHasQueue(),
+          PatientNoOnQueue.id: (context) => PatientNoOnQueue(),
+          PatientHasQueue.id: (context) => PatientHasQueue(),
+          SelectPillColor.id: (context) => SelectPillColor(),
+          PillInfo.id: (context) => PillInfo(),//เหลือตรงเวลาวันที่
+          PillFillInfo.id: (context) => PillFillInfo(),
+          OptionSelectOtherInfo.id: (context) => OptionSelectOtherInfo(),
+          SelectPersonalInfo.id: (context) => SelectPersonalInfo(),
+          SelectedPersonalCard.id: (context) => SelectedPersonalCard(),
+          AskSureToSent.id: (context) => AskSureToSent(),
+          ChatBuyForOther.id: (context) => ChatBuyForOther(),
+          AfterSentCard.id: (context) => AfterSentCard(),
+          ViewPersonalInfo.id: (context) => ViewPersonalInfo(),
+          UpdateStatus.id: (context) => UpdateStatus(),
+          FillRateForPharma.id: (context) => FillRateForPharma(),
+          RateForPharma.id: (context) => RateForPharma(),
+          OrderOncall.id: (context) => OrderOncall(),
+          PersonalInformation.id: (context) => PersonalInformation(),
+          MyPersonalInformation.id: (context) => MyPersonalInformation(),
         },
       ),
     );

@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:kaiya/patient_widget/navbar/patient_navBar.dart';
 import 'package:kaiya/patient_widget/navbar/patient_navBarFloatinButton.dart';
-import 'package:kaiya/patient_widget/card_product_widget.dart';
 
 class SelectDelivering extends StatefulWidget {
   static const String id = 'talk_mode_select_delivering_to';
@@ -212,9 +210,9 @@ class _SelectDelivering extends State<SelectDelivering> {
             ),
           ),
           backgroundColor: Color.fromRGBO(250, 250, 250, 1),
-          floatingActionButton: PatientNavBarFloatingButtonChat(),
+          floatingActionButton: PatientNavBarFloatingButtonShop(),
           floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
+          FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
             shape: AutomaticNotchedShape(
               RoundedRectangleBorder(
@@ -240,10 +238,13 @@ class _SelectDelivering extends State<SelectDelivering> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              CupertinoIcons.home,
-                              color: Color.fromRGBO(46, 130, 139, 1),
-                              size: 33.0,
+                            Container(
+                              margin: EdgeInsets.only(left: 10),
+                              child: Icon(
+                                CupertinoIcons.home,
+                                color: Color.fromRGBO(46, 130, 139, 1),
+                                size: 33.0,
+                              ),
                             ),
                           ],
                         ),
@@ -253,10 +254,13 @@ class _SelectDelivering extends State<SelectDelivering> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              CupertinoIcons.square_list,
-                              color: Color.fromRGBO(226, 226, 226, 1.0),
-                              size: 33.0,
+                            Container(
+                              margin: EdgeInsets.only(left: 10),
+                              child: Icon(
+                                CupertinoIcons.chat_bubble_text,
+                                color: Color.fromRGBO(226, 226, 226, 1.0),
+                                size: 33.0,
+                              ),
                             ),
                           ],
                         ),
@@ -271,10 +275,13 @@ class _SelectDelivering extends State<SelectDelivering> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              CupertinoIcons.bell,
-                              color: Color.fromRGBO(226, 226, 226, 1.0),
-                              size: 33.0,
+                            Container(
+                              margin: EdgeInsets.only(right: 10),
+                              child: Icon(
+                                CupertinoIcons.bell,
+                                color: Color.fromRGBO(226, 226, 226, 1.0),
+                                size: 33.0,
+                              ),
                             ),
                           ],
                         ),
@@ -284,10 +291,13 @@ class _SelectDelivering extends State<SelectDelivering> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              CupertinoIcons.person,
-                              color: Color.fromRGBO(226, 226, 226, 1.0),
-                              size: 33.0,
+                            Container(
+                              margin: EdgeInsets.only(right: 10),
+                              child: Icon(
+                                CupertinoIcons.person,
+                                color: Color.fromRGBO(226, 226, 226, 1.0),
+                                size: 33.0,
+                              ),
                             ),
                           ],
                         ),
