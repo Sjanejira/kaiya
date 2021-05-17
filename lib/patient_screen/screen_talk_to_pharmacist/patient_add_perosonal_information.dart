@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaiya/patient_widget/navbar/patient_navBarFloatinButton.dart';
 
-class MyPersonalInformation extends StatefulWidget {
-  static const String id = 'my_detail_personal_info';
+class AddPersonalInfo extends StatefulWidget {
+  static const String id = 'add_new_personal_info';
   @override
-  _MyPersonalInformation createState() => _MyPersonalInformation();
+  _AddPersonalInfo createState() => _AddPersonalInfo();
 }
 
-class _MyPersonalInformation extends State<MyPersonalInformation> {
+class _AddPersonalInfo extends State<AddPersonalInfo> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(BoxConstraints(
@@ -27,17 +27,27 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
         bottom: false,
         child: Scaffold(
           appBar: AppBar(
-            leading: Icon(CupertinoIcons.back,
-                color: Color.fromRGBO(193, 193, 193, 1)),
-            title: Text(
-              'Personal Information',
-              style: TextStyle(color: Color.fromRGBO(19, 65, 83, 1)),
+            brightness: Brightness.light,
+            leading: Icon(
+              CupertinoIcons.back,
+              color: Color.fromRGBO(193, 193, 193, 1),
             ),
+            title: const Text(
+              'Personal Information',
+              style: TextStyle(
+                  color: Color.fromRGBO(19, 65, 83, 1.0),
+                  fontWeight: FontWeight.bold),
+            ),
+            backgroundColor: Colors.white,
+            centerTitle: true,
+            elevation: 8.0,
             actions: [
               Container(
                 margin: EdgeInsets.only(right: 20),
-                child: Icon(CupertinoIcons.checkmark,
-                color: Color.fromRGBO(19, 65, 83, 1),),
+                child: Icon(
+                  CupertinoIcons.checkmark,
+                  color: Color.fromRGBO(19, 65, 83, 1),
+                ),
               )
             ],
           ),
@@ -47,9 +57,11 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
               child: Container(
                 margin: EdgeInsets.only(top: 20),
                 width: 340,
-                height: 600,
+                height: 700,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20),),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(20),
+                  ),
                   color: Color.fromRGBO(255, 255, 255, 1),
                   boxShadow: [
                     BoxShadow(
@@ -64,36 +76,25 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: 340,
-                      height: 10,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20)),
-                        color: Color.fromRGBO(46, 130, 139, 1)
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 20),
+                      margin: EdgeInsets.only(top: 30),
                       width: 100,
                       height: 100,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: AssetImage('asset/ms.png'),
-                            fit: BoxFit.cover,
-                          )
+                      child: Center(
+                        child: Icon(CupertinoIcons.person_alt_circle,
+                        size: 90,
+                        color: Color.fromRGBO(193, 193, 193, 2),),
                       ),
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 10),
-                      child: Text('Change Picture',
-                      style: TextStyle(
-                        color: Color.fromRGBO(193, 193, 193, 1),
-                        fontSize: 12
-                      ),),
+                      child: Text(
+                        'Add Picture',
+                        style: TextStyle(
+                            color: Color.fromRGBO(193, 193, 193, 1),
+                            fontSize: 12),
+                      ),
                     ),
                     Container(
-
                       width: 320,
                       height: 40,
                       //color: Colors.pink[100],
@@ -106,18 +107,22 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
                             child: Row(
                               children: [
                                 Container(
-                                  margin: EdgeInsets.only(left: 20,right: 20),
-                                  child: Text('Name: ',
+                                  margin: EdgeInsets.only(left: 20, right: 20),
+                                  child: Text(
+                                    'Name: ',
                                     style: TextStyle(
                                       color: Color.fromRGBO(46, 130, 139, 1),
                                       fontWeight: FontWeight.bold,
-                                    ),),
+                                    ),
+                                  ),
                                 ),
                                 Container(
-                                  child: Text('Ravichms',
+                                  child: Text(
+                                    '',
                                     style: TextStyle(
                                       color: Color.fromRGBO(0, 0, 0, 1),
-                                    ),),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -145,24 +150,30 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
-                                  margin: EdgeInsets.only(left: 20,right: 20),
-                                  child: Text('Birthday: ',
+                                  margin: EdgeInsets.only(left: 20, right: 20),
+                                  child: Text(
+                                    'Birthday: ',
                                     style: TextStyle(
                                       color: Color.fromRGBO(46, 130, 139, 1),
                                       fontWeight: FontWeight.bold,
-                                    ),),
+                                    ),
+                                  ),
                                 ),
                                 Container(
-                                  child: Text('October 25 , 1998',
+                                  child: Text(
+                                    'Select',
                                     style: TextStyle(
                                       color: Color.fromRGBO(0, 0, 0, 1),
-                                    ),),
+                                    ),
+                                  ),
                                 ),
                                 Container(
                                   margin: EdgeInsets.only(left: 10),
-                                  child: Icon(CupertinoIcons.forward,
-                                  color: Color.fromRGBO(193, 193, 193, 1),
-                                  size: 15,),
+                                  child: Icon(
+                                    CupertinoIcons.forward,
+                                    color: Color.fromRGBO(193, 193, 193, 1),
+                                    size: 15,
+                                  ),
                                 )
                               ],
                             ),
@@ -189,18 +200,22 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
                             child: Row(
                               children: [
                                 Container(
-                                  margin: EdgeInsets.only(left: 20,right: 20),
-                                  child: Text('Ages: ',
+                                  margin: EdgeInsets.only(left: 20, right: 20),
+                                  child: Text(
+                                    'Ages: ',
                                     style: TextStyle(
                                       color: Color.fromRGBO(46, 130, 139, 1),
                                       fontWeight: FontWeight.bold,
-                                    ),),
+                                    ),
+                                  ),
                                 ),
                                 Container(
-                                  child: Text('23',
+                                  child: Text(
+                                    '',
                                     style: TextStyle(
                                       color: Color.fromRGBO(0, 0, 0, 1),
-                                    ),),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -227,24 +242,30 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
                             child: Row(
                               children: [
                                 Container(
-                                  margin: EdgeInsets.only(left: 20,right: 20),
-                                  child: Text('Gender: ',
+                                  margin: EdgeInsets.only(left: 20, right: 20),
+                                  child: Text(
+                                    'Gender: ',
                                     style: TextStyle(
                                       color: Color.fromRGBO(46, 130, 139, 1),
                                       fontWeight: FontWeight.bold,
-                                    ),),
+                                    ),
+                                  ),
                                 ),
                                 Container(
-                                  child: Text('Female',
+                                  child: Text(
+                                    'Select',
                                     style: TextStyle(
                                       color: Color.fromRGBO(0, 0, 0, 1),
-                                    ),),
+                                    ),
+                                  ),
                                 ),
                                 Container(
                                   margin: EdgeInsets.only(left: 10),
-                                  child: Icon(CupertinoIcons.forward,
+                                  child: Icon(
+                                    CupertinoIcons.forward,
                                     color: Color.fromRGBO(193, 193, 193, 1),
-                                    size: 15,),
+                                    size: 15,
+                                  ),
                                 )
                               ],
                             ),
@@ -274,32 +295,43 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
                                   children: [
                                     Container(
                                       margin: EdgeInsets.only(left: 20),
-                                      child: Text('Weight ',
+                                      child: Text(
+                                        'Weight ',
                                         style: TextStyle(
-                                          color: Color.fromRGBO(46, 130, 139, 1),
+                                          color:
+                                              Color.fromRGBO(46, 130, 139, 1),
                                           fontWeight: FontWeight.bold,
-                                        ),),
+                                        ),
+                                      ),
                                     ),
                                     Container(
-                                      child: Text('(kg.)',
+                                      child: Text(
+                                        '(kg.)',
                                         style: TextStyle(
-                                          color: Color.fromRGBO(193, 193, 193, 1),
+                                          color:
+                                              Color.fromRGBO(193, 193, 193, 1),
                                           fontWeight: FontWeight.bold,
-                                        ),),
+                                        ),
+                                      ),
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(right: 10),
-                                      child: Text(':',
+                                      child: Text(
+                                        ':',
                                         style: TextStyle(
-                                          color: Color.fromRGBO(46, 130, 139, 1),
+                                          color:
+                                              Color.fromRGBO(46, 130, 139, 1),
                                           fontWeight: FontWeight.bold,
-                                        ),),
+                                        ),
+                                      ),
                                     ),
                                     Container(
-                                      child: Text('43',
+                                      child: Text(
+                                        '',
                                         style: TextStyle(
                                           color: Color.fromRGBO(0, 0, 0, 1),
-                                        ),),
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -307,32 +339,43 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
                                   children: [
                                     Container(
                                       margin: EdgeInsets.only(left: 20),
-                                      child: Text('Height ',
+                                      child: Text(
+                                        'Height ',
                                         style: TextStyle(
-                                          color: Color.fromRGBO(46, 130, 139, 1),
+                                          color:
+                                              Color.fromRGBO(46, 130, 139, 1),
                                           fontWeight: FontWeight.bold,
-                                        ),),
+                                        ),
+                                      ),
                                     ),
                                     Container(
-                                      child: Text('(cm.)',
+                                      child: Text(
+                                        '(cm.)',
                                         style: TextStyle(
-                                          color: Color.fromRGBO(193, 193, 193, 1),
+                                          color:
+                                              Color.fromRGBO(193, 193, 193, 1),
                                           fontWeight: FontWeight.bold,
-                                        ),),
+                                        ),
+                                      ),
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(right: 10),
-                                      child: Text(':',
+                                      child: Text(
+                                        ':',
                                         style: TextStyle(
-                                          color: Color.fromRGBO(46, 130, 139, 1),
+                                          color:
+                                              Color.fromRGBO(46, 130, 139, 1),
                                           fontWeight: FontWeight.bold,
-                                        ),),
+                                        ),
+                                      ),
                                     ),
                                     Container(
-                                      child: Text('160',
+                                      child: Text(
+                                        '',
                                         style: TextStyle(
                                           color: Color.fromRGBO(0, 0, 0, 1),
-                                        ),),
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -361,12 +404,14 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
                             child: Row(
                               children: [
                                 Container(
-                                  margin: EdgeInsets.only(left: 20,right: 20),
-                                  child: Text('Congenital disease : ',
+                                  margin: EdgeInsets.only(left: 20, right: 20),
+                                  child: Text(
+                                    'Congenital disease : ',
                                     style: TextStyle(
                                       color: Color.fromRGBO(46, 130, 139, 1),
                                       fontWeight: FontWeight.bold,
-                                    ),),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -375,39 +420,17 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
                             margin: EdgeInsets.only(bottom: 10),
                             child: Row(
                               children: [
+
                                 Container(
                                   margin: EdgeInsets.only(left: 20),
-                                  width: 90,
-                                  height: 25,
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(226, 226, 226, 1),
-                                    borderRadius: BorderRadius.all(Radius.circular(10),),
-                                  ),
-                                  child: Center(
-                                    child: Text('Allergy',
-                                      style: TextStyle(
-                                        color: Color.fromRGBO(0, 0, 0, 1),
-                                      ),),
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 10),
                                   width: 30,
                                   height: 30,
                                   child: Center(
-                                    child: Icon(CupertinoIcons.minus_circle_fill,
-                                    color: Color.fromRGBO(19, 65, 83, 1),
-                                    size: 30,),
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 5),
-                                  width: 30,
-                                  height: 30,
-                                  child: Center(
-                                    child: Icon(CupertinoIcons.plus_circle_fill,
+                                    child: Icon(
+                                      CupertinoIcons.plus_circle_fill,
                                       color: Color.fromRGBO(19, 65, 83, 1),
-                                      size: 30,),
+                                      size: 30,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -437,12 +460,14 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
                             child: Row(
                               children: [
                                 Container(
-                                  margin: EdgeInsets.only(left: 20,right: 20),
-                                  child: Text('Allergic drugs & Reactions: : ',
+                                  margin: EdgeInsets.only(left: 20, right: 20),
+                                  child: Text(
+                                    'Allergic drugs & Reactions: : ',
                                     style: TextStyle(
                                       color: Color.fromRGBO(46, 130, 139, 1),
                                       fontWeight: FontWeight.bold,
-                                    ),),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -453,52 +478,100 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
                               children: [
                                 Container(
                                   margin: EdgeInsets.only(left: 20),
-                                  width: 90,
-                                  height: 25,
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(226, 226, 226, 1),
-                                    borderRadius: BorderRadius.all(Radius.circular(10),),
-                                  ),
-                                  child: Center(
-                                    child: Text('Amoxicillin ',
-                                      style: TextStyle(
-                                        color: Color.fromRGBO(0, 0, 0, 1),
-                                      ),),
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 10),
-                                  width: 90,
-                                  height: 25,
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(226, 226, 226, 1),
-                                    borderRadius: BorderRadius.all(Radius.circular(10),),
-                                  ),
-                                  child: Center(
-                                    child: Text('Rash',
-                                      style: TextStyle(
-                                        color: Color.fromRGBO(0, 0, 0, 1),
-                                      ),),
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 10),
                                   width: 30,
                                   height: 30,
                                   child: Center(
-                                    child: Icon(CupertinoIcons.minus_circle_fill,
+                                    child: Icon(
+                                      CupertinoIcons.plus_circle_fill,
                                       color: Color.fromRGBO(19, 65, 83, 1),
-                                      size: 30,),
+                                      size: 30,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Center(
+                            child: Container(
+                              width: 280,
+                              height: 1,
+                              color: Color.fromRGBO(193, 193, 193, 1),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      width: 320,
+                      height: 40,
+                      //color: Colors.pink[100],
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(bottom: 10),
+                            child: Row(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(left: 20, right: 20),
+                                  child: Text(
+                                    'Relationship: ',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(46, 130, 139, 1),
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(left: 5),
-                                  width: 30,
-                                  height: 30,
-                                  child: Center(
-                                    child: Icon(CupertinoIcons.plus_circle_fill,
-                                      color: Color.fromRGBO(19, 65, 83, 1),
-                                      size: 30,),
+                                  child: Text(
+                                    '',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(0, 0, 0, 1),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: 280,
+                            height: 1,
+                            color: Color.fromRGBO(193, 193, 193, 1),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      width: 320,
+                      height: 40,
+                      //color: Colors.pink[100],
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(bottom: 10),
+                            child: Row(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(left: 20, right: 20),
+                                  child: Text(
+                                    'Phone:',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(46, 130, 139, 1),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  child: Text(
+                                    '',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(0, 0, 0, 1),
+                                    ),
                                   ),
                                 ),
                               ],
@@ -519,17 +592,20 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
                               children: [
                                 Container(
                                   margin: EdgeInsets.only(left: 30),
-                                  child: Icon(CupertinoIcons.check_mark_circled_solid,
-                                  color: Color.fromRGBO(46, 130, 139, 1),
-                                  size: 25,),
+                                  child: Icon(
+                                    CupertinoIcons.circle,
+                                    color: Color.fromRGBO(46, 130, 139, 1),
+                                    size: 25,
+                                  ),
                                 ),
                                 Container(
                                   margin: EdgeInsets.only(left: 10),
-                                  child: Text('Default',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(46, 130, 139, 1),
-                                    fontSize: 17
-                                  ),),
+                                  child: Text(
+                                    'Default',
+                                    style: TextStyle(
+                                        color: Color.fromRGBO(46, 130, 139, 1),
+                                        fontSize: 17),
+                                  ),
                                 ),
                               ],
                             ),
@@ -539,17 +615,20 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Container(
-                                  child: Icon(CupertinoIcons.delete,
+                                  child: Icon(
+                                    CupertinoIcons.delete,
                                     color: Color.fromRGBO(193, 193, 193, 1),
-                                    size: 25,),
+                                    size: 25,
+                                  ),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(left: 10,right: 30),
-                                  child: Text('Delete',
+                                  margin: EdgeInsets.only(left: 10, right: 30),
+                                  child: Text(
+                                    'Delete',
                                     style: TextStyle(
                                         color: Color.fromRGBO(193, 193, 193, 1),
-                                        fontSize: 17
-                                    ),),
+                                        fontSize: 17),
+                                  ),
                                 ),
                               ],
                             ),
@@ -562,10 +641,10 @@ class _MyPersonalInformation extends State<MyPersonalInformation> {
               ),
             ),
           ),
-          backgroundColor: Color.fromRGBO(250, 250, 250, 1),
+          backgroundColor: Color.fromRGBO(250, 250, 250, 1.0),
           floatingActionButton: PatientNavBarFloatingButtonShop(),
           floatingActionButtonLocation:
-          FloatingActionButtonLocation.centerDocked,
+              FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
             shape: AutomaticNotchedShape(
               RoundedRectangleBorder(

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaiya/patient_widget/navbar/patient_navBarFloatinButton.dart';
+import 'package:kaiya/patient_widget/time_picker_widget.dart';
 
 class PillInfo extends StatefulWidget {
   static const String id = 'patient_pill_info';
@@ -263,6 +264,38 @@ class _PillInfo extends State<PillInfo> {
                                   ),
                                 ),
                               ),
+                              Container(
+                                margin: EdgeInsets.only(left: 20),
+                                width: 100,
+                                height: 30,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(Radius.circular(20),),
+                                  color: Color.fromRGBO(226, 226, 226, 1),
+                                ),
+                                child: Center(
+                                  child: Text('10:00 AM'),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 10),
+                                width: 30,
+                                height: 30,
+                                child: Center(
+                                  child: Icon(CupertinoIcons.minus_circle_fill,
+                                    color: Color.fromRGBO(19, 65, 83, 1),
+                                    size: 30,),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 10),
+                                width: 30,
+                                height: 30,
+                                child: Center(
+                                  child: Icon(CupertinoIcons.plus_circle_fill,
+                                    color: Color.fromRGBO(19, 65, 83, 1),
+                                    size: 30,),
+                                ),
+                              ),
                             ],
                           ),
                           Container(
@@ -301,21 +334,23 @@ class _PillInfo extends State<PillInfo> {
                                   ),
                                 ),
                                 child: Center(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        CupertinoIcons.calendar,
-                                        color: Color.fromRGBO(19, 65, 83, 1),
-                                      ),
-                                      Text(
-                                        'Choose Date',
-                                        style: TextStyle(
+                                  child: Container(
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          CupertinoIcons.calendar,
                                           color: Color.fromRGBO(19, 65, 83, 1),
                                         ),
-                                      ),
-                                    ],
+                                        Text(
+                                          'Choose Date',
+                                          style: TextStyle(
+                                            color: Color.fromRGBO(19, 65, 83, 1),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),

@@ -36,10 +36,12 @@ import 'package:kaiya/patient_screen/screen_shopping_mode/patient_shopping_histo
 import 'package:kaiya/patient_screen/screen_shopping_mode/patient_shopping_mode_home.dart';
 import 'package:kaiya/patient_screen/screen_shopping_mode/patient_shopping_wishlist.dart';
 import 'package:kaiya/patient_screen/screen_shopping_mode/patient_view_slip.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_add_perosonal_information.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_ask_to_sent_personal_info.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_chat_buy_for_other.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_chat_buy_for_other_after_selected.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_confirm_delete_personal_info.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_date_picker.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_detail_my_personal_infomation.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_empty_cart.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_fill_rate_for_pharmacy.dart';
@@ -66,9 +68,11 @@ import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_sche
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_select_pharma_map.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_show_schedule.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_sum_order_on_call.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_time_picker.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_update_status.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_video_call.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_view_personal_info.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_gender_picker.dart';
 
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/select_role.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_login.dart';
@@ -117,7 +121,7 @@ class Kaiya extends StatelessWidget {
             primaryColorLight: Colors.white,
             primaryColor: Colors.white,
             accentColor: Color(0xff134153)),
-        initialRoute: SelectedPersonalCard.id,
+        initialRoute: PillFillInfo.id,
         routes: {
           PharHome.id: (context) => PharHome(),
           TalkSetting.id: (context) => TalkSetting(),
@@ -215,6 +219,11 @@ class Kaiya extends StatelessWidget {
           ShowSchedule.id: (context) => ShowSchedule(),//ที่เป็นขึ้นมา โชว์ตารางการกินยา
           PatientTalkProfile.id: (context) => PatientTalkProfile(),//profile ของ talk mode
           ConfirmDelete.id: (context) => ConfirmDelete(), //มาจาก กด delete ในpersonal info
+
+          SelectGender.id: (context) => SelectGender(),//กดเพศจากviewperonalinfo, mypersonal info
+          AddPersonalInfo.id: (context) => AddPersonalInfo(),
+          SelectDate.id: (context) => SelectDate(),
+          SelectTime.id: (context) => SelectTime(),
         },
       ),
     );

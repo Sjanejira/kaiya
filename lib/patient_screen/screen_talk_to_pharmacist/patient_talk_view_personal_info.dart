@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaiya/patient_widget/navbar/patient_navBarFloatinButton.dart';
 
 class ViewPersonalInfo extends StatefulWidget {
-  static const String id = 'in_chat_view_personal_info';
+  static const String id = 'view_personal_info';
   @override
   _ViewPersonalInfo createState() => _ViewPersonalInfo();
 }
@@ -84,7 +84,14 @@ class _ViewPersonalInfo extends State<ViewPersonalInfo> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 20),
+                      margin: EdgeInsets.only(top: 10),
+                      child: Text('Change Picture',
+                        style: TextStyle(
+                            color: Color.fromRGBO(193, 193, 193, 1),
+                            fontSize: 12
+                        ),),
+                    ),
+                    Container(
                       width: 320,
                       height: 40,
                       //color: Colors.pink[100],
@@ -231,6 +238,12 @@ class _ViewPersonalInfo extends State<ViewPersonalInfo> {
                                       color: Color.fromRGBO(0, 0, 0, 1),
                                     ),),
                                 ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 10),
+                                  child: Icon(CupertinoIcons.forward,
+                                    color: Color.fromRGBO(193, 193, 193, 1),
+                                    size: 15,),
+                                )
                               ],
                             ),
                           ),
