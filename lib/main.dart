@@ -62,6 +62,7 @@ import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_phar
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_queue.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_schedule.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_select_pharma_map.dart';
+import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_show_schedule.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_sum_order_on_call.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_update_status.dart';
 import 'package:kaiya/patient_screen/screen_talk_to_pharmacist/patient_talk_video_call.dart';
@@ -114,7 +115,7 @@ class Kaiya extends StatelessWidget {
             primaryColorLight: Colors.white,
             primaryColor: Colors.white,
             accentColor: Color(0xff134153)),
-        initialRoute: SetSchedule.id,
+        initialRoute: ShowSchedule.id,
         routes: {
           PharHome.id: (context) => PharHome(),
           TalkSetting.id: (context) => TalkSetting(),
@@ -209,6 +210,7 @@ class Kaiya extends StatelessWidget {
           OrderOncall.id: (context) => OrderOncall(),
           PersonalInformation.id: (context) => PersonalInformation(),
           MyPersonalInformation.id: (context) => MyPersonalInformation(),
+          ShowSchedule.id: (context) => ShowSchedule(),
         },
       ),
     );

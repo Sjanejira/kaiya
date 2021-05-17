@@ -5,14 +5,6 @@ import 'package:kaiya/patient_widget/navbar/patient_navBarFloatinButton.dart';
 
 import 'package:kaiya/patient_widget/calendar_widget.dart';
 
-import 'package:flutter/material.dart';
-
-import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
-    show CalendarCarousel;
-import 'package:flutter_calendar_carousel/classes/event.dart';
-import 'package:flutter_calendar_carousel/classes/event_list.dart';
-import 'package:intl/intl.dart' show DateFormat;
-
 class SetSchedule extends StatefulWidget {
   static const String id = '';
   @override
@@ -56,6 +48,10 @@ class _SetSchedule extends State<SetSchedule> {
                   Center(
                     child: Container(
                       decoration: BoxDecoration(
+                        boxShadow:[BoxShadow(color: Color.fromRGBO(0, 0, 0, 0.1),
+                          spreadRadius: 2,
+                          blurRadius: 7,
+                          offset: Offset(0, 1),)]
                       ),
                       margin: EdgeInsets.only(top: 20),
                       child: KaiYaCalendar(),
