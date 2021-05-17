@@ -117,7 +117,7 @@ class Kaiya extends StatelessWidget {
             primaryColorLight: Colors.white,
             primaryColor: Colors.white,
             accentColor: Color(0xff134153)),
-        initialRoute: ViewPersonalInfo.id,
+        initialRoute: SelectedPersonalCard.id,
         routes: {
           PharHome.id: (context) => PharHome(),
           TalkSetting.id: (context) => TalkSetting(),
@@ -190,31 +190,31 @@ class Kaiya extends StatelessWidget {
           SelectDelivering.id: (context) => SelectDelivering(), //PinOnGGMap
           FavPharmacy.id: (context) => FavPharmacy(),
           History.id: (context) => History(),
-          SetSchedule.id: (context) => SetSchedule(), //ยังไม่เสร็จอยู่ดีเวรเอ้ย
+          SetSchedule.id: (context) => SetSchedule(),
 
-          EmptyCart.id: (context) => EmptyCart(),
-          PatientPharmaHasQueue.id: (context) => PatientPharmaHasQueue(),
-          PatientNoOnQueue.id: (context) => PatientNoOnQueue(),
-          PatientHasQueue.id: (context) => PatientHasQueue(),
-          SelectPillColor.id: (context) => SelectPillColor(),
-          PillInfo.id: (context) => PillInfo(),//เหลือตรงเวลาวันที่
-          PillFillInfo.id: (context) => PillFillInfo(),
-          OptionSelectOtherInfo.id: (context) => OptionSelectOtherInfo(),
-          SelectPersonalInfo.id: (context) => SelectPersonalInfo(),
-          SelectedPersonalCard.id: (context) => SelectedPersonalCard(),
-          AskSureToSent.id: (context) => AskSureToSent(),
-          ChatBuyForOther.id: (context) => ChatBuyForOther(),
-          AfterSentCard.id: (context) => AfterSentCard(),
-          ViewPersonalInfo.id: (context) => ViewPersonalInfo(),
-          UpdateStatus.id: (context) => UpdateStatus(),
-          FillRateForPharma.id: (context) => FillRateForPharma(),
-          RateForPharma.id: (context) => RateForPharma(),
-          OrderOncall.id: (context) => OrderOncall(),
-          PersonalInformation.id: (context) => PersonalInformation(),
-          MyPersonalInformation.id: (context) => MyPersonalInformation(),
-          ShowSchedule.id: (context) => ShowSchedule(),
-          PatientTalkProfile.id: (context) => PatientTalkProfile(),
-          ConfirmDelete.id: (context) => ConfirmDelete(),
+          EmptyCart.id: (context) => EmptyCart(),//กด cart ที่ว่าง
+          PatientPharmaHasQueue.id: (context) => PatientPharmaHasQueue(),//เป็นpop upแจ้งเตือน่าเภสัชมีคิว
+          PatientNoOnQueue.id: (context) => PatientNoOnQueue(),//เป็นpop upแจ้งว่าเราไม่มีคิว
+          PatientHasQueue.id: (context) => PatientHasQueue(),//เป็นpop upแจ้งว่าเรามีคิว
+          SelectPillColor.id: (context) => SelectPillColor(),//เป็นที่เลือกสียาใน pillInfo
+          PillInfo.id: (context) => PillInfo(),//เหลือตรงเวลาวันที่ที่ยังไม่เสร็จ
+          PillFillInfo.id: (context) => PillFillInfo(),//เหลือตรงเวลาวันที่ที่ยังไม่เสร็จ
+          OptionSelectOtherInfo.id: (context) => OptionSelectOtherInfo(),//เลือกในแชทเวลาจะส่งpersonal info
+          SelectPersonalInfo.id: (context) => SelectPersonalInfo(),//หน้าเลือก prosonal info card กดมาจาก หน้าoptionselectotherinfo มันจะเป็นหน้ารวมคนหลายๆคนอ่ะ
+          SelectedPersonalCard.id: (context) => SelectedPersonalCard(), //กดแบบทีีไม่มีdefault Schedule15
+          AskSureToSent.id: (context) => AskSureToSent(),//พอกดเลือกการ์แล้ว เป็นpopup confirm ส่ง
+          ChatBuyForOther.id: (context) => ChatBuyForOther(),//in chat แบบซื้อให้คนอื่น
+          AfterSentCard.id: (context) => AfterSentCard(),//flow chat
+          ViewPersonalInfo.id: (context) => ViewPersonalInfo(),//ดูการ์ดจากกดหน้า personalinformation
+          UpdateStatus.id: (context) => UpdateStatus(),//update status click from chat
+          FillRateForPharma.id: (context) => FillRateForPharma(),//rate แบบโล่ง
+          RateForPharma.id: (context) => RateForPharma(),//rate  แบบใส่แล้ว
+          OrderOncall.id: (context) => OrderOncall(),//สรุปออเดอร์
+          PersonalInformation.id: (context) => PersonalInformation(),//กดมาจาก patienttalkprofile
+          MyPersonalInformation.id: (context) => MyPersonalInformation(),//ของตัวเองกดจาก personalinformation
+          ShowSchedule.id: (context) => ShowSchedule(),//ที่เป็นขึ้นมา โชว์ตารางการกินยา
+          PatientTalkProfile.id: (context) => PatientTalkProfile(),//profile ของ talk mode
+          ConfirmDelete.id: (context) => ConfirmDelete(), //มาจาก กด delete ในpersonal info
         },
       ),
     );

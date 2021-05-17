@@ -53,6 +53,7 @@ class _ViewPersonalInfo extends State<ViewPersonalInfo> {
             scrollDirection: Axis.vertical,
             child: Center(
               child: Container(
+                margin: EdgeInsets.only(top: 20),
                 width: 340,
                 height: 700,
                 decoration: BoxDecoration(
